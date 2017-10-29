@@ -6,6 +6,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import model.tile.local.Dirt;
 import model.tile.local.Grass;
+import model.tile.local.Road;
+import model.tile.local.Sidewalk;
 
 /**
  * 
@@ -30,6 +32,16 @@ public class Tile {
 	 * Dirt Tile, index 1
 	 */
 	public static Tile dirt = new Dirt(1);
+
+	/**
+	 * road Tile, index 2
+	 */
+	public static Tile road = new Road(2);
+	
+	/**
+	 * sidewalk Tile, index 3
+	 */
+	public static Tile sidewalk = new Sidewalk(3);
 
 	/**
 	 * Width and height of all tiles

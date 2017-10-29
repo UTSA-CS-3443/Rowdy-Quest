@@ -66,6 +66,11 @@ public class Sprite extends Entity {
 		y += yMove;
 	}
 	
+	/**
+	 * changes the image to left or right depending on the direction 
+	 * it is going
+	 * @param i - image to change to
+	 */
 	private void setImage(Image i) {
 		sprite = i;
 	}
