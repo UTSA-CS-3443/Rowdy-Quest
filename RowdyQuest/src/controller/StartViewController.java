@@ -7,8 +7,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+//import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import main.Main;
 
@@ -45,13 +45,13 @@ public class StartViewController implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 
 		// makes sure the name TextField is not empty
-		if (name.getText().isEmpty()) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Invalid Input");
-			alert.setHeaderText("You have not entered your name.");
-			alert.setContentText("Please click 'OK' and enter your name to continue.");
-			alert.showAndWait();
-		} else {
+		//if (name.getText().isEmpty()) {
+			//Alert alert = new Alert(AlertType.INFORMATION);
+			//alert.setTitle("Invalid Input");
+			//alert.setHeaderText("You have not entered your name.");
+			//alert.setContentText("Please click 'OK' and enter your name to continue.");
+			//alert.showAndWait();
+		//} else {
 
 			// set stringName and switch to LocalView
 			try {
@@ -62,7 +62,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 				e.printStackTrace();
 			}
 		}
-	}
+	//}
 
 	/**
 	 * Static method to return name typed in by user

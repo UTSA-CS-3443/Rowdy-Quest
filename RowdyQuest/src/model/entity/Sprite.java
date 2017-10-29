@@ -12,6 +12,7 @@ public class Sprite extends Entity {
 	 * Defines Image that will display for Sprite
 	 */
 	public Image sprite;
+	public Image rowdyRight, rowdyLeft;
 
 	/**
 	 * Spped sprite will move (in pixels per keypress)
@@ -47,7 +48,9 @@ public class Sprite extends Entity {
 	 */
 	public Sprite(Camera c, KeyPressedController kc, float x, float y) {
 		super(x, y);
-		sprite = new Image("sprite/sprite.jpg");
+		rowdyRight = new Image("sprite/RowdyRight Transparent.png");
+		rowdyLeft = new Image("sprite/RowdyLeft Transparent.png");
+		sprite = rowdyRight;
 		this.kc = kc;
 		this.xMove = 0;
 		this.yMove = 0;
@@ -61,6 +64,10 @@ public class Sprite extends Entity {
 	private void move() {
 		x += xMove;
 		y += yMove;
+	}
+	
+	private void setImage(Image i) {
+		sprite = i;
 	}
 
 	/**
@@ -86,12 +93,14 @@ public class Sprite extends Entity {
 		}
 		if (kc.left) {
 			xMove = -SPEED;
+			setImage(rowdyLeft);
 		}
 		if (kc.down) {
 			yMove = SPEED;
 		}
 		if (kc.right) {
 			xMove = SPEED;
+			setImage(rowdyRight);
 		}
 	}
 
