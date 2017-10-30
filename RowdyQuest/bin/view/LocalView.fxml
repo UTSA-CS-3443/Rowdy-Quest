@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LocalViewController">
+	<children>
+		<BorderPane prefHeight="500.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<top>
+				<Label fx:id="displayName" text="Label" textFill="#2f0dee" BorderPane.alignment="CENTER">
+					<font>
+						<Font name="Arial" size="48.0" />
+					</font>
+				</Label>
+			</top>
+			<bottom>
+			</bottom>
+			<center>
+				<Canvas fx:id="mapCanvas" height="500.0" width="600.0" BorderPane.alignment="CENTER">
+
+
+				</Canvas>
+			</center>
+		</BorderPane>
+	</children>
+</AnchorPane>
