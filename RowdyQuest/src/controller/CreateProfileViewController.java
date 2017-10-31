@@ -36,8 +36,19 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 
 	@Override
 	public void handle(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		try {
+			stringUserName = userName.getText();
+			stringPw1 = pw1.getText();
+			stringPw2 = pw2.getText();
+			stringFirstName = firstName.getText();
+			stringLastName = lastName.getText();
+			Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
+			Main.stage.getScene().setRoot(localScene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-
+		
 }
+
+
