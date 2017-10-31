@@ -48,6 +48,10 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 			e.printStackTrace();
 		}
 	}
+	
+	public static String getUsername() {return stringUserName;}
+	public static String getFirstName() {return stringFirstName;}
+	public static String getLastName() {return stringLastName;}
 		
 }
 
