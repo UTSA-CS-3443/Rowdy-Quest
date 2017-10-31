@@ -32,6 +32,8 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	private PasswordField pw1, pw2;
 	private static String stringPw1, stringPw2;
 	
+	private String user;
+	
 	
 
 	@Override
@@ -42,6 +44,10 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 			stringPw2 = pw2.getText();
 			stringFirstName = firstName.getText();
 			stringLastName = lastName.getText();
+			user = (stringUserName + "\n" 
+					+ stringPw1 + "\n"
+					+ stringFirstName + "\n"
+					+ stringLastName);
 			Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
 			Main.stage.getScene().setRoot(localScene);
 		} catch (IOException e) {
