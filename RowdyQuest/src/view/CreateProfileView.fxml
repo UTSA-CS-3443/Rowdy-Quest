@@ -21,18 +21,18 @@
             </Label>
          </top>
          <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox fx:id="name" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
                   <Label text="Username" />
-                  <TextField fx:id="name" maxWidth="400" promptText="Name" />
+                  <TextField fx:id="userName" maxWidth="400" promptText="Name" />
                   <Label layoutX="283.0" layoutY="187.0" text="Password" />
-                  <PasswordField prefHeight="25.0" prefWidth="450.0" promptText="Password" />
+                  <PasswordField fx:id="pw1" prefHeight="25.0" prefWidth="450.0" promptText="Password" />
                   <Label layoutX="283.0" layoutY="178.0" text="Re-enter Password" />
-                  <PasswordField layoutX="10.0" layoutY="187.0" prefHeight="25.0" prefWidth="450.0" promptText="Re-Enter Password" />
+                  <PasswordField fx:id="pw2" layoutX="10.0" layoutY="187.0" prefHeight="25.0" prefWidth="450.0" promptText="Re-Enter Password" />
                   <Label layoutX="283.0" layoutY="170.0" text="First Name" />
-                  <TextField fx:id="name2" layoutX="110.0" layoutY="178.0" maxWidth="400" prefHeight="25.0" prefWidth="396.0" promptText="First Name" />
+                  <TextField fx:id="firstName" layoutX="110.0" layoutY="178.0" maxWidth="400" prefHeight="25.0" prefWidth="396.0" promptText="First Name" />
                   <Label layoutX="281.0" layoutY="275.0" text="Last Name" />
-                  <TextField fx:id="name1" layoutX="110.0" layoutY="229.0" maxWidth="400" promptText="Last Name" />
+                  <TextField fx:id="lastName" layoutX="110.0" layoutY="229.0" maxWidth="400" promptText="Last Name" />
                   <Button mnemonicParsing="false" onAction="#handle" text="Create Profile" />
                </children>
             </VBox>
