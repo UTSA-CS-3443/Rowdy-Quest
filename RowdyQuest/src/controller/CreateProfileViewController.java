@@ -26,9 +26,11 @@ import main.Main;
 
 public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	
+	@FXML
 	private TextField userName, firstName, lastName;
 	private static String stringUserName, stringFirstName, stringLastName;
 	
+	@FXML
 	private PasswordField pw1, pw2;
 	private static String stringPw1, stringPw2;
 	
@@ -37,7 +39,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	
 
 	@Override
-	public void handle(ActionEvent arg0) {
+	public void handle(ActionEvent event) {
 		try {
      		//stringUserName = userName.getText();
 			//stringPw1 = pw1.getText();

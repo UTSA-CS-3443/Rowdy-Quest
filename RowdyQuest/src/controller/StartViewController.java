@@ -15,6 +15,7 @@ import main.Main;
 /**
  * 
  * @author Tyler Clarkson
+ * @author Brandon Black
  * 
  *         This class controls what happens when the start button on the start
  *         screen is pressed. If the user does not enter a name, an Alert dialog
@@ -30,7 +31,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 	private TextField name;
 
 	/**
-	 * Staic variable for user's name; ensures it is accessible from
+	 * Static variable for user's name; ensures it is accessible from
 	 * LocalViewController class
 	 */
 	private static String stringName;
@@ -64,6 +65,10 @@ public class StartViewController implements EventHandler<ActionEvent> {
 		}
 	//}
 	
+	/**
+	 * This is called when the "Create Profile" button is clicked from the start screen.
+	 * @param event
+	 */
 	public void CreateProfile(ActionEvent event) {
 		try {
 			Parent createProfileScene = FXMLLoader.load(getClass().getResource("/view/CreateProfileView.fxml"));
