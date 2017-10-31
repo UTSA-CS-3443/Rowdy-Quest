@@ -39,16 +39,17 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	@Override
 	public void handle(ActionEvent arg0) {
 		try {
-			stringUserName = userName.getText();
-			stringPw1 = pw1.getText();
-			stringPw2 = pw2.getText();
-			stringFirstName = firstName.getText();
-			stringLastName = lastName.getText();
-			user = (stringUserName + "\n" 
-					+ stringPw1 + "\n"
-					+ stringFirstName + "\n"
-					+ stringLastName);
-			Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
+     		//stringUserName = userName.getText();
+			//stringPw1 = pw1.getText();
+			//stringPw2 = pw2.getText();
+			//stringFirstName = firstName.getText();
+			//stringLastName = lastName.getText();
+			//user = (stringUserName + "\n" 
+				//	+ stringPw1 + "\n"
+					//+ stringFirstName + "\n"
+					//+ stringLastName);
+			
+			Parent localScene = FXMLLoader.load(getClass().getResource("/view/StartView.fxml")); // Local View
 			Main.stage.getScene().setRoot(localScene);
 		} catch (IOException e) {
 			e.printStackTrace();
