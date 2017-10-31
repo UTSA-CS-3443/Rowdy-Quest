@@ -24,7 +24,7 @@
                   <Label text="Enter Your Name:" />
                   <TextField fx:id="name" maxWidth="400" promptText="Name" />
                   <Button mnemonicParsing="false" onAction="#handle" text="Start" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="153.0" text="Create New Profile" />
+                  <Button mnemonicParsing="false" onAction="#CreateProfile" prefHeight="25.0" prefWidth="153.0" text="Create New Profile" />
                </children>
             </VBox>
          </center>

@@ -63,6 +63,16 @@ public class StartViewController implements EventHandler<ActionEvent> {
 			}
 		}
 	//}
+	
+	public void CreateProfile(ActionEvent event) {
+		try {
+			Parent createProfileScene = FXMLLoader.load(getClass().getResource("/view/CreateProfileView.fxml"));
+			Main.stage.getScene().setRoot(createProfileScene);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * Static method to return name typed in by user
