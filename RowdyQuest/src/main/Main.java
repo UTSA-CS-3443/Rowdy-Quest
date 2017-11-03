@@ -26,7 +26,7 @@ public class Main extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		System.out.println("tyle r test");
+		System.out.println("tyler test");
 
 		try {
 			stage = primaryStage;
