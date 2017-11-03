@@ -26,6 +26,8 @@ public class Main extends Application {
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		System.out.println("tyle r test");
+
 		try {
 			stage = primaryStage;
 			Parent startScene = FXMLLoader.load(getClass().getResource("/view/StartView.fxml")); // StartView
@@ -38,6 +40,7 @@ public class Main extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 
 	}
 
