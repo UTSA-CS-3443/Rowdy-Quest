@@ -21,7 +21,7 @@ import model.texture.Texture;
  */
 public class LocalViewController implements EventHandler<ActionEvent> {
 
-	private Map testMap; // the map
+	private Map NPBfloor1; // the map
 	private Sprite sprite; // player
 	private Camera camera; // game camera
 	private KeyPressedController kc; // handles the key events
@@ -51,7 +51,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		Texture.init();
 
 		// set up map, camera, and sprite
-		testMap = new Map("res/maps/NPBfloor1.txt");
+		NPBfloor1 = new Map("res/maps/NPBfloor1.txt");
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, 32, 32);
 
@@ -99,7 +99,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	 */
 	private void render() {
 		gc.clearRect(0, 0, 600, 500);
-		testMap.render(gc, camera);
+		NPBfloor1.render(gc, camera);
 		sprite.render(gc);
 	}
 
