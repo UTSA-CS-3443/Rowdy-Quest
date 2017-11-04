@@ -35,6 +35,7 @@ public class Main extends Application {
 			stage.setMinWidth(600);
 			stage.setMinHeight(500);
 			stage.show();
+			System.out.println("test");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

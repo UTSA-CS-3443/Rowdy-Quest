@@ -1,6 +1,7 @@
 /controller/
+/main/
+/maps/
 /model/
 /sprite/
-/maps/
-/profiles/
+/textures/
 /view/
