@@ -51,7 +51,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		Texture.init();
 
 		// set up map, camera, and sprite
-		testMap = new Map("res/maps/testMap.txt");
+		testMap = new Map("res/maps/NPBfloor1.txt");
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, 32, 32);
 
