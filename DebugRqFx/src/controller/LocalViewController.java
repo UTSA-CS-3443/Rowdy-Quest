@@ -55,6 +55,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		testMap = new Map("res/maps/NPBfloor2.txt");
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, 32, 32);
+		//sprite.placePlayer(100,800);   //good-ish spawn point for floor 2
 
 		// set GraphicsContext to draw on current canvas in 2D
 		gc = mapCanvas.getGraphicsContext2D();

@@ -5,6 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 /**
  * 
  * @author Tyler Clarkson
+ * @author Brandon Black
  * 
  *         The Entity class defines everything in the app that is NOT a tile
  *
@@ -106,6 +107,17 @@ public abstract class Entity {
 	 */
 	public void setY(float y) {
 		this.y = y;
+	}
+	
+	/**
+	 * Will place the player at designated points on the map.
+	 * Will mostly be used for when we change scenes/floors/buildings. 
+	 * @param x x-coordinate to be placed
+	 * @param y y-coordinate to be place
+	 */
+	public void placePlayer(int x, int y) {
+		this.setX(x);
+		this.setY(y);
 	}
 
 	// Classes that extend this class must implement the following methods
