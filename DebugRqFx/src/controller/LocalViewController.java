@@ -46,13 +46,13 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		canvasHeight = mapCanvas.getHeight();
 
 		// sets the welcome message to the name entered on the StartView
-		displayName.setText("Welcome, " + StartViewController.getName());
+		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());
 
 		// initializes all texture images
 		Texture.init();
 
 		// set up map, camera, and sprite
-		testMap = new Map("res/maps/NPBfloor2.txt");
+		testMap = new Map("res/maps/NPBfloor1.txt");
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, 32, 32);
 		//sprite.placePlayer(100,800);   //good-ish spawn point for floor 2
