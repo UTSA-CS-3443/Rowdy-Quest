@@ -115,7 +115,7 @@ public abstract class Entity {
 	 * @param x x-coordinate to be placed
 	 * @param y y-coordinate to be place
 	 */
-	public void placePlayer(int x, int y) {
+	public void placePlayer(float x, float y) {
 		this.setX(x);
 		this.setY(y);
 	}

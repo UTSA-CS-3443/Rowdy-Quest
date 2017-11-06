@@ -14,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import main.Main;
 import model.entity.Profile;
+import model.entity.Sprite;
 
 /**
  * 
@@ -115,6 +116,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());
 				break;
 			}else {
 				System.out.println("Sign in failed");

@@ -88,6 +88,12 @@ public class Sprite extends Entity {
 		move();
 		c.center(this, LocalViewController.canvasWidth, LocalViewController.canvasHeight);
 	}
+	
+	public float getX(){return x;}
+	public float getY() {return y;}
+	
+	public void setX(float x) {this.x = x;}
+	public void setY(float y) {this.y = y;}
 
 	/**
 	 * Gets the input from the keyboard and sets <code>move</code> variables based

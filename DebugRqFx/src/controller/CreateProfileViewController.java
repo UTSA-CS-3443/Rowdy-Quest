@@ -54,7 +54,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 			}			
 			saveProfile("res/profiles.txt");
 			
-			Parent localScene = FXMLLoader.load(getClass().getResource("/view/StartView.fxml")); // Local View
+			Parent localScene = FXMLLoader.load(getClass().getResource("/view/StartViewTest.fxml")); // Local View
 			Main.stage.getScene().setRoot(localScene);
 		} catch (IOException e) {
 			e.printStackTrace();
