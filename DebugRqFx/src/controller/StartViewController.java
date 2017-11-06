@@ -109,17 +109,18 @@ public class StartViewController implements EventHandler<ActionEvent> {
 			&& signInPw.getText().equals(CreateProfileViewController.profiles.get(i).getPassword() )){
 				System.out.println("Log in Success");
 				currentUser = CreateProfileViewController.profiles.get(i);
+				try {
+					Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
+					Main.stage.getScene().setRoot(localScene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 				break;
 			}else {
 				System.out.println("Sign in failed");
 			}
 		}
-		try {
-			Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
-			Main.stage.getScene().setRoot(localScene);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 	}
 	
 
