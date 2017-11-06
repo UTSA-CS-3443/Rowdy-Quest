@@ -91,8 +91,9 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	 * Reads file of Profiles and re-instatiates the arrayList of profiles. 
 	 * @param fileName - file of profile information
 	 * @throws FileNotFoundException
+	 * Static to be called at start of program
 	 */
-	public void loadProfiles(String fileName) throws FileNotFoundException {
+	public static void loadProfiles(String fileName) throws FileNotFoundException {
 		Scanner s = new Scanner(new File(fileName));
 		profiles = new ArrayList<Profile>();
 		while (s.hasNextLine()){

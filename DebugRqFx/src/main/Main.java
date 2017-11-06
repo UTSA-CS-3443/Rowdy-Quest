@@ -1,5 +1,6 @@
 package main;
 
+import controller.CreateProfileViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,9 +36,9 @@ public class Main extends Application {
 			stage.setMinWidth(600);
 			stage.setMinHeight(500);
 			stage.show();
+			CreateProfileViewController.loadProfiles("res/profiles.txt");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Brandon Black");
 		}
 
 	}
