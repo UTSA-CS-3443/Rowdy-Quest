@@ -85,7 +85,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 			String[] parts;
 			String line = s.nextLine();
 			parts = line.split(" ");
-			Profile temp = new Profile(parts[0], parts[1], parts[2], parts[3], Integer.valueOf(parts[4]), Integer.valueOf(parts[5]));
+			Profile temp = new Profile(parts[0], parts[1], parts[2], parts[3], Float.valueOf(parts[4]), Float.valueOf(parts[5]));
 		    profiles.add(temp);
 		}
 		s.close();

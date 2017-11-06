@@ -1,8 +1,10 @@
 package model.entity;
 
 import controller.Camera;
+import controller.CreateProfileViewController;
 import controller.KeyPressedController;
 import controller.LocalViewController;
+import controller.StartViewController;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -64,6 +66,8 @@ public class Sprite extends Entity {
 	private void move() {
 		x += xMove;
 		y += yMove;
+		StartViewController.currentUser.setX(x);
+		StartViewController.currentUser.setY(y);
 	}
 	
 	/**

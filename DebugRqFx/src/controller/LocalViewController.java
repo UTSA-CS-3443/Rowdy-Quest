@@ -1,5 +1,9 @@
 package controller;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,6 +12,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import model.Map;
+import model.entity.Profile;
 import model.entity.Sprite;
 import model.texture.Texture;
 
@@ -83,8 +88,21 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	 */
 	@Override
 	public void handle(ActionEvent event) {
-		// TODO Auto-generated method stub
+		try {
+			savePosition("res/profiles.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
+	public void savePosition(String fileName) throws FileNotFoundException {
+		    PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
+		    for (Profile profile : CreateProfileViewController.profiles)
+		        pw.println(profile.toString());
+		    pw.close();
+		}
+	
 
 	/**
 	 * Updates information relative to the Localview. Called by AnimationTimer at a

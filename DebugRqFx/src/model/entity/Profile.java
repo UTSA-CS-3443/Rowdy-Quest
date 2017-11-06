@@ -17,7 +17,7 @@ public class Profile {
 	 * current x and y position of user. Will be updated when user is logged in, moves around, 
 	 * and saves.
 	 */
-	private int x, y;
+	private float x, y;
 	
 	/**
 	 * Constructor
@@ -28,7 +28,7 @@ public class Profile {
 	 * @param x
 	 * @param y
 	 */
-	public Profile(String userName, String password, String firstName, String lastName, int x, int y) {
+	public Profile(String userName, String password, String firstName, String lastName, float x, float y) {
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
@@ -47,10 +47,16 @@ public class Profile {
 	public String getPassword() {return password;}
 	public String getFirstName() {return firstName;}
 	public String getLastName() {return lastName;}
-	public int getProfileX(){return x;}
-	public int getProfileY() {return y;}
+	public float getProfileX(){return x;}
+	public float getProfileY() {return y;}
 	
+	/**
+	 * setters
+	 * @param fName
+	 */
 	public void setFirstName(String fName) {this.firstName = fName;}
+	public void setX(float x) {this.x = x;}
+	public void setY(float y) {this.y = y;}
 	
 	/**
 	 * toString
