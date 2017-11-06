@@ -51,17 +51,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 			if(profiles != null) {
 				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 10, 10);
 				profiles.add(temp);
-			}else {
-				try {
-					loadProfiles("res/profiles.txt");
-				}catch(IOException e) {
-					e.printStackTrace();
-					System.out.println("Didnt read profiles.txt");
-				}
-				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 10, 10);
-				profiles.add(temp);
-			}
-			
+			}			
 			saveProfile("res/profiles.txt");
 			
 			Parent localScene = FXMLLoader.load(getClass().getResource("/view/StartView.fxml")); // Local View
@@ -70,11 +60,6 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 			e.printStackTrace();
 		}
 	}
-	
-//	public static String getUsername() {return stringUserName;}
-//	public static String getFirstName() {return stringFirstName;}
-//	public static String getLastName() {return stringLastName;}
-	
 	/**
 	 * Saves the current ArrayList into a text file to keep track of users
 	 * @param fileName
