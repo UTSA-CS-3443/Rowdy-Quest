@@ -24,8 +24,8 @@ public class Profile {
 	
 	public void save(String fileName) throws FileNotFoundException {
 	    PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
-	    for (Profile profile : profiles)
-	        pw.println(profile.toString());
+	 //   for (Profile profile : profiles)
+	 //       pw.println(profile.toString());
 	    pw.close();
 	}
 	
