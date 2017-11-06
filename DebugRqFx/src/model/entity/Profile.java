@@ -22,12 +22,7 @@ public class Profile {
 		this.y = 10;
 	}
 	
-	public void save(String fileName) throws FileNotFoundException {
-	    PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
-	 //   for (Profile profile : profiles)
-	 //       pw.println(profile.toString());
-	    pw.close();
-	}
+
 	
 	public String getUserName() {return userName;}
 	public String getPassword() {return password;}

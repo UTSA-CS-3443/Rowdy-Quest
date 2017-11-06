@@ -1,7 +1,12 @@
 package controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -36,24 +41,29 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	private PasswordField pw1, pw2;
 	//private static String stringPw1, stringPw2;
 	
-	private String user;
+
 	
-	public static ArrayList<Profile> profiles = new ArrayList<Profile>();
+	public static ArrayList<Profile> profiles = null;
 	
 	@Override
 	public void handle(ActionEvent event) {
 		try {
-//     		stringUserName = userName.getText();
-//			stringPw1 = pw1.getText();
-//			stringPw2 = pw2.getText();
-//			stringFirstName = firstName.getText();
-//			stringLastName = lastName.getText();
-//			user = (stringUserName + "\n" 
-//					+ stringPw1 + "\n"
-//					+ stringFirstName + "\n"
-//					+ stringLastName);
-			Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 10, 10);
-			profiles.add(temp);
+			if(profiles != null) {
+				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 10, 10);
+				profiles.add(temp);
+			}else {
+				try {
+					loadProfiles("res/profiles.txt");
+				}catch(IOException e) {
+					e.printStackTrace();
+					System.out.println("Didnt read profiles.txt");
+				}
+				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 10, 10);
+				profiles.add(temp);
+			}
+			
+			saveProfile("res/profiles.txt");
+			
 			Parent localScene = FXMLLoader.load(getClass().getResource("/view/StartView.fxml")); // Local View
 			Main.stage.getScene().setRoot(localScene);
 		} catch (IOException e) {
@@ -65,6 +75,25 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 //	public static String getFirstName() {return stringFirstName;}
 //	public static String getLastName() {return stringLastName;}
 	
+	public void saveProfile(String fileName) throws FileNotFoundException {
+	    PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
+	    for (Profile profile : profiles)
+	        pw.println(profile.toString());
+	    pw.close();
+	}
+	
+	public void loadProfiles(String fileName) throws FileNotFoundException {
+		Scanner s = new Scanner(new File(fileName));
+		profiles = new ArrayList<Profile>();
+		while (s.hasNextLine()){
+			String[] parts;
+			String line = s.nextLine();
+			parts = line.split(" ");
+			Profile temp = new Profile(parts[0], parts[1], parts[2], parts[3], Integer.valueOf(parts[4]), Integer.valueOf(parts[5]));
+		    profiles.add(temp);
+		}
+		s.close();
+	}
 		
 }
 
