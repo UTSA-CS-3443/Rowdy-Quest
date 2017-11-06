@@ -27,14 +27,14 @@
                      <font>
                         <Font size="20.0" />
                      </font></Label>
-                  <TextField fx:id="name" maxWidth="400" promptText="Username" />
+                  <TextField fx:id="signInUs" maxWidth="400" promptText="Username" />
                   <Label text="Password :">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField promptText="Password" />
-                  <Button mnemonicParsing="false" text="Sign In" />
+                  <PasswordField fx:id="signInPw" promptText="Password" />
+                  <Button mnemonicParsing="false" onAction="#SignIn" text="Sign In" />
                   <Button mnemonicParsing="false" onAction="#CreateProfile" prefHeight="25.0" prefWidth="153.0" text="Create New Profile">
                      <VBox.margin>
                         <Insets top="25.0" />

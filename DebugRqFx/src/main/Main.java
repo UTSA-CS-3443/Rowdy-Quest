@@ -37,6 +37,7 @@ public class Main extends Application {
 			stage.setMinHeight(500);
 			stage.show();
 			CreateProfileViewController.loadProfiles("res/profiles.txt");
+			System.out.println(CreateProfileViewController.profiles);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Label;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -7,10 +8,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.PasswordField;
 //import javafx.scene.control.Alert;
 //import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import main.Main;
+import model.entity.Profile;
 
 /**
  * 
@@ -78,6 +81,44 @@ public class StartViewController implements EventHandler<ActionEvent> {
 			e.printStackTrace();
 		}
 	}
+	
+	//username text field 
+	//password field
+	//username must be first index of a profile in array
+	@FXML
+	private TextField signInUs;
+	
+	@FXML
+	private PasswordField signInPw = new PasswordField();
+	
+	public static Profile currentUser;
+	
+	/**
+	 * We'll need to change this to a try catch when we start error checking.
+	 * This will sign in the user and we will store their profile in "currentUser"
+	 * until another user signs in.
+	 * @param event
+	 */
+	public void SignIn(ActionEvent event) {
+		
+		for(int i = 0; i < CreateProfileViewController.profiles.size(); i++) {
+			if(signInUs.getText().equals(CreateProfileViewController.profiles.get(i).getUserName() ) 
+			&& signInPw.getText().equals(CreateProfileViewController.profiles.get(i).getPassword() )){
+				System.out.println("Log in Success");
+				currentUser = CreateProfileViewController.profiles.get(i);
+				break;
+			}else {
+				System.out.println("Sign in failed");
+			}
+		}
+		try {
+			Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
+			Main.stage.getScene().setRoot(localScene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	/**
 	 * Static method to return name typed in by user
