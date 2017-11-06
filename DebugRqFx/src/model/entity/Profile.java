@@ -50,6 +50,8 @@ public class Profile {
 	public int getProfileX(){return x;}
 	public int getProfileY() {return y;}
 	
+	public void setFirstName(String fName) {this.firstName = fName;}
+	
 	/**
 	 * toString
 	 */

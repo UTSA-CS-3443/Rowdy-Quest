@@ -59,7 +59,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 
 			// set stringName and switch to LocalView
 			try {
-				stringName = name.getText();
+				currentUser.setFirstName("Admin");
 				Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
 				Main.stage.getScene().setRoot(localScene);
 			} catch (IOException e) {
@@ -91,7 +91,10 @@ public class StartViewController implements EventHandler<ActionEvent> {
 	@FXML
 	private PasswordField signInPw = new PasswordField();
 	
-	public static Profile currentUser;
+	//default user used for testing puropses. We can hit Test Run button to avoid logging
+	//in every time
+	private static Profile defaultUser = new Profile("admin", "admin", "admin", "admin", 10, 10);
+	public static Profile currentUser = defaultUser;
 	
 	/**
 	 * We'll need to change this to a try catch when we start error checking.
