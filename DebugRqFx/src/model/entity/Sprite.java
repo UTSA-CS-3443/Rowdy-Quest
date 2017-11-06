@@ -71,6 +71,17 @@ public class Sprite extends Entity {
 	}
 	
 	/**
+	 * Will place the player at designated points on the map.
+	 * Will mostly be used for when we change scenes/floors/buildings. 
+	 * @param x x-coordinate to be placed
+	 * @param y y-coordinate to be place
+	 */
+	public void placePlayer(float x, float y) {
+		this.setX(x);
+		this.setY(y);
+	}
+	
+	/**
 	 * changes the image to left or right depending on the direction 
 	 * it is going
 	 * @param i - image to change to

@@ -83,12 +83,17 @@ public class StartViewController implements EventHandler<ActionEvent> {
 		}
 	}
 	
-	//username text field 
-	//password field
-	//username must be first index of a profile in array
+	/**
+	 * UserName textField - Textfield for user to enter username upon 
+	 * sign in
+	 */
 	@FXML
 	private TextField signInUs;
 	
+	/**
+	 * Password textfield - user enters password and it will be checked against
+	 * the corresponding username in profiles.txt
+	 */
 	@FXML
 	private PasswordField signInPw = new PasswordField();
 	
@@ -116,13 +121,13 @@ public class StartViewController implements EventHandler<ActionEvent> {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());
+				
 				break;
 			}else {
 				System.out.println("Sign in failed");
 			}
 		}
-		
+		LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());
 	}
 	
 

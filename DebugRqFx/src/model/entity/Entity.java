@@ -109,16 +109,7 @@ public abstract class Entity {
 		this.y = y;
 	}
 	
-	/**
-	 * Will place the player at designated points on the map.
-	 * Will mostly be used for when we change scenes/floors/buildings. 
-	 * @param x x-coordinate to be placed
-	 * @param y y-coordinate to be place
-	 */
-	public void placePlayer(float x, float y) {
-		this.setX(x);
-		this.setY(y);
-	}
+
 
 	// Classes that extend this class must implement the following methods
 	public abstract void update();

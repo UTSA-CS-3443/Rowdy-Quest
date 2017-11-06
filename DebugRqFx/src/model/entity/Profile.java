@@ -33,8 +33,8 @@ public class Profile {
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.x = 10;
-		this.y = 10;
+		this.x = x;
+		this.y = y;
 	}
 	
 
