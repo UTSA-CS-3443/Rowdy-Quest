@@ -75,6 +75,11 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 //	public static String getFirstName() {return stringFirstName;}
 //	public static String getLastName() {return stringLastName;}
 	
+	/**
+	 * Saves the current ArrayList into a text file to keep track of users
+	 * @param fileName
+	 * @throws FileNotFoundException
+	 */
 	public void saveProfile(String fileName) throws FileNotFoundException {
 	    PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
 	    for (Profile profile : profiles)
@@ -82,6 +87,11 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	    pw.close();
 	}
 	
+	/**
+	 * Reads file of Profiles and re-instatiates the arrayList of profiles. 
+	 * @param fileName - file of profile information
+	 * @throws FileNotFoundException
+	 */
 	public void loadProfiles(String fileName) throws FileNotFoundException {
 		Scanner s = new Scanner(new File(fileName));
 		profiles = new ArrayList<Profile>();
