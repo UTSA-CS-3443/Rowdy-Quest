@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartViewController">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Label text="Welcome to Rowdy Quest" textFill="#eb5f02" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Arial" size="48.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Username :">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Label>
+                  <TextField fx:id="signInUs" maxWidth="400" promptText="Username" />
+                  <Label text="Password :">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="signInPw" promptText="Password" />
+                  <Button mnemonicParsing="false" onAction="#SignIn" text="Sign In" />
+                  <Button mnemonicParsing="false" onAction="#CreateProfile" prefHeight="25.0" prefWidth="153.0" text="Create New Profile">
+                     <VBox.margin>
+                        <Insets top="25.0" />
+                     </VBox.margin></Button>
+                  <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#handle" text="Test Run">
+                     <VBox.margin>
+                        <Insets top="100.0" />
+                     </VBox.margin></Button>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
