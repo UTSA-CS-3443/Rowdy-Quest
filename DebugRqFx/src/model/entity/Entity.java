@@ -33,8 +33,8 @@ public abstract class Entity {
 	public Entity(float x, float y) {
 		this.x = x;
 		this.y = y;
-		this.width = 32; // always will be 32 pixels
-		this.height = 32; // always will be 32 pixels
+		this.width = 36; // always will be 36 pixels
+		this.height = 36; // always will be 36 pixels
 	}
 
 	/**
