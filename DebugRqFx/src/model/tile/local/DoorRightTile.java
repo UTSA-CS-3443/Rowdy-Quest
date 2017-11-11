@@ -33,8 +33,8 @@ public class DoorRightTile extends Tile{
 	//public String getRoomNumber() {return roomNumber;}
 	public int getId() {return id;}
 	
-	public void setDoorImage(Image img) {
-		this.currentImage = img;
+	public static void setImage(Image img) {
+		currentImage = img;
 	}
 
 }

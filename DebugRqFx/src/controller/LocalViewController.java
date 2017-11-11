@@ -120,19 +120,25 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	 * It will take the text from the rNumberTextField and search it against
 	 * the roomNumbers of the arraylist full of classrooms.
 	 */
+	@FXML
 	private TextField rNumberTextField;
 	private String searchFor;
 	public void roomSearch(ActionEvent e) {
 		searchFor = rNumberTextField.getText();
-//		for (int i = 0; i < NPBFloor1.classRoom.size(); i++) {
-//			if (Tile.f1.classRoom.get(i).getRoomNumber().equals(searchFor)){
-//				if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorLeft)) {
-//					Tile.f1.classRoom.get(i).setImage(Texture.doorLeftFound);
-//				}else if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorRight)) {
-//					Tile.f1.classRoom.get(i).setImage(Texture.doorRightFound);
-//				}
-//			}
-//		}
+		
+		for (int i = 0; i < NPBFloor1.classRoom.size(); i++) {
+			if(Tile.f1.classRoom.get(i).getRoomNumber() != null) {
+				if (Tile.f1.classRoom.get(i).getRoomNumber().equals(searchFor)){
+					if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorLeft)) {
+						//Tile.f1.classRoom.get(i).setLeftDoorImage(Texture.doorLeftFound);
+						//Texture.doorLeft = Texture.doorLeftFound;
+					}else if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorRight)) {
+						//Tile.f1.classRoom.get(i).setRightDoorImage(Texture.doorRightFound);
+						//Texture.doorRight = Texture.doorRightFound;
+					}
+				}
+			}
+		}
 	}
 	
 

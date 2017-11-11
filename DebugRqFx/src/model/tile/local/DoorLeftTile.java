@@ -21,7 +21,7 @@ public class DoorLeftTile extends Tile{
 	private static Image currentImage = normalDoor;
 	
 	public DoorLeftTile(int id, String roomNumber) {
-		super(Texture.doorLeft, id, roomNumber);
+		super(currentImage, id, roomNumber);
 		this.id = id;
 	//	this.roomNumber = roomNumber;
 		// TODO Auto-generated constructor stub
@@ -37,8 +37,8 @@ public class DoorLeftTile extends Tile{
 	 * Set Image - We will use this to change the image of the door if it found 
 	 * after being search for by the user
 	 */
-	public void setImage(Image img) {
-		this.currentImage = img;
+	public static void setImage(Image img) {
+		currentImage = img;
 	}
 	/**
 	 * Sets the current Doors roomNumber

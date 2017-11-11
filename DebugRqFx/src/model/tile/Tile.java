@@ -116,6 +116,7 @@ public class Tile {
 	public Tile(Image img, int id, String roomNumber) {
 		this.texture = img;
 		this.id = id;
+		this.roomNumber = roomNumber;
 
 		// add the tile to the static ArrayList for use anywhere
 		tiles.add(id, this);
@@ -130,8 +131,12 @@ public class Tile {
 		return this.id;
 	}
 	
-	public void setImage(Image img) {
-		this.texture = img;
+	public void setRightDoorImage(Image img) {
+		DoorRightTile.setImage(img);
+	}
+	
+	public void setLeftDoorImage(Image img) {
+		DoorLeftTile.setImage(img);
 	}
 	
 	public String getRoomNumber() {
