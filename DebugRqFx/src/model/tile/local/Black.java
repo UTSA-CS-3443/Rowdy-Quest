@@ -12,7 +12,7 @@ import model.tile.Tile;
 public class Black extends Tile{
 
 	public Black(int id) {
-		super(Texture.black, id);
+		super(Texture.black, id, null);
 		// TODO Auto-generated constructor stub
 	}
 

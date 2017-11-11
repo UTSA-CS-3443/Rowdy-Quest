@@ -17,6 +17,6 @@ public class Grass extends Tile {
 	 * @param id
 	 */
 	public Grass(int id) {
-		super(Texture.grass, id);
+		super(Texture.grass, id, null);
 	}
 }

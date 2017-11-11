@@ -11,13 +11,14 @@ import model.tile.local.DoorRightTile;
  *
  */
 
-public class NPBFloor1 {
+public class NPBFloor1{
 
 	/**
 	 * Static ArrayList of Rooms to be used in Tile class to add them to 
 	 * the ArrayList of Tiles
 	 */
-	public static ArrayList<Tile> classRooms = new ArrayList<>();
+	public static ArrayList<Tile> classRoom = new ArrayList<>();
+	
 	
 	/**
 	 * Gonna create every new classroom here
@@ -66,31 +67,34 @@ public class NPBFloor1 {
 	 * Adds all classrooms to the arrayList
 	 */
 	public NPBFloor1() {
-		classRooms.add(npb1c0);
-		classRooms.add(npb1c1);
-		classRooms.add(npb1c2);
-		classRooms.add(npb1c3);
-		classRooms.add(npb1c4);
-		classRooms.add(npb1c5);
-		classRooms.add(npb1c6);
-		classRooms.add(npb1c7);
-		classRooms.add(npb1c8);
-		classRooms.add(npb1c9);
-		classRooms.add(npb1c10);
-		classRooms.add(npb1c11);
-		classRooms.add(npb1c12);
-		classRooms.add(npb1c13);
-		classRooms.add(npb1c14);
-		classRooms.add(npb1c15);
-		classRooms.add(npb1c16);
-		classRooms.add(npb1c17);
-		classRooms.add(npb1c18);
-		classRooms.add(npb1c19);
-		classRooms.add(npb1c20);
-		classRooms.add(npb1c21);
-		classRooms.add(npb1c22);
-		classRooms.add(npb1c23);
-		classRooms.add(npb1c24);
-		classRooms.add(npb1c25);
+		classRoom.add(npb1c0);
+		classRoom.add(npb1c1);
+		classRoom.add(npb1c2);
+		classRoom.add(npb1c3);
+		classRoom.add(npb1c4);
+		classRoom.add(npb1c5);
+		classRoom.add(npb1c6);
+		classRoom.add(npb1c7);
+		
+		classRoom.add(npb1c18);
+		classRoom.add(npb1c19);
+		classRoom.add(npb1c20);
+		classRoom.add(npb1c21);
+		classRoom.add(npb1c22);
+		classRoom.add(npb1c23);
+		classRoom.add(npb1c24);
+		classRoom.add(npb1c25);
+		
+		classRoom.add(npb1c8);
+		classRoom.add(npb1c9);
+		classRoom.add(npb1c10);
+		classRoom.add(npb1c11);
+		classRoom.add(npb1c12);
+		classRoom.add(npb1c13);
+		classRoom.add(npb1c14);
+		classRoom.add(npb1c15);
+		classRoom.add(npb1c16);
+		classRoom.add(npb1c17);
 	}
+	
 }

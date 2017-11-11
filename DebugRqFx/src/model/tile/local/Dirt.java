@@ -17,7 +17,7 @@ public class Dirt extends Tile {
 	 * @param id
 	 */
 	public Dirt(int id) {
-		super(Texture.dirt, id);
+		super(Texture.dirt, id, null);
 		// TODO Auto-generated constructor stub
 	}
 }

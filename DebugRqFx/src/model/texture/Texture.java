@@ -20,8 +20,11 @@ public class Texture {
 	/**
 	 * Two different door images for doors that are facing down or up. handle of right side of doorRight
 	 * and left side of doorLeft.
+	 * doorRightFound and doorLeftFound will be images of the door that
+	 * appears to be highlighted. If the user searches for the room number of
+	 * that particular door, that door will change images to appear highlighted.
 	 */
-	public static Image doorRight, doorLeft;
+	public static Image doorRight, doorLeft, doorRightFound, doorLeftFound;
 
 	/**
 	 * black is just the parts of the map the user wont see. like behind doors, and just 
@@ -47,6 +50,8 @@ public class Texture {
 		wall = TextureSheet.textures.crop(303,1352, 145, 145);
 		floor = TextureSheet.textures.crop(1352, 2251, 148, 148);
 		black = TextureSheet.textures.crop(0,2101, 145, 145);
+		doorRightFound = TextureSheet.textures.crop(1, 2552, 145, 145);
+		doorLeftFound = TextureSheet.textures.crop(1, 2403, 150, 150);
 		
 		
 	}

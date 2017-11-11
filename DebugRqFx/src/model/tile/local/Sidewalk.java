@@ -17,7 +17,7 @@ public class Sidewalk extends Tile {
 	 * @param id
 	 */
 	public Sidewalk(int id) {
-		super(Texture.sidewalk, id);
+		super(Texture.sidewalk, id, null);
 		// TODO Auto-generated constructor stub
 	}
 }

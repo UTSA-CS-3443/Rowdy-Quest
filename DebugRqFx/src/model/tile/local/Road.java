@@ -17,7 +17,7 @@ public class Road extends Tile {
 	 * @param id
 	 */
 	public Road(int id) {
-		super(Texture.road, id);
+		super(Texture.road, id, null);
 		// TODO Auto-generated constructor stub
 	}
 }

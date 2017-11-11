@@ -85,7 +85,7 @@ public class Tile {
 	 * We will be able to access the classroom numbers in a for loop like
 	 * f1.get(i).getRoomNumber()
 	 */
-	private static NPBFloor1 f1 = new NPBFloor1();
+	public static NPBFloor1 f1 = new NPBFloor1();
 	
 
 	/**
@@ -102,6 +102,8 @@ public class Tile {
 	 * ID of tile (index in ArrayList)
 	 */
 	protected final int id;
+	
+	private String roomNumber;
 
 	/**
 	 * Constructor
@@ -111,14 +113,14 @@ public class Tile {
 	 * @param id
 	 *            index in tiles ArrayList
 	 */
-	public Tile(Image img, int id) {
+	public Tile(Image img, int id, String roomNumber) {
 		this.texture = img;
 		this.id = id;
 
 		// add the tile to the static ArrayList for use anywhere
 		tiles.add(id, this);
 	}
-
+	
 	/**
 	 * Gets the ID of the Tile
 	 * 
@@ -130,6 +132,14 @@ public class Tile {
 	
 	public void setImage(Image img) {
 		this.texture = img;
+	}
+	
+	public String getRoomNumber() {
+		return this.roomNumber;
+	}
+	
+	public Image getImage() {
+		return this.texture;
 	}
 
 	/**

@@ -13,18 +13,40 @@ import model.tile.Tile;
  */
 public class DoorLeftTile extends Tile{
 
-	private String roomNumber;
+	//private static String roomNumber;
 	private int id;
 	
+	private static Image normalDoor = Texture.doorLeft;
+	private static Image foundDoor = Texture.doorLeftFound;
+	private static Image currentImage = normalDoor;
+	
 	public DoorLeftTile(int id, String roomNumber) {
-		super(Texture.doorLeft, id);
+		super(Texture.doorLeft, id, roomNumber);
 		this.id = id;
-		this.roomNumber = roomNumber;
+	//	this.roomNumber = roomNumber;
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getRoomNumber() {return this.roomNumber;}
-	public int getId() {return id;}
+	/**
+	 * Getters
+	 * @return
+	 */
+	//public String getRoomNumber() {return this.roomNumber;}
+	
+	/**
+	 * Set Image - We will use this to change the image of the door if it found 
+	 * after being search for by the user
+	 */
+	public void setImage(Image img) {
+		this.currentImage = img;
+	}
+	/**
+	 * Sets the current Doors roomNumber
+	 * @param roomNumber
+	 */
+	public void setRoomNumber(String roomNumber) {
+	//	this.roomNumber = roomNumber;
+	}
 	
 
 }

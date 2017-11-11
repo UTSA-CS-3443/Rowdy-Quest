@@ -11,10 +11,13 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import model.Map;
 import model.entity.Profile;
 import model.entity.Sprite;
 import model.texture.Texture;
+import model.tile.NPBFloor1;
+import model.tile.Tile;
 
 /**
  * 
@@ -97,12 +100,40 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param fileName
+	 * @throws FileNotFoundException
+	 * This method is called when the Save button is clicked
+	 * It will write the arrayList of profiles again with updated 
+	 * x and y values for the currentuser;
+	 */
 	public void savePosition(String fileName) throws FileNotFoundException {
 		    PrintWriter pw = new PrintWriter(new FileOutputStream(fileName));
 		    for (Profile profile : CreateProfileViewController.profiles)
 		        pw.println(profile.toString());
 		    pw.close();
 		}
+	
+	/**
+	 * This method will be called when the search button is clicked.
+	 * It will take the text from the rNumberTextField and search it against
+	 * the roomNumbers of the arraylist full of classrooms.
+	 */
+	private TextField rNumberTextField;
+	private String searchFor;
+	public void roomSearch(ActionEvent e) {
+		searchFor = rNumberTextField.getText();
+//		for (int i = 0; i < NPBFloor1.classRoom.size(); i++) {
+//			if (Tile.f1.classRoom.get(i).getRoomNumber().equals(searchFor)){
+//				if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorLeft)) {
+//					Tile.f1.classRoom.get(i).setImage(Texture.doorLeftFound);
+//				}else if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorRight)) {
+//					Tile.f1.classRoom.get(i).setImage(Texture.doorRightFound);
+//				}
+//			}
+//		}
+	}
 	
 
 	/**

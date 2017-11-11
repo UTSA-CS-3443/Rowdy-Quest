@@ -14,16 +14,27 @@ import model.tile.Tile;
  */
 
 public class DoorRightTile extends Tile{
-	private String roomNumber;
+	//private String roomNumber;
 	private int id;
+	/**
+	 * default door image
+	 */
+	private static Image normalDoor = Texture.doorRight;
+	private static Image foundDoor = Texture.doorRightFound;
+	private static Image currentImage = normalDoor;
 
+	
 	public DoorRightTile(int id, String roomNumber) {
-		super(Texture.doorRight, id);
-		this.roomNumber = roomNumber;
+		super(currentImage, id, roomNumber);
+		//this.roomNumber = roomNumber;
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getRoomNumber() {return roomNumber;}
+	//public String getRoomNumber() {return roomNumber;}
 	public int getId() {return id;}
+	
+	public void setDoorImage(Image img) {
+		this.currentImage = img;
+	}
 
 }
