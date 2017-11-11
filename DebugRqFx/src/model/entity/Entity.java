@@ -1,6 +1,7 @@
 package model.entity;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.Rectangle;
 
 /**
  * 
@@ -21,6 +22,11 @@ public abstract class Entity {
 	 * width and height of the Entity
 	 */
 	protected int width, height;
+	
+	/**
+	 * bounds used for collision detection
+	 */
+	protected Rectangle bounds;
 
 	/**
 	 * Constructor
@@ -33,8 +39,9 @@ public abstract class Entity {
 	public Entity(float x, float y) {
 		this.x = x;
 		this.y = y;
-		this.width = 36; // always will be 36 pixels
-		this.height = 36; // always will be 36 pixels
+		this.width = 64; // always will be 64 pixels
+		this.height = 30; // always will be 30 pixels
+		this.bounds = new Rectangle(0, 0, width, height);
 	}
 
 	/**

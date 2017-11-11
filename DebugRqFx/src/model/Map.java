@@ -45,10 +45,10 @@ public class Map {
 	 */
 	public void render(GraphicsContext gc, Camera c) {
 		// variables that define what tiles the user can see and what tiles to render
-		int xStart = (int)Math.max(0, c.getxOffset() / Tile.width + 1);
-		int xEnd = (int)Math.min(width, (c.getxOffset() + LocalViewController.canvasWidth) / Tile.width);
-		int yStart = (int)Math.max(0, c.getyOffset() / Tile.height + 1);
-		int yEnd = (int)Math.min(height, (c.getyOffset() + LocalViewController.canvasHeight) / Tile.height);
+		int xStart = (int)Math.max(0, c.getxOffset() / Tile.width);
+		int xEnd = (int)Math.min(width, (c.getxOffset() + LocalViewController.canvasWidth) / Tile.width + 1);
+		int yStart = (int)Math.max(0, c.getyOffset() / Tile.height);
+		int yEnd = (int)Math.min(height, (c.getyOffset() + LocalViewController.canvasHeight) / Tile.height + 1);
 		
 		for (int y = yStart; y < yEnd; y++) {
 			for (int x = xStart; x < xEnd; x++) {
@@ -66,6 +66,11 @@ public class Map {
 	 * @return
 	 */
 	public Tile getTile(int x, int y) {
+		// if somehow player gets outside of map, he will be on a grass tile
+		if (x < 0 || y < 0 || x >= width || y >= height) {
+			return Tile.grass;
+		}
+		
 		Tile t = Tile.tiles.get(tiles[x][y]);
 		if (t == null) { // if invalid index return grass tile
 			return Tile.tiles.get(0);
