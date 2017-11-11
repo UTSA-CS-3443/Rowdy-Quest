@@ -91,7 +91,7 @@ public class Tile {
 	/**
 	 * Width and height of all tiles
 	 */
-	private int width = 64, height = 64;
+	public static int width = 64, height = 64;
 
 	/**
 	 * Image used for Tile

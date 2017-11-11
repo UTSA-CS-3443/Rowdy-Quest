@@ -31,7 +31,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 
 	private Map testMap; // the map
 	public static Sprite sprite; // player
-	private Camera camera; // game camera
+	public static Camera camera; // game camera
 	private KeyPressedController kc; // handles the key events
 	private GraphicsContext gc; // used to draw on the canvas
 	public static double canvasWidth, canvasHeight; // height and width of the canvas
