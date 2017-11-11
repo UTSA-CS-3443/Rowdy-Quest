@@ -47,7 +47,7 @@ public class Texture {
 		wall = TextureSheet.textures.crop(303,1352, 145, 145);
 		floor = TextureSheet.textures.crop(1352, 2251, 148, 148);
 		black = TextureSheet.textures.crop(0,2101, 145, 145);
-		npbc1 = doorRight;
+		
 		
 	}
 
