@@ -2,6 +2,7 @@ package model;
 
 import controller.Camera;
 import controller.FileHelper;
+import controller.LocalViewController;
 import javafx.scene.canvas.GraphicsContext;
 import model.tile.Tile;
 
@@ -19,6 +20,8 @@ public class Map {
 	private int height, width; // width and height of the map
 	private int spawnX, spawnY;
 	private int[][] tiles; // array of tiles for the map
+	private Camera c = LocalViewController.camera;
+	
 
 	/**
 	 * Constructor loads the file
@@ -41,8 +44,14 @@ public class Map {
 	 *            Graphics Context
 	 */
 	public void render(GraphicsContext gc, Camera c) {
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
+		// variables that define what tiles the user can see and what tiles to render
+		int xStart = (int)Math.max(0, c.getxOffset() / Tile.width + 1);
+		int xEnd = (int)Math.min(width, (c.getxOffset() + LocalViewController.canvasWidth) / Tile.width);
+		int yStart = (int)Math.max(0, c.getyOffset() / Tile.height + 1);
+		int yEnd = (int)Math.min(height, (c.getyOffset() + LocalViewController.canvasHeight) / Tile.height);
+		
+		for (int y = yStart; y < yEnd; y++) {
+			for (int x = xStart; x < xEnd; x++) {
 				getTile(x, y).render(gc, (int) (x * 64 - c.getxOffset()), (int) (y * 64 - c.getyOffset()));
 			}
 		}
