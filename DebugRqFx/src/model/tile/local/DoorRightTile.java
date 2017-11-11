@@ -14,8 +14,6 @@ import model.tile.Tile;
  */
 
 public class DoorRightTile extends Tile{
-	//private String roomNumber;
-	private int id;
 	/**
 	 * default door image
 	 */
@@ -25,15 +23,7 @@ public class DoorRightTile extends Tile{
 	
 	public DoorRightTile(int id, String roomNumber) {
 		super(currentImage, id, roomNumber);
-		//this.roomNumber = roomNumber;
-		// TODO Auto-generated constructor stub
 	}
 	
-	//public String getRoomNumber() {return roomNumber;}
-	public int getId() {return id;}
-	
-	public static void setImage(Image img) {
-		currentImage = img;
-	}
 
 }
