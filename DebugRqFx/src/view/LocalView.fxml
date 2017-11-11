@@ -11,7 +11,7 @@
 	<children>
 		<BorderPane layoutX="13.0" layoutY="-9.0" prefHeight="579.0" prefWidth="611.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-19.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-9.0">
 			<top>
-				<Label fx:id="displayName" text="Label" textFill="#2f0dee" BorderPane.alignment="CENTER">
+				<Label fx:id="displayName" text="Label" textFill="#2f0dee" BorderPane.alignment="TOP_RIGHT">
 					<font>
 						<Font name="Arial" size="48.0" />
 					</font>
@@ -26,6 +26,7 @@
 				</Canvas>
 			</center>
 		</BorderPane>
-      <Button layoutX="-26.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" text="Save" />
+      <Button layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" text="Save" />
+      <Button layoutX="70.0" layoutY="14.0" mnemonicParsing="false" text="Search" />
 	</children>
 </AnchorPane>

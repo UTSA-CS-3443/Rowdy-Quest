@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import model.tile.local.Black;
 import model.tile.local.Carpet;
 import model.tile.local.Dirt;
+import model.tile.local.DoorLeftTile;
+import model.tile.local.DoorRightTile;
+import model.tile.local.Floor;
 import model.tile.local.Grass;
 import model.tile.local.Road;
 import model.tile.local.Sidewalk;
+import model.tile.local.Wall;
 
 /**
  * 
@@ -40,13 +45,37 @@ public class Tile {
 	public static Tile road = new Road(2);
 	
 	/**
-	 * Cidewalk Tile, index 3
+	 * Sidewalk Tile, index 3
 	 */
 	public static Tile sidewalk = new Sidewalk(3);
 	/**
 	 * Carpet Tile, index 4
 	 */
 	public static Tile carpet = new Carpet(4);
+	/**
+	 * Handle on right side of Door Tile, index 5
+	 */
+	public static Tile doorRight = new DoorRightTile(5);
+	
+	/**
+	 * Handle on left side of Door Tile, index 6
+	 */
+	public static Tile doorLeft = new DoorLeftTile(6);
+	
+	/**
+	 * Wall tile, index 7
+	 */
+	public static Tile wall = new Wall(7);
+	
+	/**
+	 * Floor Tile, index 8
+	 */
+	public static Tile floor = new Floor(8);
+	
+	/**
+	 * All Black tile, for void areas of map. Index 9
+	 */
+	public static Tile black = new Black(9);
 
 	/**
 	 * Width and height of all tiles
