@@ -85,6 +85,8 @@ public class Map {
 		height = Integer.parseInt(tokens[1]);
 		spawnX = Integer.parseInt(tokens[2]);
 		spawnY = Integer.parseInt(tokens[3]);
+		
+
 
 		tiles = new int[width][height];
 
