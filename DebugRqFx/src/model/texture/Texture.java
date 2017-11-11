@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 /**
  * 
  * @author Tyler Clarkson
+ * @author Brandon Black
  *
  *         This class defines static images for every texture used in the game
  *         and a static method to initialize them

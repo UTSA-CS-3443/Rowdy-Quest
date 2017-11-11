@@ -18,6 +18,7 @@ import model.tile.local.Wall;
 /**
  * 
  * @author Tyler Clarkson
+ * @author Brandon Black
  *
  *         This class defines a tile object, the superclass for all tiles that
  *         are rendered on the canvas
