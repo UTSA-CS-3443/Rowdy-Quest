@@ -13,8 +13,11 @@ import model.tile.Tile;
  */
 public class DoorLeftTile extends Tile{
 
-	public DoorLeftTile(int id) {
+	private String roomNumber;
+	
+	public DoorLeftTile(int id, String roomNumber) {
 		super(Texture.doorLeft, id);
+		this.roomNumber = roomNumber;
 		// TODO Auto-generated constructor stub
 	}
 
