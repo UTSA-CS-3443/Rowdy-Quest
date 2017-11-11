@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import model.tile.local.Carpet;
 import model.tile.local.Dirt;
 import model.tile.local.Grass;
 import model.tile.local.Road;
@@ -39,9 +40,13 @@ public class Tile {
 	public static Tile road = new Road(2);
 	
 	/**
-	 * sidewalk Tile, index 3
+	 * Cidewalk Tile, index 3
 	 */
 	public static Tile sidewalk = new Sidewalk(3);
+	/**
+	 * Carpet Tile, index 4
+	 */
+	public static Tile carpet = new Carpet(4);
 
 	/**
 	 * Width and height of all tiles

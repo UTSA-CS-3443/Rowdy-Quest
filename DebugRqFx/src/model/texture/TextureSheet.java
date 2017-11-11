@@ -18,7 +18,7 @@ public class TextureSheet {
 	/**
 	 * Static TextureSheet to be used with Textures class
 	 */
-	public static TextureSheet textures = new TextureSheet(new Image("/textures/textures.jpg"));
+	public static TextureSheet textures = new TextureSheet(new Image("/textures/RQtiles.png"));
 
 	/**
 	 * Image to be used for TextureSheet

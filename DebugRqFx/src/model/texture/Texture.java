@@ -14,7 +14,7 @@ public class Texture {
 	/**
 	 * Texture images
 	 */
-	public static Image grass, dirt, sidewalk, road;
+	public static Image grass, dirt, sidewalk, road, carpet;
 
 	/**
 	 * Initialize the Textures based on the TextureSheet
@@ -24,6 +24,7 @@ public class Texture {
 		dirt = TextureSheet.textures.crop(452, 901, 148, 148);
 		sidewalk = TextureSheet.textures.crop(0, 192, 32, 32);
 		road = TextureSheet.textures.crop(160, 192, 32, 32);
+		carpet = TextureSheet.textures.crop(1, 902, 148, 148);
 	}
 
 }
