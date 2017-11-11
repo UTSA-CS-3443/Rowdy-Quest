@@ -13,7 +13,6 @@ import model.tile.Tile;
  */
 public class DoorLeftTile extends Tile{
 
-	//private static String roomNumber;
 	private int id;
 	
 	private static Image normalDoor = Texture.doorLeft;
