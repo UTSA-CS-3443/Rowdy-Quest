@@ -130,11 +130,11 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 			if(Tile.f1.classRoom.get(i).getRoomNumber() != null) {
 				if (Tile.f1.classRoom.get(i).getRoomNumber().equals(searchFor)){
 					if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorLeft)) {
-						//Tile.f1.classRoom.get(i).setLeftDoorImage(Texture.doorLeftFound);
-						//Texture.doorLeft = Texture.doorLeftFound;
+						Tile.f1.classRoom.get(i).setLeftDoorImage(Texture.doorLeftFound);
+						
 					}else if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorRight)) {
-						//Tile.f1.classRoom.get(i).setRightDoorImage(Texture.doorRightFound);
-						//Texture.doorRight = Texture.doorRightFound;
+						Tile.f1.classRoom.get(i).setRightDoorImage(Texture.doorRightFound);
+						
 					}
 				}
 			}

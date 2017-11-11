@@ -20,7 +20,6 @@ public class DoorRightTile extends Tile{
 	 * default door image
 	 */
 	private static Image normalDoor = Texture.doorRight;
-	private static Image foundDoor = Texture.doorRightFound;
 	private static Image currentImage = normalDoor;
 
 	

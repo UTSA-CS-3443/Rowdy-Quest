@@ -132,11 +132,11 @@ public class Tile {
 	}
 	
 	public void setRightDoorImage(Image img) {
-		DoorRightTile.setImage(img);
+		this.texture = img;
 	}
 	
 	public void setLeftDoorImage(Image img) {
-		DoorLeftTile.setImage(img);
+		this.texture = img;
 	}
 	
 	public String getRoomNumber() {

@@ -17,7 +17,6 @@ public class DoorLeftTile extends Tile{
 	private int id;
 	
 	private static Image normalDoor = Texture.doorLeft;
-	private static Image foundDoor = Texture.doorLeftFound;
 	private static Image currentImage = normalDoor;
 	
 	public DoorLeftTile(int id, String roomNumber) {
