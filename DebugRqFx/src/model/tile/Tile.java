@@ -85,7 +85,7 @@ public class Tile {
 	 * then goes back to the left and starts again from left to right
 	 */
 	/**
-	 * Top row of doors with handle on Right side
+	 * Top row of NPB Floor1
 	 */
 	public static Tile npb1c0 = new DoorRightTile(10,"3");
 	public static Tile npb1c1 = new DoorRightTile(11,"4");
@@ -97,7 +97,7 @@ public class Tile {
 	public static Tile npb1c7 = new DoorRightTile(17,"10");
 	
 	/**
-	 * 2nd row Left side handle
+	 * 2nd row of NPB Floor1 Left side handle
 	 */
 	public static Tile nbp1c8 = new DoorLeftTile(18,"11");
 	public static Tile nbp1c9 = new DoorLeftTile(19,"12");
@@ -111,9 +111,8 @@ public class Tile {
 	public static Tile nbp1c17 = new DoorLeftTile(27,"20");
 	
 	/**
-	 * Third row 
+	 * Third row of NPB Floor1
 	 */
-	
 	public static Tile npb1c18 = new DoorRightTile(28,"21");
 	public static Tile npb1c19 = new DoorRightTile(29,"22");
 	public static Tile npb1c20 = new DoorRightTile(30,"23");
