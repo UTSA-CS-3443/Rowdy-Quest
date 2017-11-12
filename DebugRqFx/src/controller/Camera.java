@@ -1,6 +1,7 @@
 package controller;
 
 import model.entity.Entity;
+import model.tile.Tile;
 
 /**
  * 
@@ -52,6 +53,22 @@ public class Camera {
 		 */
 		xOffset = e.getX() - (float) (viewWidth / 2 - e.getWidth() / 2);
 		yOffset = e.getY() - (float) (viewHeight / 2 - e.getHeight() / 2);
+		
+		checkEdgeOfMap();
+	}
+	
+	public void checkEdgeOfMap() {
+		if (xOffset < 0) {
+			xOffset = 0;
+		} else if (xOffset > LocalViewController.map.getWidth() * Tile.width - LocalViewController.canvasWidth) {
+			xOffset = (float)(LocalViewController.map.getWidth() * Tile.width - LocalViewController.canvasWidth);
+		}
+		if (yOffset < 0) {
+			yOffset = 0;
+		} else if (yOffset > LocalViewController.map.getHeight() * Tile.height - LocalViewController.canvasHeight) {
+			yOffset = (float)(LocalViewController.map.getHeight() * Tile.height - LocalViewController.canvasHeight);
+		}
+		
 	}
 
 	/**
@@ -65,6 +82,8 @@ public class Camera {
 	public void move(float xAmt, float yAmt) {
 		xOffset += xAmt;
 		yOffset += yAmt;
+		
+		checkEdgeOfMap();
 	}
 
 	/**

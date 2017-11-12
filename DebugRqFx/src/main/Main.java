@@ -32,7 +32,7 @@ public class Main extends Application {
 			Parent startScene = FXMLLoader.load(getClass().getResource("/view/StartViewTest.fxml")); // StartView
 			stage.setTitle("RowdyQuest");
 			// stage.setMaximized(true); // set Stage to maximized window
-			stage.setScene(new Scene(startScene, 600, 500));
+			stage.setScene(new Scene(startScene, 800, 600));
 			stage.setMinWidth(600);
 			stage.setMinHeight(500);
 			stage.show();

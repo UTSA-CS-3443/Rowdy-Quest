@@ -15,18 +15,18 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LocalViewController">
 	<children>
-		<BorderPane style="-fx-background-color: #3A3A3A" layoutX="13.0" layoutY="-9.0" prefHeight="579.0" prefWidth="611.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-19.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-9.0">
+		<BorderPane layoutX="13.0" layoutY="-9.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<top>
 				<Label fx:id="displayName" text="Label" textFill="#2f0dee" BorderPane.alignment="TOP_RIGHT">
 					<font>
-						<Font name="Arial" size="48.0" />
+						<Font name="Arial" size="24.0" />
 					</font>
 				</Label>
 			</top>
 			<bottom>
 			</bottom>
 			<center>
-				<Canvas fx:id="mapCanvas" height="500.0" width="600.0" BorderPane.alignment="CENTER">
+				<Canvas fx:id="mapCanvas" height="600.0" width="800.0" BorderPane.alignment="CENTER">
 
 
 				</Canvas>

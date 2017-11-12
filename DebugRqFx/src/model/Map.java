@@ -46,9 +46,9 @@ public class Map {
 	public void render(GraphicsContext gc, Camera c) {
 		// variables that define what tiles the user can see and what tiles to render
 		int xStart = (int)Math.max(0, c.getxOffset() / Tile.width);
-		int xEnd = (int)Math.min(width, (c.getxOffset() + LocalViewController.canvasWidth) / Tile.width + 1);
+		int xEnd = (int)Math.min(getWidth(), (c.getxOffset() + LocalViewController.canvasWidth) / Tile.width + 1);
 		int yStart = (int)Math.max(0, c.getyOffset() / Tile.height);
-		int yEnd = (int)Math.min(height, (c.getyOffset() + LocalViewController.canvasHeight) / Tile.height + 1);
+		int yEnd = (int)Math.min(getHeight(), (c.getyOffset() + LocalViewController.canvasHeight) / Tile.height + 1);
 		
 		for (int y = yStart; y < yEnd; y++) {
 			for (int x = xStart; x < xEnd; x++) {
@@ -67,7 +67,7 @@ public class Map {
 	 */
 	public Tile getTile(int x, int y) {
 		// if somehow player gets outside of map, he will be on a grass tile
-		if (x < 0 || y < 0 || x >= width || y >= height) {
+		if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
 			return Tile.black;
 		}
 		
@@ -82,18 +82,18 @@ public class Map {
 	private void loadMap(String path) {
 		String file = FileHelper.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
-		width = Integer.parseInt(tokens[0]);
-		height = Integer.parseInt(tokens[1]);
+		setWidth(Integer.parseInt(tokens[0]));
+		setHeight(Integer.parseInt(tokens[1]));
 		spawnX = Integer.parseInt(tokens[2]);
 		spawnY = Integer.parseInt(tokens[3]);
 		
 
 
-		tiles = new int[width][height];
+		tiles = new int[getWidth()][getHeight()];
 
-		for (int y = 0; y < height; y++) {
-			for (int x = 0; x < width; x++) {
-				tiles[x][y] = Integer.parseInt(tokens[(x + y * width) + 4]);
+		for (int y = 0; y < getHeight(); y++) {
+			for (int x = 0; x < getWidth(); x++) {
+				tiles[x][y] = Integer.parseInt(tokens[(x + y * getWidth()) + 4]);
 			}
 		}
 	}
@@ -104,5 +104,21 @@ public class Map {
 	
 	public int getSpawnY() {
 		return spawnY;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
 	}
 }
