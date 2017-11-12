@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
@@ -15,14 +16,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LocalViewController">
 	<children>
-		<BorderPane layoutX="13.0" layoutY="-9.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-			<top>
-				<Label fx:id="displayName" text="Label" textFill="#2f0dee" BorderPane.alignment="TOP_RIGHT">
-					<font>
-						<Font name="Arial" size="24.0" />
-					</font>
-				</Label>
-			</top>
+		<BorderPane layoutX="13.0" layoutY="-9.0" prefHeight="655.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<bottom>
 			</bottom>
 			<center>
@@ -31,9 +25,35 @@
 
 				</Canvas>
 			</center>
+         <top>
+            <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Save">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#roomSearch" prefHeight="30.0" prefWidth="70.0" text="Search">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <TextField fx:id="rNumberTextField" prefHeight="30.0" promptText="Room Number">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+      				<Label fx:id="displayName" text="Label" textFill="#2f0dee">
+      					<font>
+      						<Font name="Arial" size="30.0" />
+      					</font>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+      				</Label>
+               </children>
+            </HBox>
+         </top>
 		</BorderPane>
-      <Button layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#handle" text="Save" />
-      <Button layoutX="70.0" layoutY="14.0" mnemonicParsing="false" onAction="#roomSearch" text="Search" />
-      <TextField fx:id="rNumberTextField" layoutX="130.0" layoutY="14.0" promptText="Room Number" />
 	</children>
 </AnchorPane>

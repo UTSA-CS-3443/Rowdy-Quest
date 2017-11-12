@@ -20,7 +20,7 @@ public class Sprite extends Entity {
 	/**
 	 * Spped sprite will move (in pixels per keypress)
 	 */
-	private final float SPEED = 3;
+	private final float SPEED = 6;
 
 	/**
 	 * Define how much to move the sprite on each axis
