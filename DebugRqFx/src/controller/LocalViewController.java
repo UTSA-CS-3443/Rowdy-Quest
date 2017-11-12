@@ -13,6 +13,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Map;
+import model.OverWorld;
 import model.entity.Profile;
 import model.entity.Sprite;
 import model.texture.Texture;
@@ -30,11 +31,13 @@ import model.tile.Tile;
 public class LocalViewController implements EventHandler<ActionEvent> {
 
 	public static Map map; // the map
+	public static OverWorld overWorld;
 	public static Sprite sprite; // player
 	public static Camera camera; // game camera
 	private KeyPressedController kc; // handles the key events
 	private GraphicsContext gc; // used to draw on the canvas
 	public static double canvasWidth, canvasHeight; // height and width of the canvas
+	private AnimationTimer animator;
 
 	@FXML
 	public Label displayName; // label that displays user's name
@@ -67,7 +70,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
 		
-		
+		//overworld setup
+		overWorld = new OverWorld();
 		
 
 		// set GraphicsContext to draw on current canvas in 2D
@@ -77,7 +81,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		 * Inner class for animation loop for LocalView. This is effectively the game
 		 * loop since the LocalView is mainly where the user interacts with the app
 		 */
-		AnimationTimer animator = new AnimationTimer() {
+		 animator = new AnimationTimer() {
 			@Override
 			public void handle(long arg0) {
 				update(); // update game state
@@ -97,12 +101,22 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	 */
 	@Override
 	public void handle(ActionEvent event) {
+		if(event.getSource().toString().contains("Save")) {
+			System.out.println("save");
 		try {
 			savePosition("res/profiles.txt");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			}
 		}
+		else if(event.getSource().toString().contains("Map")) {
+			loadOverWorld();
+		}
+		else if(event.getSource().toString().contains("Search")) {
+			
+		}
+		
 	}
 	
 	/**
@@ -191,4 +205,11 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		sprite.render(gc);
 	}
 
+	private void loadOverWorld() {
+		System.out.print("Load overview");
+		animator.stop();
+		gc.drawImage(overWorld.getMap(), 0, 0);
+		
+	}
+	
 }

@@ -38,6 +38,7 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
+                   
                   <TextField fx:id="rNumberTextField" prefHeight="30.0" promptText="Room Number">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
@@ -51,6 +52,11 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
       				</Label>
+      				<Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Map">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </top>
