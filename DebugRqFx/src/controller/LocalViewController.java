@@ -3,6 +3,7 @@ package controller;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
@@ -12,7 +13,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import model.Location;
 import model.Map;
 import model.OverWorld;
 import model.entity.Profile;
@@ -114,7 +120,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 			}
 		}
 		else if(event.getSource().toString().contains("Map")) {
-			if(!overWorld.getIsOn()) {
+			if(!overWorld.getIsOn()) {//if the overworld is not on
 				overWorld.setIsOn(true);
 				animator.stop();
 				loadOverWorld();
@@ -220,6 +226,24 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		
 		gc.drawImage(overWorld.getMap(), 0, 0);
 		
+		ArrayList<Location> list = overWorld.getLocations();
+		
+		for(Location loc : list) {
+			gc.fillRoundRect(460, 70, 50, 50, 1, 1);
+			Rectangle test = new Rectangle(460, 70, 50, 50); 
+			test.setOnMouseClicked(new EventHandler<MouseEvent>()
+	        {
+	            @Override
+	            public void handle(MouseEvent t) {
+	                System.out.println("Test");
+	            }
+	        });
+			
+			gc.setFill(Color.RED);
+			gc.setFont(Font.font ("Verdana", 11));
+			gc.fillText(loc.getName() , loc.getX(), loc.getY());
+			
+		}
 	}
 	
 }
