@@ -1,4 +1,4 @@
-package model.tile.local;
+package model.tile.npb;
 
 import model.texture.Texture;
 import model.tile.Tile;

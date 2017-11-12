@@ -1,4 +1,4 @@
-package model.tile.local;
+package model.tile.npb;
 
 import javafx.scene.image.Image;
 

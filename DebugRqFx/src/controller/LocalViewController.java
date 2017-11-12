@@ -12,13 +12,14 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import model.Map;
 import model.OverWorld;
 import model.entity.Profile;
 import model.entity.Sprite;
 import model.texture.Texture;
-import model.tile.NPBFloor1;
 import model.tile.Tile;
+import model.tile.npb.NPBFloor1;
 
 /**
  * 
@@ -45,6 +46,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	@FXML
 	private Canvas mapCanvas; // canvas for map
 
+	@FXML
+	public static Pane localPane;
 	/**
 	 * Initializes the Local View
 	 */

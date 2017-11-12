@@ -1,9 +1,10 @@
-package model.tile;
+package model.tile.npb;
 
 import java.util.ArrayList;
 
-import model.tile.local.DoorLeftTile;
-import model.tile.local.DoorRightTile;
+import javafx.scene.control.Tooltip;
+import javafx.scene.shape.Rectangle;
+import model.tile.Tile;
 /**
  * 
  * @author Brandon Black
@@ -19,7 +20,11 @@ public class NPBFloor1{
 	 */
 	public static ArrayList<Tile> npb1List = new ArrayList<>();
 	
-	
+	/**
+	 * Tooltip to display room numbers
+	 */
+	public static Tooltip t = new Tooltip("A Square");
+	 
 	/**
 	 * Gonna create every new classroom here
 	 * Order starts from top left of map, moves to the right, and 

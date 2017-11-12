@@ -33,8 +33,8 @@ public class Main extends Application {
 			stage.setTitle("RowdyQuest");
 			// stage.setMaximized(true); // set Stage to maximized window
 			stage.setScene(new Scene(startScene, 800, 650));
-			stage.setMinWidth(600);
-			stage.setMinHeight(500);
+			stage.setMinWidth(800);
+			stage.setMinHeight(650);
 			stage.show();
 			CreateProfileViewController.loadProfiles("res/profiles.txt");
 			

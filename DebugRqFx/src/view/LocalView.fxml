@@ -16,7 +16,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LocalViewController">
 	<children>
-		<BorderPane layoutX="13.0" layoutY="-9.0" prefHeight="655.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<BorderPane fx:id="localPane" layoutX="13.0" layoutY="-9.0" prefHeight="655.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<bottom>
 			</bottom>
 			<center>

@@ -5,21 +5,22 @@ import java.util.ArrayList;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import model.tile.local.Black;
-import model.tile.local.Carpet;
 import model.tile.local.Dirt;
-import model.tile.local.DoorLeftTile;
-import model.tile.local.DoorRightTile;
-import model.tile.local.ElevatorHorizontal;
-import model.tile.local.Floor;
 import model.tile.local.Grass;
-import model.tile.local.NpbOuterDoorDown;
-import model.tile.local.NpbOuterDoorLeft;
-import model.tile.local.NpbOuterDoorRight;
 import model.tile.local.Road;
 import model.tile.local.Sidewalk;
-import model.tile.local.StairsCornerTopRight;
-import model.tile.local.StairsWallTop;
-import model.tile.local.Wall;
+import model.tile.npb.Carpet;
+import model.tile.npb.DoorLeftTile;
+import model.tile.npb.DoorRightTile;
+import model.tile.npb.ElevatorHorizontal;
+import model.tile.npb.Floor;
+import model.tile.npb.NPBFloor1;
+import model.tile.npb.NpbOuterDoorDown;
+import model.tile.npb.NpbOuterDoorLeft;
+import model.tile.npb.NpbOuterDoorRight;
+import model.tile.npb.StairsCornerTopRight;
+import model.tile.npb.StairsWallTop;
+import model.tile.npb.Wall;
 
 /**
  * 

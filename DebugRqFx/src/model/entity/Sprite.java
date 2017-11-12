@@ -5,10 +5,15 @@ import controller.CreateProfileViewController;
 import controller.KeyPressedController;
 import controller.LocalViewController;
 import controller.StartViewController;
+import javafx.geometry.Bounds;
+import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
+import main.Main;
 import model.Map;
 import model.tile.Tile;
+import model.tile.npb.NPBFloor1;
 
 public class Sprite extends Entity {
 
@@ -144,12 +149,17 @@ public class Sprite extends Entity {
 	public String displayRoomNumber() {
 		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
 		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
+		Tooltip tip = NPBFloor1.t;
 		String rn = "Room Number";
 		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
 		}
 		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
+			System.out.println("here");
+			tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 95);
+		} else {
+			tip.hide();
 		}
 		return rn;
 	};
