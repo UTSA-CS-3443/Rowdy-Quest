@@ -78,6 +78,7 @@ public class Map {
 		return t;
 	}
 
+
 	private void loadMap(String path) {
 		String file = FileHelper.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
@@ -93,5 +94,13 @@ public class Map {
 				tiles[x][y] = Integer.parseInt(tokens[(x + y * width) + 4]);
 			}
 		}
+	}
+	
+	public int getSpawnX() {
+		return spawnX;
+	}
+	
+	public int getSpawnY() {
+		return spawnY;
 	}
 }

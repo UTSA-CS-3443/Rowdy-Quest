@@ -39,8 +39,8 @@ public abstract class Entity {
 	public Entity(float x, float y) {
 		this.x = x;
 		this.y = y;
-		this.width = 64; // always will be 64 pixels
-		this.height = 30; // always will be 30 pixels
+		this.width = 56; // always will be 56 pixels
+		this.height = 26; // always will be 26sxd pixels
 		this.bounds = new Rectangle(0, 0, width, height);
 	}
 

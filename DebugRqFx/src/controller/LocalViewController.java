@@ -29,7 +29,7 @@ import model.tile.Tile;
  */
 public class LocalViewController implements EventHandler<ActionEvent> {
 
-	private Map testMap; // the map
+	public static Map map; // the map
 	public static Sprite sprite; // player
 	public static Camera camera; // game camera
 	private KeyPressedController kc; // handles the key events
@@ -60,9 +60,9 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		Texture.init();
 
 		// set up map, camera, and sprite
-		testMap = new Map("res/maps/NPBfloor1.txt");
+		map = new Map("res/maps/NPBfloor1.txt");
 		camera = new Camera(0, 0);
-		sprite = new Sprite(camera, kc, 32, 32);
+		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
 		
 		//sprite.placePlayer(100,800);   //good-ish spawn point for floor 2
 
@@ -163,7 +163,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	 */
 	private void render() {
 		gc.clearRect(0, 0, 600, 500);
-		testMap.render(gc, camera);
+		map.render(gc, camera);
 		sprite.render(gc);
 	}
 

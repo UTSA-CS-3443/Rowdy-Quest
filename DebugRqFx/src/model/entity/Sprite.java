@@ -7,6 +7,7 @@ import controller.LocalViewController;
 import controller.StartViewController;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import model.tile.Tile;
 
 public class Sprite extends Entity {
 
@@ -64,10 +65,57 @@ public class Sprite extends Entity {
 	 * variables
 	 */
 	private void move() {
-		x += xMove;
-		y += yMove;
 		StartViewController.currentUser.setX(x);
 		StartViewController.currentUser.setY(y);
+		moveX();
+		moveY();
+	}
+	
+	// move on the x axis checking for collisions
+	public void moveX() {
+		// if moving right
+		if (xMove > 0) { 
+			int tx = (int)((x + xMove + bounds.getX() + bounds.getWidth()) / Tile.width); // position of tile to right of sprite
+			// if not collision with solid tile on upper right corner or lower right corner
+			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
+					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
+				x += xMove;
+			} 
+		} 
+		// if moving left
+		else if (xMove < 0) {
+			int tx = (int)((x + xMove + bounds.getX()) / Tile.width); // position of tile to left of sprite
+			// if not collision with solid tile on upper left corner or lower left corner
+			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
+					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
+				x += xMove;
+			} 
+		}
+	}
+	
+	public void moveY() {
+		// if moving up
+				if (yMove < 0) { 
+					int ty = (int)((y + yMove + bounds.getY()) / Tile.height); // position of tile above sprite
+					// if not collision with solid tile on upper left corner or upper right corner
+					if (!collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
+							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
+						y += yMove;
+					} 
+				} 
+				// if moving down
+				else if (yMove > 0) {
+					int ty = (int)((y + yMove + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
+					// if not collision with solid tile on lower left corner or lower right corner
+					if (!collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
+							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
+						y += yMove;
+					} 
+				}
+	}
+	
+	public boolean collisionWithSolidTile(int x, int y) {
+		return LocalViewController.map.getTile(x, y).isSolid();
 	}
 	
 	/**
@@ -136,5 +184,7 @@ public class Sprite extends Entity {
 	@Override
 	public void render(GraphicsContext gc) {
 		gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
+		//draws box over sprite to show collision detection bounds
+		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
 	}
 }

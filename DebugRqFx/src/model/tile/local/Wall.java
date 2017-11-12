@@ -15,5 +15,10 @@ public class Wall extends Tile{
 		super(Texture.wall, id, null);
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public boolean isSolid() {
+		return true;
+	}
 
 }
