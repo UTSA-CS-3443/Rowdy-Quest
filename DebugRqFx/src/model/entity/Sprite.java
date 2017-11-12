@@ -97,12 +97,15 @@ public class Sprite extends Entity {
 			// if not collision with solid tile on upper left corner or lower left corner
 			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
 					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
-					x >= 0) {
+					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
+					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY()) / Tile.height) && x >= 0) {
 				x += xMove;
 			} 
 		}
 	}
 	
+	
+
 	public void moveY() {
 		// if moving up
 				if (yMove < 0) { 
@@ -122,12 +125,16 @@ public class Sprite extends Entity {
 					int ty = (int)((y + yMove + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
 					// if not collision with solid tile on lower left corner or lower right corner
 					if (!collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
+							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
+							!collisionWithSolidTopTile((int)(x + bounds.getX()) / Tile.width, ty) &&
+							!collisionWithSolidTopTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
 						y += yMove;
 					} 
 				}
 	}
 	
+	
+
 	/**
 	 * This will check if the sprite is even slightly touching a door
 	 * If so it will set the prompt Text of the Room Search TextField to the room
@@ -151,8 +158,8 @@ public class Sprite extends Entity {
 		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
 		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
 		
-		if (onAPortal((int)(x + bounds.getX()) / Tile.width, ty)&&
-				LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getId() == 37) {
+		if (onAPortal((int)(x + bounds.getX()) / Tile.width, ty)/*&&
+				LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getId() == 37*/) {
 			LocalViewController.map = new Map("res/maps/NPBfloor2.txt");
 		}
 	}
@@ -163,6 +170,14 @@ public class Sprite extends Entity {
 		return LocalViewController.map.getTile(x, y).isSolid();
 	}
 	
+	private boolean collisionWithSolidRightTile(int x, int y) {
+		return LocalViewController.map.getTile(x, y).isSolidRight();
+	}
+	
+	private boolean collisionWithSolidTopTile(int x, int y) {
+		return LocalViewController.map.getTile(x, y).isSolidTop();
+	}
+	
 	public boolean insideADoor(int x, int y) {
 		return LocalViewController.map.getTile(x, y).isDoor();
 	}
@@ -171,12 +186,6 @@ public class Sprite extends Entity {
 		return LocalViewController.map.getTile(x, y).isPortal();
 	}
 	
-	public boolean isOutsideMap(int x, int y) {
-		if (x < 0 || y < 0) {
-			return true;
-		}
-		return false;
-	}
 	
 	/**
 	 * Will place the player at designated points on the map.

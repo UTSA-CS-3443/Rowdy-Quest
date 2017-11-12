@@ -9,12 +9,16 @@ import model.tile.local.Carpet;
 import model.tile.local.Dirt;
 import model.tile.local.DoorLeftTile;
 import model.tile.local.DoorRightTile;
+import model.tile.local.ElevatorHorizontal;
 import model.tile.local.Floor;
 import model.tile.local.Grass;
+import model.tile.local.NpbOuterDoorDown;
+import model.tile.local.NpbOuterDoorLeft;
+import model.tile.local.NpbOuterDoorRight;
 import model.tile.local.Road;
 import model.tile.local.Sidewalk;
-import model.tile.local.StairsPortal;
-import model.tile.local.StairsTile;
+import model.tile.local.StairsCornerTopRight;
+import model.tile.local.StairsWallTop;
 import model.tile.local.Wall;
 
 /**
@@ -83,12 +87,6 @@ public class Tile {
 	
 	
 	/**
-	 *  Outer door facing down NPB building
-	 */
-
-	
-	
-	/**
 	 * This will build the arrayList of classrooms for Floor 1 of NPB
 	 * Static to have access everywhere.
 	 * We will be able to access the classroom numbers in a for loop like
@@ -97,10 +95,17 @@ public class Tile {
 	 */
 	public static NPBFloor1 f1 = new NPBFloor1();
 	
-	public static Tile stairs = new StairsTile(36);
+	public static Tile stairsWallTop = new StairsWallTop(36);
 	
-	public static Tile stairsPortal = new StairsPortal(37);
+	public static Tile starisCornerTopRight = new StairsCornerTopRight(37);
+	
+	public static Tile npbOuterDoorDown = new NpbOuterDoorDown(38);
 
+	public static Tile npbOuterDoorleft = new NpbOuterDoorLeft(39);
+	
+	public static Tile npbOuterDoorRight = new NpbOuterDoorRight(40);
+	
+	public static Tile elevatorHorizontal = new ElevatorHorizontal(41);
 	/**
 	 * Width and height of all tiles
 	 */
@@ -135,6 +140,8 @@ public class Tile {
 	 * True if this tile is a portal
 	 */
 	private boolean isPortal = false;
+	
+	private boolean isRightWallStair = false;
 
 	/**
 	 * Constructor
@@ -218,5 +225,13 @@ public class Tile {
 	 */
 	public void render(GraphicsContext gc, int x, int y) {
 		gc.drawImage(this.texture, x, y, width, height);
+	}
+
+	public boolean isSolidRight() {
+		return false;
+	}
+
+	public boolean isSolidTop() {
+		return false;
 	}
 }
