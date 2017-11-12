@@ -32,6 +32,8 @@ public class Texture {
 	 */
 	public static Image black;
 	
+	public static Image npbOuterDoorDown;
+	
 	/**
 	 * Trying out a classroom
 	 */

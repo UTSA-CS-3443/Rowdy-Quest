@@ -35,14 +35,14 @@ public class TextureSheet {
 	}
 
 	/**
-	 * Used to crop a specific Texuture from the TextureSheet
+	 * Used to crop a specific Texture from the TextureSheet
 	 * 
 	 * @param x
 	 *            x position where image starts
 	 * @param y
 	 *            y position where image starts
 	 * @param w
-	 *            widht of image
+	 *            width of image
 	 * @param h
 	 *            height of image
 	 * @return texture the sub image that has been cropped out of the larger image
