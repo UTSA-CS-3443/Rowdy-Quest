@@ -13,6 +13,8 @@ import model.tile.local.Floor;
 import model.tile.local.Grass;
 import model.tile.local.Road;
 import model.tile.local.Sidewalk;
+import model.tile.local.StairsPortal;
+import model.tile.local.StairsTile;
 import model.tile.local.Wall;
 
 /**
@@ -91,9 +93,13 @@ public class Tile {
 	 * Static to have access everywhere.
 	 * We will be able to access the classroom numbers in a for loop like
 	 * f1.get(i).getRoomNumber()
+	 * Next id number is 36 after NPBFloor1 is created
 	 */
 	public static NPBFloor1 f1 = new NPBFloor1();
 	
+	public static Tile stairs = new StairsTile(36);
+	
+	public static Tile stairsPortal = new StairsPortal(37);
 
 	/**
 	 * Width and height of all tiles
@@ -120,7 +126,15 @@ public class Tile {
 	 */
 	private String roomNumber;
 	
+	/**
+	 * True if this tile is a door
+	 */
 	private boolean isDoor = false;
+	
+	/**
+	 * True if this tile is a portal
+	 */
+	private boolean isPortal = false;
 
 	/**
 	 * Constructor
@@ -171,6 +185,10 @@ public class Tile {
 	 */
 	public boolean isSolid() {
 		return isSolid;
+	}
+	
+	public boolean isPortal() {
+		return isPortal;
 	}
 	
 	public void setIsSolid(boolean isSolidOrNot) {

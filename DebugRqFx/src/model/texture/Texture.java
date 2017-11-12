@@ -16,7 +16,7 @@ public class Texture {
 	 * Texture images
 	 *
 	 */
-	public static Image grass, dirt, sidewalk, road, carpet, wall, floor;
+	public static Image grass, dirt, sidewalk, road, carpet, wall, floor, stairs;
 	/**
 	 * Two different door images for doors that are facing down or up. handle of right side of doorRight
 	 * and left side of doorLeft.
@@ -54,6 +54,7 @@ public class Texture {
 		black = TextureSheet.textures.crop(0,2101, 145, 145);
 		doorRightFound = TextureSheet.textures.crop(1, 2552, 145, 145);
 		doorLeftFound = TextureSheet.textures.crop(1, 2403, 150, 150);
+		stairs = TextureSheet.textures.crop(0, 2250, 150, 150);
 		
 		
 	}

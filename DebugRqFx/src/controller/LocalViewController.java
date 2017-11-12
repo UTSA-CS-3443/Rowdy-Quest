@@ -140,27 +140,27 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	public void roomSearch(ActionEvent e) {
 		searchFor = rNumberTextField.getText();
 		
-		for (int i = 0; i < NPBFloor1.classRoom.size(); i++) {
-			if(Tile.f1.classRoom.get(i).getRoomNumber() != null) {
-				//if searchFor is equal to any room number in classRoom ArrayList
-				if (Tile.f1.classRoom.get(i).getRoomNumber().equals(searchFor)){
+		for (int i = 0; i < NPBFloor1.npb1List.size(); i++) {
+			if(Tile.f1.npb1List.get(i).getRoomNumber() != null) {
+				//if searchFor is equal to any room number in npb1List ArrayList
+				if (Tile.f1.npb1List.get(i).getRoomNumber().equals(searchFor)){
 					//checks if its a left door
-					if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorLeft)) {
+					if(Tile.f1.npb1List.get(i).getImage().equals(Texture.doorLeft)) {
 						//changes the door on the map to a yellow door
-						Tile.f1.classRoom.get(i).setLeftDoorImage(Texture.doorLeftFound);
+						Tile.f1.npb1List.get(i).setLeftDoorImage(Texture.doorLeftFound);
 						//checks if its a right door
-					}else if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorRight)) {
+					}else if(Tile.f1.npb1List.get(i).getImage().equals(Texture.doorRight)) {
 						//changes the door on the map to a yellow door
-						Tile.f1.classRoom.get(i).setRightDoorImage(Texture.doorRightFound);	
+						Tile.f1.npb1List.get(i).setRightDoorImage(Texture.doorRightFound);	
 					}
 					//if the room number does not match one from the arraylist
-				}else if (!Tile.f1.classRoom.get(i).getRoomNumber().equals(searchFor)) {
+				}else if (!Tile.f1.npb1List.get(i).getRoomNumber().equals(searchFor)) {
 					//if the door is yellow and it doesnt match the current searched one
-					if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorLeftFound)) {
+					if(Tile.f1.npb1List.get(i).getImage().equals(Texture.doorLeftFound)) {
 						//changes is back to a normal door
-						Tile.f1.classRoom.get(i).setLeftDoorImage(Texture.doorLeft);
-					}else if(Tile.f1.classRoom.get(i).getImage().equals(Texture.doorRightFound)) {
-						Tile.f1.classRoom.get(i).setRightDoorImage(Texture.doorRight);
+						Tile.f1.npb1List.get(i).setLeftDoorImage(Texture.doorLeft);
+					}else if(Tile.f1.npb1List.get(i).getImage().equals(Texture.doorRightFound)) {
+						Tile.f1.npb1List.get(i).setRightDoorImage(Texture.doorRight);
 		
 					}
 					

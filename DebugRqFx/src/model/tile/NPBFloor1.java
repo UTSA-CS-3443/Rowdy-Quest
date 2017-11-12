@@ -17,7 +17,7 @@ public class NPBFloor1{
 	 * Static ArrayList of Rooms to be used in Tile class to add them to 
 	 * the ArrayList of Tiles
 	 */
-	public static ArrayList<Tile> classRoom = new ArrayList<>();
+	public static ArrayList<Tile> npb1List = new ArrayList<>();
 	
 	
 	/**
@@ -67,34 +67,34 @@ public class NPBFloor1{
 	 * Adds all classrooms to the arrayList
 	 */
 	public NPBFloor1() {
-		classRoom.add(npb1c0);
-		classRoom.add(npb1c1);
-		classRoom.add(npb1c2);
-		classRoom.add(npb1c3);
-		classRoom.add(npb1c4);
-		classRoom.add(npb1c5);
-		classRoom.add(npb1c6);
-		classRoom.add(npb1c7);
+		npb1List.add(npb1c0);
+		npb1List.add(npb1c1);
+		npb1List.add(npb1c2);
+		npb1List.add(npb1c3);
+		npb1List.add(npb1c4);
+		npb1List.add(npb1c5);
+		npb1List.add(npb1c6);
+		npb1List.add(npb1c7);
 		
-		classRoom.add(npb1c18);
-		classRoom.add(npb1c19);
-		classRoom.add(npb1c20);
-		classRoom.add(npb1c21);
-		classRoom.add(npb1c22);
-		classRoom.add(npb1c23);
-		classRoom.add(npb1c24);
-		classRoom.add(npb1c25);
+		npb1List.add(npb1c18);
+		npb1List.add(npb1c19);
+		npb1List.add(npb1c20);
+		npb1List.add(npb1c21);
+		npb1List.add(npb1c22);
+		npb1List.add(npb1c23);
+		npb1List.add(npb1c24);
+		npb1List.add(npb1c25);
 		
-		classRoom.add(npb1c8);
-		classRoom.add(npb1c9);
-		classRoom.add(npb1c10);
-		classRoom.add(npb1c11);
-		classRoom.add(npb1c12);
-		classRoom.add(npb1c13);
-		classRoom.add(npb1c14);
-		classRoom.add(npb1c15);
-		classRoom.add(npb1c16);
-		classRoom.add(npb1c17);
+		npb1List.add(npb1c8);
+		npb1List.add(npb1c9);
+		npb1List.add(npb1c10);
+		npb1List.add(npb1c11);
+		npb1List.add(npb1c12);
+		npb1List.add(npb1c13);
+		npb1List.add(npb1c14);
+		npb1List.add(npb1c15);
+		npb1List.add(npb1c16);
+		npb1List.add(npb1c17);
 	}
 	
 }

@@ -7,6 +7,7 @@ import controller.LocalViewController;
 import controller.StartViewController;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import model.Map;
 import model.tile.Tile;
 
 public class Sprite extends Entity {
@@ -70,6 +71,7 @@ public class Sprite extends Entity {
 		moveX();
 		moveY();
 		displayRoomNumber();
+		checkForPortals();
 	}
 	
 	// move on the x axis checking for collisions
@@ -137,15 +139,23 @@ public class Sprite extends Entity {
 		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
 		String rn = "Room Number";
 		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
-				 rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
+			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
 		}
 		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
-			 rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
+			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
 		}
-			
-			return rn;
-		};
+		return rn;
+	};
 	
+	public void checkForPortals() {
+		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
+		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
+		
+		if (onAPortal((int)(x + bounds.getX()) / Tile.width, ty)&&
+				LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getId() == 37) {
+			LocalViewController.map = new Map("res/maps/NPBfloor2.txt");
+		}
+	}
 	
 	
 	
@@ -155,6 +165,10 @@ public class Sprite extends Entity {
 	
 	public boolean insideADoor(int x, int y) {
 		return LocalViewController.map.getTile(x, y).isDoor();
+	}
+	
+	public boolean onAPortal(int x, int y) {
+		return LocalViewController.map.getTile(x, y).isPortal();
 	}
 	
 	public boolean isOutsideMap(int x, int y) {
