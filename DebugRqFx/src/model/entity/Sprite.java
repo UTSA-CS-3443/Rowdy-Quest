@@ -69,6 +69,7 @@ public class Sprite extends Entity {
 		StartViewController.currentUser.setY(y);
 		moveX();
 		moveY();
+		displayRoomNumber();
 	}
 	
 	// move on the x axis checking for collisions
@@ -125,8 +126,35 @@ public class Sprite extends Entity {
 				}
 	}
 	
+	/**
+	 * This will check if the sprite is even slightly touching a door
+	 * If so it will set the prompt Text of the Room Search TextField to the room
+	 * number the user is in
+	 * @return - rn is the current room number, or "Room Number" by default
+	 */
+	public String displayRoomNumber() {
+		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
+		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
+		String rn = "Room Number";
+		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
+				 rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
+		}
+		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
+			 rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
+		}
+			
+			return rn;
+		};
+	
+	
+	
+	
 	public boolean collisionWithSolidTile(int x, int y) {
 		return LocalViewController.map.getTile(x, y).isSolid();
+	}
+	
+	public boolean insideADoor(int x, int y) {
+		return LocalViewController.map.getTile(x, y).isDoor();
 	}
 	
 	public boolean isOutsideMap(int x, int y) {

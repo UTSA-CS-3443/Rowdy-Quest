@@ -108,7 +108,12 @@ public class Tile {
 	 */
 	protected final int id;
 	
+	/**
+	 * roomNumber for doors, null on all other tiles
+	 */
 	private String roomNumber;
+	
+	private boolean isDoor = false;
 
 	/**
 	 * Constructor
@@ -163,6 +168,10 @@ public class Tile {
 	
 	public void setIsSolid(boolean isSolidOrNot) {
 		this.isSolid = isSolidOrNot;
+	}
+	
+	public boolean isDoor() {
+		return isDoor;
 	}
 
 	/**

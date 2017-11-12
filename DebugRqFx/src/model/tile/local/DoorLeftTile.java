@@ -22,6 +22,11 @@ public class DoorLeftTile extends Tile{
 		super(currentImage, id, roomNumber);
 	}
 	
+	@Override
+	public boolean isDoor() {
+		return true;
+	}
+	
 	
 
 }

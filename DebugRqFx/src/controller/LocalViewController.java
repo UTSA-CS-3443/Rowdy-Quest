@@ -37,7 +37,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	public static double canvasWidth, canvasHeight; // height and width of the canvas
 
 	@FXML
-	private Label displayName; // label that displays user's name
+	public Label displayName; // label that displays user's name
 
 	@FXML
 	private Canvas mapCanvas; // canvas for map
@@ -56,6 +56,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		// sets the welcome message to the name entered on the StartView
 		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());
 		
+		
+		
 
 		// initializes all texture images
 		Texture.init();
@@ -65,7 +67,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
 		
-		//sprite.placePlayer(100,800);   //good-ish spawn point for floor 2
+		
+		
 
 		// set GraphicsContext to draw on current canvas in 2D
 		gc = mapCanvas.getGraphicsContext2D();
@@ -79,6 +82,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 			public void handle(long arg0) {
 				update(); // update game state
 				render(); // render to canvas
+				
 			}
 		};
 
@@ -173,6 +177,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	private void update() {
 		kc.update();
 		sprite.update();
+		rNumberTextField.setPromptText(sprite.displayRoomNumber());
 	}
 
 	/**
