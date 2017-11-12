@@ -68,7 +68,7 @@ public class Map {
 	public Tile getTile(int x, int y) {
 		// if somehow player gets outside of map, he will be on a grass tile
 		if (x < 0 || y < 0 || x >= width || y >= height) {
-			return Tile.grass;
+			return Tile.black;
 		}
 		
 		Tile t = Tile.tiles.get(tiles[x][y]);

@@ -92,6 +92,11 @@ public class Tile {
 	 * Width and height of all tiles
 	 */
 	public static int width = 64, height = 64;
+	
+	/**
+	 * if true, tile cannot be walked on
+	 */
+	private boolean isSolid = false;
 
 	/**
 	 * Image used for Tile
@@ -153,7 +158,11 @@ public class Tile {
 	 * @return false by default
 	 */
 	public boolean isSolid() {
-		return false;
+		return isSolid;
+	}
+	
+	public void setIsSolid(boolean isSolidOrNot) {
+		this.isSolid = isSolidOrNot;
 	}
 
 	/**
