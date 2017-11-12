@@ -2,18 +2,19 @@ package model;
 
 import java.util.ArrayList;
 
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class OverWorld {
 
 	private final Image map = new Image("/overworld.png");
 	private boolean isOn;
-	//private ArrayList<String> locations;
+	private ArrayList<Location> locations;
 	
 	public OverWorld() {
 		isOn = false;
-		
+		locations = new ArrayList<Location>();
+		loadLocations();
 	}
 	
 	public Image getMap() {
@@ -24,7 +25,15 @@ public class OverWorld {
 		return isOn;
 	}
 	
+	public ArrayList<Location> getLocations(){
+		return locations;
+	}
+	
 	public void setIsOn(boolean on) {
 		isOn = on;
+	}
+	
+	private void loadLocations() {
+		locations.add(new Location("North Peseo", 460, 100));
 	}
 }
