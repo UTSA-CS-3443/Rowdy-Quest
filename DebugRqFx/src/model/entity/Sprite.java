@@ -153,6 +153,8 @@ public class Sprite extends Entity {
 		String rn = "Room Number";
 		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
+			tip.setText(rn);
+			tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 95);
 		}
 		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
