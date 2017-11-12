@@ -13,7 +13,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.Map;
-//import model.OverWorld;
+import model.OverWorld;
 import model.entity.Profile;
 import model.entity.Sprite;
 import model.texture.Texture;
@@ -31,7 +31,7 @@ import model.tile.Tile;
 public class LocalViewController implements EventHandler<ActionEvent> {
 
 	public static Map map; // the map
-	//public static OverWorld overWorld;
+	public static OverWorld overWorld;
 	public static Sprite sprite; // player
 	public static Camera camera; // game camera
 	private KeyPressedController kc; // handles the key events
@@ -71,7 +71,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
 		
 		//overworld setup
-		//overWorld = new OverWorld();
+		overWorld = new OverWorld();
 		
 
 		// set GraphicsContext to draw on current canvas in 2D
@@ -208,7 +208,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	private void loadOverWorld() {
 		System.out.print("Load overview");
 		animator.stop();
-		//gc.drawImage(overWorld.getMap(), 0, 0);
+		gc.drawImage(overWorld.getMap(), 0, 0);
 		
 	}
 	
