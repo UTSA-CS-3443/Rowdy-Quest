@@ -73,7 +73,7 @@ public class Map {
 		
 		Tile t = Tile.tiles.get(tiles[x][y]);
 		if (t == null) { // if invalid index return grass tile
-			return Tile.tiles.get(0);
+			return Tile.black;
 		}
 		return t;
 	}

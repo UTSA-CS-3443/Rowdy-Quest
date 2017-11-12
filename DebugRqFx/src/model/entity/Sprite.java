@@ -77,6 +77,9 @@ public class Sprite extends Entity {
 		if (xMove > 0) { 
 			int tx = (int)((x + xMove + bounds.getX() + bounds.getWidth()) / Tile.width); // position of tile to right of sprite
 			// if not collision with solid tile on upper right corner or lower right corner
+			
+			// System.out.println(LocalViewController.map.getTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height));
+			
 			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
 					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
 				x += xMove;
@@ -84,10 +87,14 @@ public class Sprite extends Entity {
 		} 
 		// if moving left
 		else if (xMove < 0) {
-			int tx = (int)((x + xMove + bounds.getX()) / Tile.width); // position of tile to left of sprite
+			int tx = (int)((x + xMove + bounds.getX()) / Tile.width);
+
+			//System.out.println(LocalViewController.map.getTile(tx1, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height));
+
 			// if not collision with solid tile on upper left corner or lower left corner
 			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
+					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
+					x >= 0) {
 				x += xMove;
 			} 
 		}
@@ -97,9 +104,13 @@ public class Sprite extends Entity {
 		// if moving up
 				if (yMove < 0) { 
 					int ty = (int)((y + yMove + bounds.getY()) / Tile.height); // position of tile above sprite
+					
+					//System.out.println(LocalViewController.map.getTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty));
+
 					// if not collision with solid tile on upper left corner or upper right corner
 					if (!collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
+							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
+							y >= 0) {
 						y += yMove;
 					} 
 				} 
@@ -116,6 +127,13 @@ public class Sprite extends Entity {
 	
 	public boolean collisionWithSolidTile(int x, int y) {
 		return LocalViewController.map.getTile(x, y).isSolid();
+	}
+	
+	public boolean isOutsideMap(int x, int y) {
+		if (x < 0 || y < 0) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**
