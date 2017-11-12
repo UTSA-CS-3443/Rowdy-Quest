@@ -79,6 +79,14 @@ public class Tile {
 	 */
 	public static Tile black = new Black(9);
 	
+	
+	
+	/**
+	 *  Outer door facing down NPB building
+	 */
+
+	
+	
 	/**
 	 * This will build the arrayList of classrooms for Floor 1 of NPB
 	 * Static to have access everywhere.
