@@ -55,6 +55,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 
 		// sets the welcome message to the name entered on the StartView
 		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());
+		
 
 		// initializes all texture images
 		Texture.init();
@@ -115,14 +116,22 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		    pw.close();
 		}
 	
+	
+	/**
+	 * TextField the user will enter the room number they are searching for
+	 */
+	@FXML
+	private TextField rNumberTextField;
+	/**
+	 * The text entered in the rNumberTextField will be saved into searchFor
+	 */
+	private String searchFor;
+	
 	/**
 	 * This method will be called when the search button is clicked.
 	 * It will take the text from the rNumberTextField and search it against
 	 * the roomNumbers of the arraylist full of classrooms.
 	 */
-	@FXML
-	private TextField rNumberTextField;
-	private String searchFor;
 	public void roomSearch(ActionEvent e) {
 		searchFor = rNumberTextField.getText();
 		
@@ -142,9 +151,10 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 						Tile.f1.classRoom.get(i).setRightDoorImage(Texture.doorRight);
 					}
 					
+					
 				}
 			}
-		}	
+		}	rNumberTextField.clear();
 	}
 	
 
