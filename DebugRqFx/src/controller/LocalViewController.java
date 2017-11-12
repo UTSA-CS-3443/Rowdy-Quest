@@ -111,7 +111,15 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 			}
 		}
 		else if(event.getSource().toString().contains("Map")) {
-			loadOverWorld();
+			if(!overWorld.getIsOn()) {
+				overWorld.setIsOn(true);
+				animator.stop();
+				loadOverWorld();
+			}
+			else {
+				overWorld.setIsOn(false);
+				animator.start();
+			}
 		}
 		else if(event.getSource().toString().contains("Search")) {
 			
@@ -206,8 +214,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	}
 
 	private void loadOverWorld() {
-		System.out.print("Load overview");
-		animator.stop();
+		
 		gc.drawImage(overWorld.getMap(), 0, 0);
 		
 	}
