@@ -13,7 +13,6 @@ import model.tile.local.Floor;
 import model.tile.local.Grass;
 import model.tile.local.Road;
 import model.tile.local.Sidewalk;
-import model.tile.local.Test;
 import model.tile.local.Wall;
 
 /**
@@ -80,7 +79,6 @@ public class Tile {
 	 */
 	public static Tile black = new Black(9);
 	
-	public static Tile test = new Test(99);
 	
 	/**
 	 *  Outer door facing down NPB building
