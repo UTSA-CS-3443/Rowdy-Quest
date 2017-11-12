@@ -123,6 +123,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	
 	/**
 	 * TextField the user will enter the room number they are searching for
+	 * PromptText will be current room
 	 */
 	@FXML
 	private TextField rNumberTextField;
