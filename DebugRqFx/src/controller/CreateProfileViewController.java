@@ -49,7 +49,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		try {
 			if(profiles != null) {
-				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 10, 10);
+				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 25, 65);
 				profiles.add(temp);
 			}			
 			saveProfile("res/profiles.txt");
