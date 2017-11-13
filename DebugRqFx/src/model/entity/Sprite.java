@@ -295,7 +295,7 @@ public class Sprite extends Entity {
 	public void render(GraphicsContext gc) {
 		gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
 		//draws box over sprite to show collision detection bounds
-		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
+		gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
 	}
 	
 }
