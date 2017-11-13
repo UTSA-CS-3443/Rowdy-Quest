@@ -24,13 +24,14 @@ public class NpbExteriorDoorRight extends Tile implements Portal {
 		String path = "res/maps/NPBFloor1.txt";
 		Map m = LocalViewController.map;
 		if (this.id == 42) {
-			System.out.println("I am here");
 			m.loadMap(path);
 			LocalViewController.sprite.setX((float)(15 * Tile.width));
-			LocalViewController.sprite.setY((float)(15 * Tile.height));
+			LocalViewController.sprite.setY((float)(16 * Tile.height));
 			
-		} else if (this.id == 43) {
-			
+		} else if (this.id == 47) {
+			m.loadMap(path);
+			LocalViewController.sprite.setX((float)(15 * Tile.width));
+			LocalViewController.sprite.setY((float)(30 * Tile.height));
 		}
 		
 	}

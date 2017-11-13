@@ -5,10 +5,10 @@ import model.texture.Texture;
 import model.tile.Portal;
 import model.tile.Tile;
 
-public class StairsCornerTopLeft extends Tile implements Portal {
+public class StairsCornerBottomLeft extends Tile implements Portal {
 
-	public StairsCornerTopLeft(int id) {
-		super(Texture.stairsCornerTopLeft, id, null);
+	public StairsCornerBottomLeft(int id) {
+		super(Texture.stairsCornerBottomLeft, id, null);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -20,7 +20,7 @@ public class StairsCornerTopLeft extends Tile implements Portal {
 		return true;
 	}
 	
-	public boolean isSolidTop() {
+	public boolean isSolidBottom() {
 		return true;
 	}
 

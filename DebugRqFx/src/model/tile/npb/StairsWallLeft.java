@@ -24,12 +24,15 @@ public class StairsWallLeft extends Tile implements Portal {
 
 	@Override
 	public void jumpTo() {
-		String path = "res/maps/NPBFloor2.txt";
 		Map m = LocalViewController.map;
 		if (this.id == 36) {
-			m.loadMap(path);
+			m.loadMap("res/maps/NPBFloor2.txt");
 			LocalViewController.sprite.setX((float)(15 * Tile.width));
-			LocalViewController.sprite.setY((float)(15 * Tile.height));
+			LocalViewController.sprite.setY((float)(24 * Tile.height) + 30);
+		} else if (this.id == 44) {
+			m.loadMap("res/maps/NPBFloor1.txt");
+			LocalViewController.sprite.setX((float)(15 * Tile.width));
+			LocalViewController.sprite.setY((float)(28 * Tile.height));
 		}
 		
 	}
