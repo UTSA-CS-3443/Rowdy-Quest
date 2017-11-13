@@ -94,7 +94,9 @@ public class Sprite extends Entity {
 					!collisionWithSolidLeftTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
 					!collisionWithSolidLeftTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
 				x += xMove;
-			} 
+			} else {
+				x = (float)(tx * Tile.width - bounds.getX() - bounds.getWidth() - 1);
+			}
 		} 
 		// if moving left
 		else if (xMove < 0) {
@@ -108,7 +110,9 @@ public class Sprite extends Entity {
 					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
 					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY()) / Tile.height) && x >= 0) {
 				x += xMove;
-			} 
+			} else {
+				x = (float)(tx * Tile.width + Tile.width - bounds.getX());
+			}
 		}
 	}
 	
@@ -126,7 +130,9 @@ public class Sprite extends Entity {
 							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
 							y >= 0) {
 						y += yMove;
-					} 
+					} else {
+						y = (float)(ty * Tile.height + Tile.height - bounds.getY());
+					}
 				} 
 				// if moving down
 				else if (yMove > 0) {
@@ -137,7 +143,9 @@ public class Sprite extends Entity {
 							!collisionWithSolidTopTile((int)(x + bounds.getX()) / Tile.width, ty) &&
 							!collisionWithSolidTopTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
 						y += yMove;
-					} 
+					} else {
+						y = (float)(ty * Tile.height - bounds.getY() - bounds.getHeight() - 1);
+					}
 				}
 	}
 	
@@ -287,7 +295,7 @@ public class Sprite extends Entity {
 	public void render(GraphicsContext gc) {
 		gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
 		//draws box over sprite to show collision detection bounds
-		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
+		gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
 	}
 	
 }

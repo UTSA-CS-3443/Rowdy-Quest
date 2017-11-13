@@ -126,8 +126,11 @@ public abstract class Entity {
 		return bounds;
 	}
 
-	public void setBounds(Rectangle bounds) {
-		this.bounds = bounds;
+	public void setBounds(int x, int y, int widht, int height) {
+		this.bounds.setX(x);
+		this.bounds.setY(y);
+		this.bounds.setWidth(width);
+		this.bounds.setHeight(height);
 	}
 }
 

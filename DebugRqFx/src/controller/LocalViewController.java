@@ -178,7 +178,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 				zoom.setText("Zoom-out");
 				zoomed = true;
 			} 
-			
+			sprite.setBounds(0, 0, sprite.getWidth(), sprite.getHeight());
 		}
 		else if(walkOrRun.getText().equals("Walk") ||
 				walkOrRun.getText().equals("Run")) {
