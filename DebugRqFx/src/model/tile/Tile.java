@@ -16,15 +16,21 @@ import model.tile.npb.ElevatorHorizontal;
 import model.tile.npb.ElevatorVertical;
 import model.tile.npb.Floor;
 import model.tile.npb.NPBFloor1;
+import model.tile.npb.NPBFloor1Elevator;
+import model.tile.npb.NPBFloor2Elevator;
+import model.tile.npb.NPBFloor3Elevator;
+import model.tile.npb.NPBFloor4Elevator;
 import model.tile.npb.NpbExteriorDoorRight;
 import model.tile.npb.NpbOuterDoorDown;
 import model.tile.npb.NpbOuterDoorLeft;
 import model.tile.npb.NpbOuterDoorRight;
 import model.tile.npb.NpbOuterDoorUp;
 import model.tile.npb.StairsCornerBottomLeft;
+import model.tile.npb.StairsCornerBottomRight;
 import model.tile.npb.StairsCornerTopLeft;
 import model.tile.npb.StairsVertical;
 import model.tile.npb.StairsWallLeft;
+import model.tile.npb.StairsWallRight;
 import model.tile.npb.StairsWallTop;
 import model.tile.npb.Wall;
 
@@ -132,13 +138,17 @@ public class Tile {
 	
 	public static Tile stairsWallTop = new StairsWallTop(50);
 	
-	public static Tile npbFloor1toFloor2Elevator = new ElevatorVertical(51);
+	public static Tile npbFloor1toFloor2Elevator = new NPBFloor1Elevator(51);
 	
-	public static Tile npbFloor2Elevator = new ElevatorVertical(52);
+	public static Tile npbFloor2Elevator = new NPBFloor2Elevator(52);
 	
-	public static Tile npbFloor3Elevator = new ElevatorVertical(53);
+	public static Tile npbFloor3Elevator = new NPBFloor3Elevator(53);
 	
-	public static Tile npbFloor4Elevator = new ElevatorVertical(54);
+	public static Tile npbFloor4Elevator = new NPBFloor4Elevator(54);
+	
+	public static Tile stairsWallRight = new StairsWallRight(55);
+	
+	public static Tile npbFloor2toFloor1StairsRightCorner = new StairsCornerBottomRight(56);
 	/**
 	 * Width and height of all tiles
 	 */

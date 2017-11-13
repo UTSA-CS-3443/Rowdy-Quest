@@ -17,7 +17,8 @@ public class Texture {
 	 *
 	 */
 	public static Image grass, dirt, sidewalk, road, carpet, wall, floor, stairsWallTop, stairsCornerTopLeft, 
-		stairsCornerBottomLeft, stairsWallLeft, stairsVertical, elevatorHorizontal, elevatorVertical;
+		stairsCornerBottomLeft, stairsWallLeft, stairsVertical, elevatorHorizontal, elevatorVertical, stairsWallRight, 
+		stairsCornerBottomRight, stairsCornerTopRight;
 	/**
 	 * Two different door images for doors that are facing down or up. handle of right side of doorRight
 	 * and left side of doorLeft.
@@ -67,7 +68,10 @@ public class Texture {
 		stairsCornerBottomLeft = TextureSheet.textures.crop(2299, 785, 150, 150);
 		stairsVertical = TextureSheet.textures.crop(2160, 438, 150, 150);
 		stairsWallTop = TextureSheet.textures.crop(2330, 440, 150, 150);
-		elevatorVertical = TextureSheet.textures.crop(2351, 143, 148, 148);
+		stairsWallRight = TextureSheet.textures.crop(2106, 783, 150, 150);
+		elevatorVertical = TextureSheet.textures.crop(2351, 143, 149, 149);
+		stairsCornerBottomRight = TextureSheet.textures.crop(2471, 785, 150, 150);
+		stairsCornerTopRight = TextureSheet.textures.crop(2470, 614, 150, 150);
 		
 		//These are coordinates for open elevator door if we ever use one
 		//elevatorVertical = TextureSheet.textures.crop(2622, 408, 148, 148);
