@@ -1,5 +1,7 @@
 package model.tile.npb;
 
+import controller.LocalViewController;
+import model.Map;
 import model.texture.Texture;
 import model.tile.Portal;
 import model.tile.Tile;
@@ -15,7 +17,7 @@ public class StairsCornerTopRight extends Tile implements Portal{
 		return true;
 	}
 	
-	public boolean isSolidLeft() {
+	public boolean isSolidRight() {
 		return true;
 	}
 	
@@ -25,7 +27,12 @@ public class StairsCornerTopRight extends Tile implements Portal{
 
 	@Override
 	public void jumpTo() {
-		// TODO Auto-generated method stub
+		Map m = LocalViewController.map;
+		if (this.id == 57) {
+			m.loadMap("res/maps/NPBFloor2.txt");
+			LocalViewController.sprite.setX((float)(15 * Tile.width));
+			LocalViewController.sprite.setY((float)(25 * Tile.height) + 30);
+			}
 		
 	}
 }

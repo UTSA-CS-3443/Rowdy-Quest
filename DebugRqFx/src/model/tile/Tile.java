@@ -28,6 +28,7 @@ import model.tile.npb.NpbOuterDoorUp;
 import model.tile.npb.StairsCornerBottomLeft;
 import model.tile.npb.StairsCornerBottomRight;
 import model.tile.npb.StairsCornerTopLeft;
+import model.tile.npb.StairsCornerTopRight;
 import model.tile.npb.StairsVertical;
 import model.tile.npb.StairsWallLeft;
 import model.tile.npb.StairsWallRight;
@@ -149,6 +150,8 @@ public class Tile {
 	public static Tile stairsWallRight = new StairsWallRight(55);
 	
 	public static Tile npbFloor2toFloor1StairsRightCorner = new StairsCornerBottomRight(56);
+	
+	public static Tile npbFloor1toFloor2StairsRightCorner = new StairsCornerTopRight(57);
 	/**
 	 * Width and height of all tiles
 	 */
