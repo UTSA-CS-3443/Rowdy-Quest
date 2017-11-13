@@ -160,19 +160,19 @@ public class Sprite extends Entity {
 	public String displayRoomNumber() {
 		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
 		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
-		Tooltip tip = NPBFloor1.t;
+		Tooltip tip = LocalViewController.t;
 		String rn = "Room Number";
 		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
 			tip.setText(rn);
-			tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 95);
+			//tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 600);
 		}
 		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
 			tip.setText(rn);
 			tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 95);
 		} else {
-			tip.hide();
+			tip.setText(LocalViewController.map.getName());
 		}
 		return rn;
 	};
@@ -295,7 +295,7 @@ public class Sprite extends Entity {
 	public void render(GraphicsContext gc) {
 		gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
 		//draws box over sprite to show collision detection bounds
-		gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
+		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
 	}
 	
 }

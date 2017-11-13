@@ -40,12 +40,10 @@ public class Map {
 	 */
 	public Map(String path) {
 		loadMap(path);
-		this.pathString = path;
 	}
 	
 
 	public void update() {
-
 	}
 
 	/**
@@ -91,6 +89,7 @@ public class Map {
 
 
 	public void loadMap(String path) {
+		this.pathString = path;
 		String file = FileHelper.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
 		setWidth(Integer.parseInt(tokens[0]));
@@ -99,8 +98,6 @@ public class Map {
 		spawnY = Integer.parseInt(tokens[3]);
 		StartViewController.currentUser.setCurrentMapPath(path);
 		
-
-
 		tiles = new int[getWidth()][getHeight()];
 
 		for (int y = 0; y < getHeight(); y++) {
@@ -108,6 +105,8 @@ public class Map {
 				tiles[x][y] = Integer.parseInt(tokens[(x + y * getWidth()) + 4]);
 			}
 		}
+		
+		LocalViewController.t.setText(getName());		
 	}
 	
 	/**
@@ -116,7 +115,7 @@ public class Map {
 	 * @param x
 	 * @param y
 	 */
-	public void loadMap(String path, int xSpawn, int ySpawn) {
+	/*public void loadMap(String path, int xSpawn, int ySpawn) {
 		String file = FileHelper.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
 		setWidth(Integer.parseInt(tokens[0]));
@@ -133,7 +132,8 @@ public class Map {
 				tiles[x][y] = Integer.parseInt(tokens[(x + y * getWidth()) + 4]);
 			}
 		}
-	}
+		LocalViewController.t.setText(getName());
+	}*/
 	
 	public int getSpawnX() {
 		return spawnX;
@@ -169,5 +169,12 @@ public class Map {
 	
 	public String getPathString() {
 		return pathString;
+	}
+	
+	public String getName() {
+		String path = getPathString();
+		int start = path.lastIndexOf("/");
+		String s = path.substring(start + 1, path.indexOf("."));
+		return s.substring(0, 1).toUpperCase() + s.substring(1);
 	}
 }

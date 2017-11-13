@@ -20,11 +20,7 @@ public class NPBFloor1{
 	 */
 	public static ArrayList<Tile> npb1List = new ArrayList<>();
 	
-	/**
-	 * Tooltip to display room numbers
-	 */
-	public static Tooltip t = new Tooltip("A Square");
-	 
+	
 	/**
 	 * Gonna create every new classroom here
 	 * Order starts from top left of map, moves to the right, and 
@@ -72,7 +68,7 @@ public class NPBFloor1{
 	 * Adds all classrooms to the arrayList
 	 */
 	public NPBFloor1() {
-		this.t.setStyle("-fx-background-color: rgba(255, 127, 80, .5); -fx-font-size: 30px;");
+		
 		npb1List.add(npb1c0);
 		npb1List.add(npb1c1);
 		npb1List.add(npb1c2);

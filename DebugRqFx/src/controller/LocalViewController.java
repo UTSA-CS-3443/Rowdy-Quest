@@ -17,11 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import main.Main;
 import model.Location;
 import model.Map;
 import model.OverWorld;
@@ -40,6 +42,7 @@ import model.tile.npb.NPBFloor1;
  *         events generated within the local view
  *
  */
+@SuppressWarnings("unused")
 public class LocalViewController implements EventHandler<ActionEvent> {
 
 	public static Map map; // the map
@@ -50,6 +53,12 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	private GraphicsContext gc; // used to draw on the canvas
 	public static double canvasWidth, canvasHeight; // height and width of the canvas
 	private AnimationTimer animator;
+	
+	/**
+	 * Tooltip to display room numbers
+	 */
+	public static Tooltip t = new Tooltip("A Square");
+	 
 
 	@FXML
 	public Label displayName; // label that displays user's name
@@ -93,7 +102,9 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
 		
-		
+		// style tooltip
+		t.setStyle("-fx-background-color: rgba(255, 127, 80, .5); -fx-font-size: 30px;");
+		t.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 575);
 		
 		//overworld setup
 		overWorld = new OverWorld();
