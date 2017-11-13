@@ -24,7 +24,7 @@ public class Sprite extends Entity {
 	public Image rowdyRight, rowdyLeft;
 
 	/**
-	 * Spped sprite will move (in pixels per keypress)
+	 * Speed sprite will move (in pixels per keypress
 	 */
 	private final float SPEED = 6;
 
