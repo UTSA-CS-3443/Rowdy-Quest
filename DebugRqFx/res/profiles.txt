@@ -1,0 +1,4 @@
+bb bb bb bb 708.0 1008.0 "1008.0" 
+bbb bbb bbb bbb 35.0 60.0 "res/maps/campus.txt" 
+a a a a 35.0 60.0 "res/maps/campus.txt" 
+t t t t 560.0 1028.0 res/maps/NPBFloor2.txt 
