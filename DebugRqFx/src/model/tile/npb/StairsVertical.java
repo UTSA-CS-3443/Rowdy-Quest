@@ -19,6 +19,7 @@ public class StairsVertical extends Tile implements Portal {
 	}
 
 
+	
 	@Override
 	public void jumpTo() {
 		Map m = LocalViewController.map;

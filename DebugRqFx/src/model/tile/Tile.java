@@ -13,6 +13,7 @@ import model.tile.npb.Carpet;
 import model.tile.npb.DoorLeftTile;
 import model.tile.npb.DoorRightTile;
 import model.tile.npb.ElevatorHorizontal;
+import model.tile.npb.ElevatorVertical;
 import model.tile.npb.Floor;
 import model.tile.npb.NPBFloor1;
 import model.tile.npb.NpbExteriorDoorRight;
@@ -130,6 +131,14 @@ public class Tile {
 	public static Tile npbFloor2toFloor1Stairs = new StairsVertical(49);
 	
 	public static Tile stairsWallTop = new StairsWallTop(50);
+	
+	public static Tile npbFloor1toFloor2Elevator = new ElevatorVertical(51);
+	
+	public static Tile npbFloor2Elevator = new ElevatorVertical(52);
+	
+	public static Tile npbFloor3Elevator = new ElevatorVertical(53);
+	
+	public static Tile npbFloor4Elevator = new ElevatorVertical(54);
 	/**
 	 * Width and height of all tiles
 	 */

@@ -67,6 +67,11 @@ public class Texture {
 		stairsCornerBottomLeft = TextureSheet.textures.crop(2299, 785, 150, 150);
 		stairsVertical = TextureSheet.textures.crop(2160, 438, 150, 150);
 		stairsWallTop = TextureSheet.textures.crop(2330, 440, 150, 150);
+		elevatorVertical = TextureSheet.textures.crop(2351, 143, 148, 148);
+		
+		//These are coordinates for open elevator door if we ever use one
+		//elevatorVertical = TextureSheet.textures.crop(2622, 408, 148, 148);
+		
 		
 
 
