@@ -56,7 +56,7 @@ public class Sprite extends Entity {
 	 *            y position of Sprite
 	 */
 	public Sprite(Camera c, KeyPressedController kc, float x, float y) {
-		super(x, y);
+		super(x * Tile.width, y * Tile.height);
 		rowdyRight = new Image("sprite/RowdyRight Transparent.png");
 		rowdyLeft = new Image("sprite/RowdyLeft Transparent.png");
 		sprite = rowdyRight;
