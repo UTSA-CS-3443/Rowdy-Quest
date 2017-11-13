@@ -8,6 +8,7 @@ import controller.StartViewController;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import main.Main;
@@ -38,6 +39,8 @@ public class Sprite extends Entity {
 	 * Controller for handling movement via keyboard
 	 */
 	private KeyPressedController kc;
+	
+	private Label infoLabel;
 
 	/**
 	 * Camera to center on Sprite
@@ -56,7 +59,7 @@ public class Sprite extends Entity {
 	 * @param y
 	 *            y position of Sprite
 	 */
-	public Sprite(Camera c, KeyPressedController kc, float x, float y) {
+	public Sprite(Camera c, KeyPressedController kc, Label infoLabel, float x, float y) {
 		super(x * Tile.width, y * Tile.height);
 		rowdyRight = new Image("sprite/RowdyRight Transparent.png");
 		rowdyLeft = new Image("sprite/RowdyLeft Transparent.png");
@@ -65,6 +68,7 @@ public class Sprite extends Entity {
 		this.xMove = 0;
 		this.yMove = 0;
 		this.c = c;
+		this.infoLabel = infoLabel;
 	}
 
 	/**
@@ -160,19 +164,18 @@ public class Sprite extends Entity {
 	public String displayRoomNumber() {
 		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
 		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
-		Tooltip tip = LocalViewController.t;
+		//Label infolabel = LocalViewController.infoLabel;
 		String rn = "Room Number";
 		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
-			tip.setText(rn);
+			infoLabel.setText(rn);
 			//tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 600);
 		}
 		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
 			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
-			tip.setText(rn);
-			tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 95);
+			infoLabel.setText(rn);
 		} else {
-			tip.setText(LocalViewController.map.getName());
+			infoLabel.setText(LocalViewController.map.getName());
 		}
 		return rn;
 	};
@@ -295,7 +298,7 @@ public class Sprite extends Entity {
 	public void render(GraphicsContext gc) {
 		gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
 		//draws box over sprite to show collision detection bounds
-		gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
+		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
 	}
 	
 }

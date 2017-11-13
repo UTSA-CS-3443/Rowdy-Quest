@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.canvas.*?>
@@ -14,71 +15,106 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LocalViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="controller.LocalViewController">
 	<children>
-		<BorderPane fx:id="localPane" layoutX="13.0" layoutY="-9.0" prefHeight="655.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+		<BorderPane fx:id="localPane" layoutX="13.0" layoutY="-9.0"
+			prefHeight="655.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0"
+			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+			AnchorPane.topAnchor="0.0">
 			<bottom>
 			</bottom>
+			<top>
+				<HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+					<children>
+						<Button fx:id="walkOrRun" minHeight="30.0" minWidth="45.0"
+							mnemonicParsing="false" onAction="#handle" prefHeight="30.0"
+							prefWidth="45.0" text="Run">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</Button>
+						<Button fx:id="zoom" minHeight="30.0" minWidth="70.0"
+							mnemonicParsing="false" onAction="#handle" prefHeight="30.0"
+							prefWidth="70.0" text="Zoom-in">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</Button>
+
+						<TextField fx:id="rNumberTextField" prefHeight="30.0"
+							promptText="Room Number">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</TextField>
+						<Button mnemonicParsing="false" onAction="#roomSearch"
+							prefHeight="30.0" prefWidth="70.0" text="Search">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</Button>
+						<Button mnemonicParsing="false" onAction="#handle"
+							prefHeight="30.0" prefWidth="70.0" text="Map">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</Button>
+						<Button mnemonicParsing="false" onAction="#handle"
+							prefHeight="30.0" prefWidth="70.0" text="Save">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</Button>
+						<MenuButton minHeight="30.0" mnemonicParsing="false"
+							text="Settings">
+							<items>
+								<MenuItem mnemonicParsing="false" text="Action 1">
+									<graphic>
+										<Label fx:id="displayName" text="Label" textFill="#2f0dee">
+											<font>
+												<Font name="Arial" size="30.0" />
+											</font>
+										</Label>
+									</graphic>
+								</MenuItem>
+								<MenuItem mnemonicParsing="false" text="Action 2" />
+							</items>
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</MenuButton>
+					</children>
+				</HBox>
+			</top>
 			<center>
-				<Canvas fx:id="mapCanvas" height="600.0" width="800.0" BorderPane.alignment="CENTER">
+				<StackPane prefHeight="150.0" prefWidth="200.0"
+					BorderPane.alignment="CENTER">
+					<children>
+						<Canvas fx:id="mapCanvas" height="600.0" width="800.0">
 
 
-				</Canvas>
+						</Canvas>
+						<HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<Label fx:id="infoLabel" alignment="CENTER" prefHeight="45.0"
+									style="-fx-background-color: rgba(255, 127, 80, .5); -fx-border-radius: 10;"
+									text="Label" textFill="WHITE">
+									<font>
+										<Font size="30.0" />
+									</font>
+									<padding>
+										<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+									</padding>
+									<HBox.margin>
+										<Insets bottom="10.0" left="10.0" />
+									</HBox.margin>
+								</Label>
+							</children>
+						</HBox>
+					</children>
+				</StackPane>
 			</center>
-         <top>
-            <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="walkOrRun" minHeight="30.0" minWidth="45.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="45.0" text="Run">
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="zoom" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Zoom-in">
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                   
-                  <TextField fx:id="rNumberTextField" prefHeight="30.0" promptText="Room Number">
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" onAction="#roomSearch" prefHeight="30.0" prefWidth="70.0" text="Search">
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-      				<Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Map">
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Save">
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-                  <MenuButton minHeight="30.0" mnemonicParsing="false" text="Settings">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1">
-                           <graphic>
-                  				<Label fx:id="displayName" text="Label" textFill="#2f0dee">
-                  					<font>
-                  						<Font name="Arial" size="30.0" />
-                  					</font>
-                  				</Label>
-                           </graphic>
-                        </MenuItem>
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                     <HBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </HBox.margin>
-                  </MenuButton>
-               </children>
-            </HBox>
-         </top>
 		</BorderPane>
 	</children>
 </AnchorPane>

@@ -44,7 +44,8 @@ import model.tile.npb.NPBFloor1;
  */
 @SuppressWarnings("unused")
 public class LocalViewController implements EventHandler<ActionEvent> {
-
+	
+	
 	public static Map map; // the map
 	public static OverWorld overWorld;
 	public static Sprite sprite; // player
@@ -57,8 +58,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	/**
 	 * Tooltip to display room numbers
 	 */
-	public static Tooltip t = new Tooltip("A Square");
-	 
+	//public static Tooltip t = new Tooltip("A Square");
+	
 
 	@FXML
 	public Label displayName; // label that displays user's name
@@ -67,7 +68,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	private Canvas mapCanvas; // canvas for map
 
 	@FXML
-	public static Pane localPane;
+	public Label infoLabel;
 	
 	@FXML
 	private Button zoom;
@@ -98,13 +99,15 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 
 		// set up map, camera, and sprite
 		//map = new Map("res/maps/campus.txt");
-		map = new Map(StartViewController.currentUser.getCurrentMapPath());
+		map = new Map(StartViewController.currentUser.getCurrentMapPath(), infoLabel);
 		camera = new Camera(0, 0);
-		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
+		sprite = new Sprite(camera, kc, infoLabel, map.getSpawnX(), map.getSpawnY());
 		
+		infoLabel.setText(map.getName());
 		// style tooltip
-		t.setStyle("-fx-background-color: rgba(255, 127, 80, .5); -fx-font-size: 30px;");
-		t.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 575);
+		//t.setStyle("-fx-background-color: rgba(255, 127, 80, .5); -fx-font-size: 30px;");
+		//t.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 575);
+		//t.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 575);
 		
 		//overworld setup
 		overWorld = new OverWorld();

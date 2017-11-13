@@ -6,6 +6,7 @@ import controller.KeyPressedController;
 import controller.LocalViewController;
 import controller.StartViewController;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import model.entity.Sprite;
 import model.tile.Tile;
 
@@ -20,6 +21,8 @@ import model.tile.Tile;
  */
 public class Map {
 
+	private Label infoLabel;
+	
 	private int height, width; // width and height of the map
 	private int spawnX, spawnY;
 	private int[][] tiles; // array of tiles for the map
@@ -38,7 +41,8 @@ public class Map {
 	 * @param path
 	 *            of the file
 	 */
-	public Map(String path) {
+	public Map(String path, Label label) {
+		this.infoLabel = label;
 		loadMap(path);
 	}
 	
@@ -106,7 +110,7 @@ public class Map {
 			}
 		}
 		
-		LocalViewController.t.setText(getName());		
+		infoLabel.setText(getName());		
 	}
 	
 	/**
