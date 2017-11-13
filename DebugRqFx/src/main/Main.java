@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 /**
  * 
  * @author Tyler Clarkson
+ * @author Brandon Black
  *
  *         The Main class is the entry point for the application. It sets the
  *         StartScene and initializes a class variable for the stage

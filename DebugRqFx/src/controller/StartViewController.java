@@ -99,7 +99,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 	
 	//default user used for testing puropses. We can hit Test Run button to avoid logging
 	//in every time
-	private static Profile defaultUser = new Profile("admin", "admin", "admin", "admin", 10, 10);
+	private static Profile defaultUser = new Profile("admin", "admin", "admin", "admin", 10,10);
 	public static Profile currentUser = defaultUser;
 	
 	/**
@@ -113,7 +113,6 @@ public class StartViewController implements EventHandler<ActionEvent> {
 		for(int i = 0; i < CreateProfileViewController.profiles.size(); i++) {
 			if(signInUs.getText().equals(CreateProfileViewController.profiles.get(i).getUserName() ) 
 			&& signInPw.getText().equals(CreateProfileViewController.profiles.get(i).getPassword() )){
-				System.out.println("Log in Success");
 				currentUser = CreateProfileViewController.profiles.get(i);
 				try {
 					Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
@@ -123,8 +122,6 @@ public class StartViewController implements EventHandler<ActionEvent> {
 				}
 				
 				break;
-			}else {
-				System.out.println("Sign in failed");
 			}
 		}
 		LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());

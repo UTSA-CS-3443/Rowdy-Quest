@@ -19,6 +19,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import main.Main;
 import model.entity.Profile;
+import model.tile.Tile;
 
 /**
  * 
@@ -49,7 +50,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		try {
 			if(profiles != null) {
-				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 25, 65);
+				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 35, 60);
 				profiles.add(temp);
 			}			
 			saveProfile("res/profiles.txt");
