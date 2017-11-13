@@ -62,7 +62,12 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	
 	@FXML
 	private Button zoom;
-	private boolean zoomed = false;
+	
+	@FXML
+	private Button walkOrRun;
+	
+	private boolean zoomed = false; // used with zoom button
+	private boolean isRunning = false; // used with walk/run button
 	
 	/**
 	 * Initializes the Local View
@@ -151,6 +156,11 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 				Tile.height = 64;
 				sprite.setX((float)(sprite.getX() / 2));
 				sprite.setY((float)(sprite.getY() / 2));
+				if (isRunning) {
+					sprite.setSpeed(8);
+				} else {
+					sprite.setSpeed(4);
+				}
 				zoom.setText("Zoom-in");
 				zoomed = false;
 			} else if (zoom.getText().equals("Zoom-in") && !zoomed) {
@@ -160,11 +170,37 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 				Tile.height = 128;
 				sprite.setX((float)(sprite.getX() * 2));
 				sprite.setY((float)(sprite.getY() * 2));
+				if (isRunning) {
+					sprite.setSpeed(16);
+				} else {
+					sprite.setSpeed(8);
+				}
 				zoom.setText("Zoom-out");
 				zoomed = true;
 			} 
 			
 		}
+		else if(walkOrRun.getText().equals("Walk") ||
+				walkOrRun.getText().equals("Run")) {
+			if (walkOrRun.getText().equals("Walk") && isRunning) {
+				if (!zoomed) {
+					sprite.setSpeed(4);
+				} else {
+					sprite.setSpeed(8);
+				}
+				walkOrRun.setText("Run");
+				isRunning = false;
+			} else if (walkOrRun.getText().equals("Run") && !isRunning) {
+				if (!zoomed) {
+					sprite.setSpeed(8);
+				} else {
+					sprite.setSpeed(16);
+				}
+				isRunning = true;
+				walkOrRun.setText("Walk");
+			}
+		}
+
 		
 	}
 	

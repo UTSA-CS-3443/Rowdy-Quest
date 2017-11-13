@@ -25,9 +25,9 @@ public class Sprite extends Entity {
 	public Image rowdyRight, rowdyLeft;
 
 	/**
-	 * Speed sprite will move (in pixels per keypress
+	 * speed sprite will move (in pixels per keypress
 	 */
-	private final float SPEED = 6;
+	private  float speed = 4;
 
 	/**
 	 * Define how much to move the sprite on each axis
@@ -257,19 +257,27 @@ public class Sprite extends Entity {
 		yMove = 0;
 
 		if (kc.up) {
-			yMove = -SPEED;
+			yMove = -speed;
 		}
 		if (kc.left) {
-			xMove = -SPEED;
+			xMove = -speed;
 			setImage(rowdyLeft);
 		}
 		if (kc.down) {
-			yMove = SPEED;
+			yMove = speed;
 		}
 		if (kc.right) {
-			xMove = SPEED;
+			xMove = speed;
 			setImage(rowdyRight);
 		}
+	}
+
+	public float getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(float speed) {
+		this.speed = speed;
 	}
 
 	/**

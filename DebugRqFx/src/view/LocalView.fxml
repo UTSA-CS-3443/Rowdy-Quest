@@ -28,12 +28,12 @@
          <top>
             <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Save">
+                  <Button fx:id="walkOrRun" minHeight="30.0" minWidth="45.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="45.0" text="Run">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#roomSearch" prefHeight="30.0" prefWidth="70.0" text="Search">
+                  <Button fx:id="zoom" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Zoom-in">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
@@ -44,24 +44,38 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </TextField>
-      				<Label fx:id="displayName" text="Label" textFill="#2f0dee">
-      					<font>
-      						<Font name="Arial" size="30.0" />
-      					</font>
+                  <Button mnemonicParsing="false" onAction="#roomSearch" prefHeight="30.0" prefWidth="70.0" text="Search">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
-      				</Label>
+                  </Button>
       				<Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Map">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="zoom" minHeight="30.0" mnemonicParsing="false" onAction="#handle" text="Zoom-in">
+                  <Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Save">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
+                  <MenuButton minHeight="30.0" mnemonicParsing="false" text="Settings">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1">
+                           <graphic>
+                  				<Label fx:id="displayName" text="Label" textFill="#2f0dee">
+                  					<font>
+                  						<Font name="Arial" size="30.0" />
+                  					</font>
+                  				</Label>
+                           </graphic>
+                        </MenuItem>
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </MenuButton>
                </children>
             </HBox>
          </top>
