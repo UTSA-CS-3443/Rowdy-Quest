@@ -10,7 +10,7 @@ import model.tile.Tile;
 public class StairsWallLeft extends Tile implements Portal {
 
 	public StairsWallLeft(int id) {
-		super(Texture.stairsWallTop, id, null);
+		super(Texture.stairsWallLeft, id, null);
 		// TODO Auto-generated constructor stub
 	}
 	

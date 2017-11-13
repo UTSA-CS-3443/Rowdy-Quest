@@ -17,7 +17,7 @@ public class Texture {
 	 *
 	 */
 	public static Image grass, dirt, sidewalk, road, carpet, wall, floor, stairsWallTop, stairsCornerTopLeft, 
-		stairsCornerBottomLeft, elevatorHorizontal, elevatorVertical;
+		stairsCornerBottomLeft, stairsWallLeft, stairsVertical, elevatorHorizontal, elevatorVertical;
 	/**
 	 * Two different door images for doors that are facing down or up. handle of right side of doorRight
 	 * and left side of doorLeft.
@@ -56,7 +56,7 @@ public class Texture {
 		black = TextureSheet.textures.crop(0,2101, 145, 145);
 		doorRightFound = TextureSheet.textures.crop(1, 2552, 145, 145);
 		doorLeftFound = TextureSheet.textures.crop(1, 2403, 150, 150);
-		stairsWallTop = TextureSheet.textures.crop(2105, 612, 150, 150);
+		stairsWallLeft = TextureSheet.textures.crop(2105, 612, 150, 150);
 		stairsCornerTopLeft = TextureSheet.textures.crop(2297, 613, 150, 150);
 		npbOuterDoorDown = TextureSheet.textures.crop(1798, 138, 148, 148);
 		npbOuterDoorLeft = TextureSheet.textures.crop(1968, 139, 148, 148);
@@ -65,6 +65,8 @@ public class Texture {
 		npbExteriorDoorRight = TextureSheet.textures.crop(1928, 474, 146, 146);
 		npbOuterDoorUp = TextureSheet.textures.crop(1799, 315, 148, 148);
 		stairsCornerBottomLeft = TextureSheet.textures.crop(2299, 785, 150, 150);
+		stairsVertical = TextureSheet.textures.crop(2160, 438, 150, 150);
+		stairsWallTop = TextureSheet.textures.crop(2330, 440, 150, 150);
 		
 
 
