@@ -57,6 +57,11 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
+                  <Button fx:id="zoom" minHeight="30.0" mnemonicParsing="false" onAction="#handle" text="Zoom-in">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </top>

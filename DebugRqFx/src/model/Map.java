@@ -56,7 +56,7 @@ public class Map {
 		
 		for (int y = yStart; y < yEnd; y++) {
 			for (int x = xStart; x < xEnd; x++) {
-				getTile(x, y).render(gc, (int) (x * 64 - c.getxOffset()), (int) (y * 64 - c.getyOffset()));
+				getTile(x, y).render(gc, (int) (x * Tile.width - c.getxOffset()), (int) (y * Tile.height - c.getyOffset()));
 			}
 		}
 	}

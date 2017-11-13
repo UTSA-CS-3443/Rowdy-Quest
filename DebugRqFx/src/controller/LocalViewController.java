@@ -6,11 +6,15 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javafx.animation.AnimationTimer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -21,6 +25,7 @@ import javafx.scene.text.Font;
 import model.Location;
 import model.Map;
 import model.OverWorld;
+import model.entity.Entity;
 import model.entity.Profile;
 import model.entity.Sprite;
 import model.texture.Texture;
@@ -54,22 +59,25 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 
 	@FXML
 	public static Pane localPane;
+	
+	@FXML
+	private Button zoom;
+	private boolean zoomed = false;
+	
 	/**
 	 * Initializes the Local View
 	 */
 	@FXML
 	private void initialize() {
-		System.out.println("Initialize"); //help debug
+		
+		
 		kc = new KeyPressedController(); // to handle keyboard input
 
 		canvasWidth = mapCanvas.getWidth();
 		canvasHeight = mapCanvas.getHeight();
 
 		// sets the welcome message to the name entered on the StartView
-		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());
-		
-		
-		
+		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());		
 
 		// initializes all texture images
 		Texture.init();
@@ -78,6 +86,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		map = new Map("res/maps/campus.txt");
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
+		
 		
 		//overworld setup
 		overWorld = new OverWorld();
@@ -131,6 +140,29 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 			}
 		}
 		else if(event.getSource().toString().contains("Search")) {
+			
+		} 
+		else if(event.getSource().toString().contains("zoom")) {
+			
+			if (zoom.getText().equals("Zoom-out") && zoomed) {
+				sprite.setHeight(26);
+				sprite.setWidth(56);
+				Tile.width = 64;
+				Tile.height = 64;
+				sprite.setX((float)(sprite.getX() / 2));
+				sprite.setY((float)(sprite.getY() / 2));
+				zoom.setText("Zoom-in");
+				zoomed = false;
+			} else if (zoom.getText().equals("Zoom-in") && !zoomed) {
+				sprite.setHeight(52);
+				sprite.setWidth(112);
+				Tile.width = 128;
+				Tile.height = 128;
+				sprite.setX((float)(sprite.getX() * 2));
+				sprite.setY((float)(sprite.getY() * 2));
+				zoom.setText("Zoom-out");
+				zoomed = true;
+			} 
 			
 		}
 		
