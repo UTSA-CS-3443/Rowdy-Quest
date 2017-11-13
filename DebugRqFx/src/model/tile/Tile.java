@@ -15,11 +15,13 @@ import model.tile.npb.DoorRightTile;
 import model.tile.npb.ElevatorHorizontal;
 import model.tile.npb.Floor;
 import model.tile.npb.NPBFloor1;
+import model.tile.npb.NpbExteriorDoorRight;
 import model.tile.npb.NpbOuterDoorDown;
 import model.tile.npb.NpbOuterDoorLeft;
 import model.tile.npb.NpbOuterDoorRight;
-import model.tile.npb.StairsCornerTopRight;
-import model.tile.npb.StairsWallTop;
+import model.tile.npb.NpbOuterDoorUp;
+import model.tile.npb.StairsCornerTopLeft;
+import model.tile.npb.StairsWallLeft;
 import model.tile.npb.Wall;
 
 /**
@@ -96,9 +98,9 @@ public class Tile {
 	 */
 	public static NPBFloor1 f1 = new NPBFloor1();
 	
-	public static Tile stairsWallTop = new StairsWallTop(36);
+	public static Tile npbFloor1Stairs = new StairsWallLeft(36);
 	
-	public static Tile starisCornerTopRight = new StairsCornerTopRight(37);
+	public static Tile npbFloor1StairsCorner = new StairsCornerTopLeft(37);
 	
 	public static Tile npbOuterDoorDown = new NpbOuterDoorDown(38);
 
@@ -107,6 +109,10 @@ public class Tile {
 	public static Tile npbOuterDoorRight = new NpbOuterDoorRight(40);
 	
 	public static Tile elevatorHorizontal = new ElevatorHorizontal(41);
+	
+	public static Tile npbExteriorDoorRight = new NpbExteriorDoorRight(42);
+	
+	public static Tile npbOuterDoorUp = new NpbOuterDoorUp(43);
 	/**
 	 * Width and height of all tiles
 	 */
@@ -233,6 +239,14 @@ public class Tile {
 	}
 
 	public boolean isSolidTop() {
+		return false;
+	}
+
+	public boolean isSolidLeft() {
+		return false;
+	}
+
+	public boolean isSolidBottom() {
 		return false;
 	}
 }

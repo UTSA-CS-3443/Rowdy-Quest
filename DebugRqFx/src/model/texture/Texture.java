@@ -32,7 +32,8 @@ public class Texture {
 	 */
 	public static Image black;
 	
-	public static Image npbOuterDoorDown, npbOuterDoorLeft, npbOuterDoorRight;
+	public static Image npbOuterDoorDown, npbOuterDoorLeft, npbOuterDoorRight, npbOuterDoorUp;
+	public static Image npbExteriorDoorRight;
 	
 	/**
 	 * Trying out a classroom
@@ -60,6 +61,8 @@ public class Texture {
 		npbOuterDoorLeft = TextureSheet.textures.crop(1968, 139, 148, 148);
 		npbOuterDoorRight = TextureSheet.textures.crop(1972, 316, 148, 148);
 		elevatorHorizontal = TextureSheet.textures.crop(2167, 144, 148, 148);
+		npbExteriorDoorRight = TextureSheet.textures.crop(1928, 474, 146, 146);
+		npbOuterDoorUp = TextureSheet.textures.crop(1799, 315, 148, 148);
 
 
 		

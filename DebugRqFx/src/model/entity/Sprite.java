@@ -14,6 +14,7 @@ import main.Main;
 import model.Map;
 import model.tile.Tile;
 import model.tile.npb.NPBFloor1;
+import model.tile.Portal;
 
 public class Sprite extends Entity {
 
@@ -89,7 +90,9 @@ public class Sprite extends Entity {
 			// System.out.println(LocalViewController.map.getTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height));
 			
 			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
+					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
+					!collisionWithSolidLeftTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
+					!collisionWithSolidLeftTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
 				x += xMove;
 			} 
 		} 
@@ -172,7 +175,9 @@ public class Sprite extends Entity {
 		
 		if (onAPortal((int)(x + bounds.getX()) / Tile.width, ty)/*&&
 				LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getId() == 37*/) {
-			LocalViewController.map = new Map("res/maps/NPBfloor2.txt");
+			//LocalViewController.map = new Map("res/maps/NPBfloor2.txt");
+			Portal t = (Portal)LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty);
+			t.jumpTo();
 		}
 	}
 	
@@ -184,6 +189,14 @@ public class Sprite extends Entity {
 	
 	private boolean collisionWithSolidRightTile(int x, int y) {
 		return LocalViewController.map.getTile(x, y).isSolidRight();
+	}
+	
+	private boolean collisionWithSolidLeftTile(int x, int y) {
+		return LocalViewController.map.getTile(x, y).isSolidLeft();
+	}
+	
+	private boolean collisionWithSolidBottomTile(int x, int y) {
+		return LocalViewController.map.getTile(x, y).isSolidBottom();
 	}
 	
 	private boolean collisionWithSolidTopTile(int x, int y) {
@@ -268,4 +281,5 @@ public class Sprite extends Entity {
 		//draws box over sprite to show collision detection bounds
 		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
 	}
+	
 }

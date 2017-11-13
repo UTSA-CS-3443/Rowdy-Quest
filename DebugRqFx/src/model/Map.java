@@ -2,8 +2,10 @@ package model;
 
 import controller.Camera;
 import controller.FileHelper;
+import controller.KeyPressedController;
 import controller.LocalViewController;
 import javafx.scene.canvas.GraphicsContext;
+import model.entity.Sprite;
 import model.tile.Tile;
 
 /**
@@ -21,6 +23,7 @@ public class Map {
 	private int spawnX, spawnY;
 	private int[][] tiles; // array of tiles for the map
 	private Camera c = LocalViewController.camera;
+
 	
 
 	/**
@@ -32,6 +35,7 @@ public class Map {
 	public Map(String path) {
 		loadMap(path);
 	}
+	
 
 	public void update() {
 
@@ -79,7 +83,7 @@ public class Map {
 	}
 
 
-	private void loadMap(String path) {
+	public void loadMap(String path) {
 		String file = FileHelper.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
 		setWidth(Integer.parseInt(tokens[0]));
@@ -89,6 +93,30 @@ public class Map {
 		
 
 
+		tiles = new int[getWidth()][getHeight()];
+
+		for (int y = 0; y < getHeight(); y++) {
+			for (int x = 0; x < getWidth(); x++) {
+				tiles[x][y] = Integer.parseInt(tokens[(x + y * getWidth()) + 4]);
+			}
+		}
+	}
+	
+	/**
+	 * Overloaded method to load map from Portal Classes
+	 * @param path
+	 * @param x
+	 * @param y
+	 */
+	public void loadMap(String path, int xSpawn, int ySpawn) {
+		String file = FileHelper.loadFileAsString(path);
+		String[] tokens = file.split("\\s+");
+		setWidth(Integer.parseInt(tokens[0]));
+		setHeight(Integer.parseInt(tokens[1]));
+		int consume = Integer.parseInt(tokens[2]);
+		consume = Integer.parseInt(tokens[3]);
+		setSpawnX(xSpawn);
+		setSpawnY(ySpawn);
 		tiles = new int[getWidth()][getHeight()];
 
 		for (int y = 0; y < getHeight(); y++) {
@@ -120,5 +148,14 @@ public class Map {
 
 	public void setHeight(int height) {
 		this.height = height;
+	}
+
+	public void setSpawnX(int x) {
+		spawnX = x;
+	}
+
+	public void setSpawnY(int y) {
+		spawnY = y;
+		
 	}
 }
