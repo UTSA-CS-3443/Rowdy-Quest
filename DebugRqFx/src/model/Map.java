@@ -4,6 +4,7 @@ import controller.Camera;
 import controller.FileHelper;
 import controller.KeyPressedController;
 import controller.LocalViewController;
+import controller.StartViewController;
 import javafx.scene.canvas.GraphicsContext;
 import model.entity.Sprite;
 import model.tile.Tile;
@@ -24,6 +25,11 @@ public class Map {
 	private int[][] tiles; // array of tiles for the map
 	private Camera c = LocalViewController.camera;
 
+	/**
+	 * Used for signing in and saving current map path to the user to spawn in the
+	 * same map they left off of
+	 */
+	private String pathString;
 	
 
 	/**
@@ -34,6 +40,7 @@ public class Map {
 	 */
 	public Map(String path) {
 		loadMap(path);
+		this.pathString = path;
 	}
 	
 
@@ -90,6 +97,7 @@ public class Map {
 		setHeight(Integer.parseInt(tokens[1]));
 		spawnX = Integer.parseInt(tokens[2]);
 		spawnY = Integer.parseInt(tokens[3]);
+		StartViewController.currentUser.setCurrentMapPath(path);
 		
 
 
@@ -118,6 +126,7 @@ public class Map {
 		setSpawnX(xSpawn);
 		setSpawnY(ySpawn);
 		tiles = new int[getWidth()][getHeight()];
+		StartViewController.currentUser.setCurrentMapPath(path);
 
 		for (int y = 0; y < getHeight(); y++) {
 			for (int x = 0; x < getWidth(); x++) {
@@ -156,6 +165,9 @@ public class Map {
 
 	public void setSpawnY(int y) {
 		spawnY = y;
-		
+	}
+	
+	public String getPathString() {
+		return pathString;
 	}
 }

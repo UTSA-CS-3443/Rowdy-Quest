@@ -88,9 +88,11 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		Texture.init();
 
 		// set up map, camera, and sprite
-		map = new Map("res/maps/campus.txt");
+		//map = new Map("res/maps/campus.txt");
+		map = new Map(StartViewController.currentUser.getCurrentMapPath());
 		camera = new Camera(0, 0);
 		sprite = new Sprite(camera, kc, map.getSpawnX(), map.getSpawnY());
+		
 		
 		
 		//overworld setup

@@ -50,7 +50,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 	public void handle(ActionEvent event) {
 		try {
 			if(profiles != null) {
-				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 35, 60);
+				Profile temp = new Profile(userName.getText(), pw1.getText(), firstName.getText(), lastName.getText(), 35, 60, "res/maps/campus.txt");
 				profiles.add(temp);
 			}			
 			saveProfile("res/profiles.txt");
@@ -86,7 +86,7 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 			String[] parts;
 			String line = s.nextLine();
 			parts = line.split(" ");
-			Profile temp = new Profile(parts[0], parts[1], parts[2], parts[3], Float.valueOf(parts[4]), Float.valueOf(parts[5]));
+			Profile temp = new Profile(parts[0], parts[1], parts[2], parts[3], Float.valueOf(parts[4]), Float.valueOf(parts[5]), parts[6]);
 		    profiles.add(temp);
 		}
 		s.close();

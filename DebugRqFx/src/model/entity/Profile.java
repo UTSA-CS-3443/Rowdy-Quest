@@ -16,7 +16,7 @@ public class Profile {
 	/**
 	 * Strings to be stored per each user
 	 */
-	private String userName, password, firstName, lastName;
+	private String userName, password, firstName, lastName, currentMapPath;
 	
 	/**
 	 * current x and y position of user. Will be updated when user is logged in, moves around, 
@@ -33,11 +33,12 @@ public class Profile {
 	 * @param x
 	 * @param y
 	 */
-	public Profile(String userName, String password, String firstName, String lastName, float x, float y) {
+	public Profile(String userName, String password, String firstName, String lastName, float x, float y, String mapPath) {
 		this.userName = userName;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.currentMapPath = mapPath;
 		this.x = x;
 		this.y = y;
 	}
@@ -54,6 +55,7 @@ public class Profile {
 	public String getLastName() {return lastName;}
 	public float getProfileX(){return x;}
 	public float getProfileY() {return y;}
+	public String getCurrentMapPath() {return currentMapPath;}
 	
 	/**
 	 * setters
@@ -62,13 +64,14 @@ public class Profile {
 	public void setFirstName(String fName) {this.firstName = fName;}
 	public void setX(float x) {this.x = x;}
 	public void setY(float y) {this.y = y;}
+	public void setCurrentMapPath(String path) {this.currentMapPath = path;}
 	
 	/**
 	 * toString
 	 */
 	public String toString() {
 		return userName + " " + password + " " + firstName + " " + lastName + " "
-				+ x + " " + y;
+				+ x + " " + y + " " + currentMapPath + " ";
 	}
 
 }

@@ -99,7 +99,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 	
 	//default user used for testing puropses. We can hit Test Run button to avoid logging
 	//in every time
-	private static Profile defaultUser = new Profile("admin", "admin", "admin", "admin", 10,10);
+	private static Profile defaultUser = new Profile("admin", "admin", "admin", "admin", 10,10, "res/maps/campus.txt");
 	public static Profile currentUser = defaultUser;
 	
 	/**
@@ -124,7 +124,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 				break;
 			}
 		}
-		LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());
+		//LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());
 	}
 	
 
