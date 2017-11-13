@@ -124,7 +124,7 @@ public class StartViewController implements EventHandler<ActionEvent> {
 				break;
 			}
 		}
-		//LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());
+		LocalViewController.sprite.placePlayer(currentUser.getProfileX(), currentUser.getProfileY());
 	}
 	
 
