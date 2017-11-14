@@ -20,6 +20,7 @@ import model.tile.npb.NPBFloor1Elevator;
 import model.tile.npb.NPBFloor2Elevator;
 import model.tile.npb.NPBFloor3Elevator;
 import model.tile.npb.NPBFloor4Elevator;
+import model.tile.npb.NpbExteriorDoorDown;
 import model.tile.npb.NpbExteriorDoorRight;
 import model.tile.npb.NpbOuterDoorDown;
 import model.tile.npb.NpbOuterDoorLeft;
@@ -152,6 +153,8 @@ public class Tile {
 	public static Tile npbFloor2toFloor1StairsRightCorner = new StairsCornerBottomRight(56);
 	
 	public static Tile npbFloor1toFloor2StairsRightCorner = new StairsCornerTopRight(57);
+	
+	public static Tile npbExteriorDoorDown = new NpbExteriorDoorDown(58);
 	/**
 	 * Width and height of all tiles
 	 */

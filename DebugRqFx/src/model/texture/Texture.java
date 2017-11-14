@@ -35,7 +35,7 @@ public class Texture {
 	public static Image black;
 	
 	public static Image npbOuterDoorDown, npbOuterDoorLeft, npbOuterDoorRight, npbOuterDoorUp;
-	public static Image npbExteriorDoorRight;
+	public static Image npbExteriorDoorRight, npbExteriorDoorDown;
 	
 	/**
 	 * Trying out a classroom
@@ -72,6 +72,7 @@ public class Texture {
 		elevatorVertical = TextureSheet.textures.crop(2351, 143, 149, 149);
 		stairsCornerBottomRight = TextureSheet.textures.crop(2471, 785, 150, 150);
 		stairsCornerTopRight = TextureSheet.textures.crop(2470, 614, 150, 150);
+		npbExteriorDoorDown = TextureSheet.textures.crop(1927, 636, 146, 146);
 		
 		//These are coordinates for open elevator door if we ever use one
 		//elevatorVertical = TextureSheet.textures.crop(2622, 408, 148, 148);
