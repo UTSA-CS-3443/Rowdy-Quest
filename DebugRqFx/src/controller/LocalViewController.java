@@ -145,9 +145,11 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		if(event.getSource().toString().contains("Save")) {
 			System.out.println("save");
+			
 		try {
 			savePosition("res/profiles.txt");
-		} catch (FileNotFoundException e) {
+			
+			}catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			}
@@ -236,6 +238,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		    for (Profile profile : CreateProfileViewController.profiles)
 		        pw.println(profile.toString());
 		    pw.close();
+		   
 		}
 	
 	

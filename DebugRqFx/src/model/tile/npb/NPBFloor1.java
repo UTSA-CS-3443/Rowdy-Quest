@@ -29,14 +29,14 @@ public class NPBFloor1{
 	/**
 	 * Top row of NPB Floor1
 	 */
-	public static Tile npb1c0 = new DoorRightTile(10,"NPB 1.0");
+	public static Tile npb1c0 = new DoorRightTile(10,"NPB 1.202");
 	public static Tile npb1c1 = new DoorRightTile(11,"NPB 1.1");
 	public static Tile npb1c2 = new DoorRightTile(12,"NPB 1.2");
 	public static Tile npb1c3 = new DoorRightTile(13,"NPB 1.3");
 	public static Tile npb1c4 = new DoorRightTile(14,"NPB 1.4");
 	public static Tile npb1c5 = new DoorRightTile(15,"NPB 1.5");
 	public static Tile npb1c6 = new DoorRightTile(16,"NPB 1.6");
-	public static Tile npb1c7 = new DoorRightTile(17,"NPB 1.7");
+	public static Tile npb1c7 = new DoorRightTile(17,"NPB 1.250");
 	
 	/**
 	 * 2nd row of NPB Floor1 Left side handle
