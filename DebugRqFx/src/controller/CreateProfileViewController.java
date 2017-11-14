@@ -91,6 +91,19 @@ public class CreateProfileViewController implements EventHandler<ActionEvent>{
 		}
 		s.close();
 	}
+	
+	
+	public void cancelCreate(ActionEvent e) {
+		Parent localScene;
+		try {
+			localScene = FXMLLoader.load(getClass().getResource("/view/StartViewTest.fxml"));
+			Main.stage.getScene().setRoot(localScene);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} // Local View
+		
+	}
 		
 }
 
