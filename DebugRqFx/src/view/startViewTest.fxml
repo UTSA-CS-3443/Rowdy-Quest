@@ -33,8 +33,11 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="signInPw" promptText="Password" />
-                  <Button mnemonicParsing="false" onAction="#SignIn" text="Sign In" />
+                  <PasswordField fx:id="signInPw" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="249.0" promptText="Password" />
+                  <Button mnemonicParsing="false" onAction="#SignIn" text="Sign In">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Button>
                   <Button mnemonicParsing="false" onAction="#CreateProfile" prefHeight="25.0" prefWidth="153.0" text="Create New Profile">
                      <VBox.margin>
                         <Insets top="25.0" />
