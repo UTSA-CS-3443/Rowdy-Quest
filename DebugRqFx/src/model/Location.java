@@ -1,14 +1,35 @@
 package model;
 
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+
 public class Location {
 
-	private int x, y;
+	private int x, y, width, heigth;
 	private String name;
 	
-	public Location(String name, int x, int y) {
+	public Location(String name, int x, int y, int width, int heigth) {
 		this.x = x;
 		this.y = y;
+		this.width = width;
+		this.heigth = heigth;
 		this.name = name;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeigth() {
+		return heigth;
+	}
+
+	public void setHeigth(int heigth) {
+		this.heigth = heigth;
 	}
 
 	public int getX() {
@@ -33,5 +54,9 @@ public class Location {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Rectangle getBounds(){
+		return new Rectangle(x,y,width,heigth);
 	}
 }

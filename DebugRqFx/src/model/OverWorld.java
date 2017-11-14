@@ -34,6 +34,6 @@ public class OverWorld {
 	}
 	
 	private void loadLocations() {
-		locations.add(new Location("North Peseo", 460, 100));
+		locations.add(new Location("North Peseo", 460, 100, 50, 50));
 	}
 }

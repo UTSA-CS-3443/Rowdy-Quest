@@ -54,6 +54,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	private GraphicsContext gc; // used to draw on the canvas
 	public static double canvasWidth, canvasHeight; // height and width of the canvas
 	private AnimationTimer animator;
+	private MouseClickedController mc;
 	
 	/**
 	 * Tooltip to display room numbers
@@ -109,12 +110,14 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		//t.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 575);
 		//t.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 575);
 		
-		//overworld setup
-		overWorld = new OverWorld();
-		
-
 		// set GraphicsContext to draw on current canvas in 2D
 		gc = mapCanvas.getGraphicsContext2D();
+		
+		//overworld setup
+		overWorld = new OverWorld();
+		mc = new MouseClickedController(overWorld);
+		mapCanvas.setOnMousePressed(mc);
+				
 
 		/**
 		 * Inner class for animation loop for LocalView. This is effectively the game
@@ -313,15 +316,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		ArrayList<Location> list = overWorld.getLocations();
 		
 		for(Location loc : list) {
-			gc.fillRoundRect(460, 70, 50, 50, 1, 1);
-			Rectangle test = new Rectangle(460, 70, 50, 50); 
-			test.setOnMouseClicked(new EventHandler<MouseEvent>()
-	        {
-	            @Override
-	            public void handle(MouseEvent t) {
-	                System.out.println("Test");
-	            }
-	        });
+			gc.fillRect(loc.getX(),loc.getY()-loc.getHeigth(),loc.getWidth(),loc.getHeigth());
 			
 			gc.setFill(Color.RED);
 			gc.setFont(Font.font ("Verdana", 11));
