@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -9,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="controller.CreateProfileViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CreateProfileViewController">
    <children>
       <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="500.0" prefWidth="600.0">
          <top>
@@ -23,17 +23,35 @@
          <center>
             <VBox fx:id="name" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label text="Username" />
-                  <TextField fx:id="userName" maxWidth="400" promptText="Name" />
-                  <Label layoutX="283.0" layoutY="187.0" text="Password" />
-                  <PasswordField fx:id="pw1" prefHeight="25.0" prefWidth="450.0" promptText="Password" />
-                  <Label layoutX="283.0" layoutY="178.0" text="Re-enter Password" />
-                  <PasswordField fx:id="pw2" layoutX="10.0" layoutY="187.0" prefHeight="25.0" prefWidth="450.0" promptText="Re-Enter Password" />
-                  <Label layoutX="283.0" layoutY="170.0" text="First Name" />
-                  <TextField fx:id="firstName" layoutX="110.0" layoutY="178.0" maxWidth="400" prefHeight="25.0" prefWidth="396.0" promptText="First Name" />
-                  <Label layoutX="281.0" layoutY="275.0" text="Last Name" />
-                  <TextField fx:id="lastName" layoutX="110.0" layoutY="229.0" maxWidth="400" promptText="Last Name" />
-                  <Button mnemonicParsing="false" onAction="#handle" text="Create Profile" />
+                  <Label alignment="TOP_LEFT" text="Username">
+                     <padding>
+                        <Insets right="235.0" />
+                     </padding></Label>
+                  <TextField fx:id="userName" maxWidth="300.0" promptText="Name" />
+                  <Label layoutX="283.0" layoutY="187.0" text="Password">
+                     <padding>
+                        <Insets right="235.0" top="10.0" />
+                     </padding></Label>
+                  <PasswordField fx:id="pw1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="300.0" promptText="Password" />
+                  <Label layoutX="283.0" layoutY="178.0" text="Re-enter Password">
+                     <padding>
+                        <Insets right="185.0" top="10.0" />
+                     </padding></Label>
+                  <PasswordField fx:id="pw2" layoutX="10.0" layoutY="187.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="300.0" promptText="Re-Enter Password" />
+                  <Label layoutX="283.0" layoutY="170.0" text="First Name">
+                     <padding>
+                        <Insets right="235.0" top="10.0" />
+                     </padding></Label>
+                  <TextField fx:id="firstName" layoutX="110.0" layoutY="178.0" maxWidth="300.0" prefHeight="25.0" prefWidth="300.0" promptText="First Name" />
+                  <Label layoutX="281.0" layoutY="275.0" text="Last Name">
+                     <padding>
+                        <Insets right="235.0" top="10.0" />
+                     </padding></Label>
+                  <TextField fx:id="lastName" layoutX="110.0" layoutY="229.0" maxWidth="300.0" promptText="Last Name" />
+                  <Button mnemonicParsing="false" onAction="#handle" text="Create Profile">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin></Button>
                </children>
             </VBox>
          </center>
