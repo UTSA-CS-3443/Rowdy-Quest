@@ -1,5 +1,7 @@
 package main;
 
+// comments to main class for testing
+
 import controller.CreateProfileViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
