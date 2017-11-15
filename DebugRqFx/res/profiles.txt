@@ -1,1 +1,1 @@
-b b Brandon Black 944.0 1458.0 res/maps/campus.txt 
+b b Brandon Black 623.0 944.0 res/maps/NPBFloor2.txt 

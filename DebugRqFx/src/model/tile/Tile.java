@@ -155,6 +155,8 @@ public class Tile {
 	public static Tile npbFloor1toFloor2StairsRightCorner = new StairsCornerTopRight(57);
 	
 	public static Tile npbExteriorDoorDown = new NpbExteriorDoorDown(58);
+	
+	public static Tile stairsWallLeft = new StairsWallLeft(59);
 	/**
 	 * Width and height of all tiles
 	 */
