@@ -1,7 +1,8 @@
 package model.tile.npb.portals.elevators;
 
-import model.Game;
+import controller.LocalViewController;
 import javafx.scene.image.Image;
+import model.Game;
 import model.Map;
 import model.texture.Texture;
 import model.tile.Tile;
@@ -35,11 +36,11 @@ public void jumpTo() {
 	
 	if(npb2to3) {
 		m.loadMap("res/maps/NPBFloor3.txt");
-		Game.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
+		Game.sprite.placePlayer((float)10 * Tile.width, (float)20 * Tile.width);
 		npb2to3 = false;
 	}else {
 		m.loadMap("res/maps/NPBFloor1.txt");
-		Game.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
+		Game.sprite.placePlayer((float)8 * Tile.width, (float)16 * Tile.width);
 		npb2to3 = true;
 	}
 
