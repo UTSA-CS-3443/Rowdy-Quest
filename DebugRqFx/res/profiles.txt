@@ -1,2 +1,2 @@
 b b Brandon Black 944.0 1458.0 res/maps/campus.txt 
-t t Tyler Clarkson 1272.0 1408.0 res/maps/campus.txt 
+t t Tyler Clarkson 61.0 64.0 res/maps/campus.txt 

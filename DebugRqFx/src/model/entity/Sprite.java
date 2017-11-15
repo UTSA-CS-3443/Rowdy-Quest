@@ -114,8 +114,10 @@ public class Sprite extends Entity {
 					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
 					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY()) / Tile.height) && x >= 0) {
 				x += xMove;
-			} else {
+			} else if (x > 0) {
 				x = (float)(tx * Tile.width + Tile.width - bounds.getX());
+			} else {
+				x = tx - 3;
 			}
 		}
 	}
@@ -134,8 +136,10 @@ public class Sprite extends Entity {
 							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
 							y >= 0) {
 						y += yMove;
-					} else {
+					} else if (y > 0){
 						y = (float)(ty * Tile.height + Tile.height - bounds.getY());
+					} else {
+						y = ty - 3;
 					}
 				} 
 				// if moving down
