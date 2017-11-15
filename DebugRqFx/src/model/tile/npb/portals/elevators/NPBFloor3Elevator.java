@@ -1,5 +1,7 @@
 package model.tile.npb.portals.elevators;
 
+import controller.LocalViewController;
+import javafx.scene.image.Image;
 import model.Game;
 import model.Map;
 import model.texture.Texture;

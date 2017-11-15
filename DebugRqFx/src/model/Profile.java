@@ -1,4 +1,4 @@
-package model.entity;
+package model;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

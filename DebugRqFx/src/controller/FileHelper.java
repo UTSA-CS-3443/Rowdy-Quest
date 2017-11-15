@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import model.Game;
 import model.Location;
-import model.entity.Profile;
+import model.Profile;
 
 /**
  * 

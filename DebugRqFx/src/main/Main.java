@@ -1,5 +1,7 @@
 package main;
 
+// comments just used to make a commit -- REMOVE WHEN YOU SEE THIS
+
 import controller.CreateProfileViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

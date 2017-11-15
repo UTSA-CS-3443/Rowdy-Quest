@@ -15,7 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import main.Main;
 import model.Game;
-import model.entity.Profile;
+import model.Profile;
 import model.entity.Sprite;
 
 /**
