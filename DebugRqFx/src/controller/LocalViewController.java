@@ -330,15 +330,35 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		gc.drawImage(overWorld.getMap(), 0, 0);
 		
 		ArrayList<Location> list = overWorld.getLocations();
-		
+		/*
 		for(Location loc : list) {
-			gc.fillRect(loc.getX(),loc.getY()-loc.getHeigth(),loc.getWidth(),loc.getHeigth());
+			
+		
+			int nPoints = loc.getPointList().length/2;
+			System.out.println(nPoints + " Points");
+			double[] x = new double[nPoints];
+			double[] y = new double[nPoints];
+			int counter = 0;
+			for(int i = 0; i < loc.getPointList().length; i++) {
+				if(i % 2 == 0) {
+					System.out.print(loc.getPointList()[i] + " X -");
+					x[counter] = loc.getPointList()[i];
+				}
+				else {
+					System.out.println(loc.getPointList()[i] + " Y");
+					y[counter] = loc.getPointList()[i];
+					counter++;
+				}
+				
+			}
+			
+			gc.fillPolygon(x, y, nPoints);
 			
 			gc.setFill(Color.RED);
 			gc.setFont(Font.font ("Verdana", 11));
-			gc.fillText(loc.getName() , loc.getX(), loc.getY());
+			//gc.fillText(loc.getName() , loc.getX(), loc.getY());
 			
-		}
+		}*/
 	}
 	
 }
