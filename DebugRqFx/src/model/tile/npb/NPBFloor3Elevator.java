@@ -38,7 +38,7 @@ public void jumpTo() {
 		npb3to4 = false;
 	}else {
 		m.loadMap("res/maps/NPBFloor2.txt");
-		LocalViewController.sprite.placePlayer((float)7 * Tile.width, (float)16 * Tile.width);
+		LocalViewController.sprite.placePlayer((float)6 * Tile.width, (float)16 * Tile.width);
 		npb3to4 = true;
 	}
 
