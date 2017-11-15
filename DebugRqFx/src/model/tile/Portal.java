@@ -1,4 +1,4 @@
-package model.tile.npb.portals;
+package model.tile;
 
 public interface Portal {
 	public void jumpTo();

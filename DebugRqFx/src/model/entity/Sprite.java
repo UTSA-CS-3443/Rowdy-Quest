@@ -13,9 +13,9 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import main.Main;
 import model.Map;
+import model.tile.Portal;
 import model.tile.Tile;
 import model.tile.npb.classrooms.NPBFloor1Rooms;
-import model.tile.npb.portals.Portal;
 
 public class Sprite extends Entity {
 

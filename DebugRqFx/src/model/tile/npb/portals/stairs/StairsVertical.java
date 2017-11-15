@@ -4,8 +4,8 @@ import controller.LocalViewController;
 import javafx.scene.image.Image;
 import model.Map;
 import model.texture.Texture;
+import model.tile.Portal;
 import model.tile.Tile;
-import model.tile.npb.portals.Portal;
 
 public class StairsVertical extends Tile implements Portal {
 

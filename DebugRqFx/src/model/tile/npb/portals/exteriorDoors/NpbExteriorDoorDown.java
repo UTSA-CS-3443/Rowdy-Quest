@@ -3,8 +3,8 @@ package model.tile.npb.portals.exteriorDoors;
 import model.Game;
 import model.Map;
 import model.texture.Texture;
+import model.tile.Portal;
 import model.tile.Tile;
-import model.tile.npb.portals.Portal;
 
 public class NpbExteriorDoorDown extends Tile implements Portal{
 	

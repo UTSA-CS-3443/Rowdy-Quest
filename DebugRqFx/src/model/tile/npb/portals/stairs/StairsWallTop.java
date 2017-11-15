@@ -2,8 +2,8 @@ package model.tile.npb.portals.stairs;
 
 import javafx.scene.image.Image;
 import model.texture.Texture;
+import model.tile.Portal;
 import model.tile.Tile;
-import model.tile.npb.portals.Portal;
 
 public class StairsWallTop extends Tile implements Portal {
 

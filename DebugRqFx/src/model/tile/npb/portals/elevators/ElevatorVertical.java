@@ -3,8 +3,8 @@ package model.tile.npb.portals.elevators;
 import controller.LocalViewController;
 import model.Map;
 import model.texture.Texture;
+import model.tile.Portal;
 import model.tile.Tile;
-import model.tile.npb.portals.Portal;
 /**
  * 
  * @author Brandon Black
