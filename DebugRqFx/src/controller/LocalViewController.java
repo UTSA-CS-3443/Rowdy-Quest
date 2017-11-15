@@ -19,7 +19,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -72,6 +74,12 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	public Label infoLabel;
 	
 	@FXML
+	public StackPane stackPane;
+	
+	@FXML
+	public HBox labelBox;
+	
+	@FXML
 	private Button zoom;
 	
 	@FXML
@@ -116,7 +124,12 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		//overworld setup
 		overWorld = new OverWorld();
 		mc = new MouseClickedController(overWorld);
-		mapCanvas.setOnMousePressed(mc);
+		labelBox.setOnMousePressed(mc);
+		//mapCanvas.setPickOnBounds(true);
+		//labelBox.requestFocus();
+		//labelBox.setPickOnBounds(false);
+		
+		//infoLabel.setPickOnBounds(false);
 				
 
 		/**
