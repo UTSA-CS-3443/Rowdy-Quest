@@ -29,7 +29,7 @@ public void jumpTo() {
 	Map m = LocalViewController.map;
 	
 	m.loadMap("res/maps/NPBFloor3.txt");
-	LocalViewController.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
+	LocalViewController.sprite.placePlayer((float)10 * Tile.width, (float)20 * Tile.width);
 
 	
 }

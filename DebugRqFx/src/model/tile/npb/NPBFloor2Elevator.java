@@ -35,11 +35,11 @@ public void jumpTo() {
 	
 	if(npb2to3) {
 		m.loadMap("res/maps/NPBFloor3.txt");
-		LocalViewController.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
+		LocalViewController.sprite.placePlayer((float)10 * Tile.width, (float)20 * Tile.width);
 		npb2to3 = false;
 	}else {
 		m.loadMap("res/maps/NPBFloor1.txt");
-		LocalViewController.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
+		LocalViewController.sprite.placePlayer((float)8 * Tile.width, (float)16 * Tile.width);
 		npb2to3 = true;
 	}
 
