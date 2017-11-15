@@ -1,25 +1,27 @@
-package model.tile.npb;
+package model.tile.npb.portals.stairs;
 
 import controller.LocalViewController;
 import javafx.scene.image.Image;
 import model.Map;
 import model.texture.Texture;
-import model.tile.Portal;
 import model.tile.Tile;
+import model.tile.npb.portals.Portal;
 
-public class StairsVertical extends Tile implements Portal {
+public class StairsWallLeft extends Tile implements Portal {
 
-	public StairsVertical(int id) {
-		super(Texture.stairsVertical, id, null);
+	public StairsWallLeft(int id) {
+		super(Texture.stairsWallLeft, id, null);
 		// TODO Auto-generated constructor stub
 	}
 	
 	public boolean isPortal() {
 		return false;
 	}
-
-
 	
+	public boolean isSolidLeft() {
+		return true;
+	}
+
 	@Override
 	public void jumpTo() {
 		

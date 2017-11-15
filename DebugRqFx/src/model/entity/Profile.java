@@ -73,5 +73,12 @@ public class Profile {
 		return userName + " " + password + " " + firstName + " " + lastName + " "
 				+ x + " " + y + " " + currentMapPath + " ";
 	}
-
+	
+	public float getX() {
+		return x;
+	}
+	
+	public float getY() {
+		return y;
+	}
 }

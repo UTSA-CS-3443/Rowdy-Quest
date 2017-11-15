@@ -1,4 +1,4 @@
-package model.tile.npb;
+package model.tile.npb.classrooms;
 
 import javafx.scene.image.Image;
 

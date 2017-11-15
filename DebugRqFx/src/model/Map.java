@@ -2,12 +2,7 @@ package model;
 
 import controller.Camera;
 import controller.FileHelper;
-import controller.KeyPressedController;
-import controller.LocalViewController;
 import controller.StartViewController;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
-import model.entity.Sprite;
 import model.tile.Tile;
 
 /**
@@ -21,12 +16,14 @@ import model.tile.Tile;
  */
 public class Map {
 
-	private Label infoLabel;
+	///////////////////////////////////////////////////////////////////////////
+	//   FIELDS
+	///////////////////////////////////////////////////////////////////////////
 	
 	private int height, width; // width and height of the map
 	private int spawnX, spawnY;
 	private int[][] tiles; // array of tiles for the map
-	private Camera c = LocalViewController.camera;
+	private Camera c = Game.camera;
 
 	/**
 	 * Used for signing in and saving current map path to the user to spawn in the
@@ -34,21 +31,23 @@ public class Map {
 	 */
 	private String pathString;
 	
-
+	///////////////////////////////////////////////////////////////////////////
+	//   CONSTRUCTOR
+	///////////////////////////////////////////////////////////////////////////
+	
 	/**
 	 * Constructor loads the file
 	 * 
 	 * @param path
 	 *            of the file
 	 */
-	public Map(String path, Label label) {
-		this.infoLabel = label;
+	public Map(String path) {
 		loadMap(path);
 	}
 	
-
-	public void update() {
-	}
+	///////////////////////////////////////////////////////////////////////////
+	//   RENDER
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Render the map to the canvas
@@ -56,42 +55,25 @@ public class Map {
 	 * @param gc
 	 *            Graphics Context
 	 */
-	public void render(GraphicsContext gc, Camera c) {
+	public void render() {
 		// variables that define what tiles the user can see and what tiles to render
 		int xStart = (int)Math.max(0, c.getxOffset() / Tile.width);
-		int xEnd = (int)Math.min(getWidth(), (c.getxOffset() + LocalViewController.canvasWidth) / Tile.width + 1);
+		int xEnd = (int)Math.min(getWidth(), (c.getxOffset() + Game.canvasWidth) / Tile.width + 1);
 		int yStart = (int)Math.max(0, c.getyOffset() / Tile.height);
-		int yEnd = (int)Math.min(getHeight(), (c.getyOffset() + LocalViewController.canvasHeight) / Tile.height + 1);
+		int yEnd = (int)Math.min(getHeight(), (c.getyOffset() + Game.canvasHeight) / Tile.height + 1);
+		
+		
 		
 		for (int y = yStart; y < yEnd; y++) {
 			for (int x = xStart; x < xEnd; x++) {
-				getTile(x, y).render(gc, (int) (x * Tile.width - c.getxOffset()), (int) (y * Tile.height - c.getyOffset()));
+				getTile(x, y).render(Game.gc, (int) (x * Tile.width - c.getxOffset()), (int) (y * Tile.height - c.getyOffset()));
 			}
 		}
 	}
 
-	/**
-	 * Get the tile by index in Tile.tiles ArrayList that corresponds to the value
-	 * at tiles[x][y]
-	 * 
-	 * @param x
-	 * @param y
-	 * @return
-	 */
-	public Tile getTile(int x, int y) {
-		// if somehow player gets outside of map, he will be on a grass tile
-		if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
-			return Tile.black;
-		}
-		
-		Tile t = Tile.tiles.get(tiles[x][y]);
-		if (t == null) { // if invalid index return grass tile
-			return Tile.black;
-		}
-		return t;
-	}
-
-
+	///////////////////////////////////////////////////////////////////////////
+	//   LOAD MAP           
+	///////////////////////////////////////////////////////////////////////////
 	public void loadMap(String path) {
 		this.pathString = path;
 		String file = FileHelper.loadFileAsString(path);
@@ -110,34 +92,40 @@ public class Map {
 			}
 		}
 		
-		infoLabel.setText(getName());		
+		Game.infoLabel.setText(getName());		
 	}
 	
+	///////////////////////////////////////////////////////////////////////////
+	//   GETTERS AND SETTERS
+	///////////////////////////////////////////////////////////////////////////
+	
 	/**
-	 * Overloaded method to load map from Portal Classes
-	 * @param path
+	 * Get the tile by index in Tile.tiles ArrayList that corresponds to the value
+	 * at tiles[x][y]
+	 * 
 	 * @param x
 	 * @param y
+	 * @return
 	 */
-	/*public void loadMap(String path, int xSpawn, int ySpawn) {
-		String file = FileHelper.loadFileAsString(path);
-		String[] tokens = file.split("\\s+");
-		setWidth(Integer.parseInt(tokens[0]));
-		setHeight(Integer.parseInt(tokens[1]));
-		int consume = Integer.parseInt(tokens[2]);
-		consume = Integer.parseInt(tokens[3]);
-		setSpawnX(xSpawn);
-		setSpawnY(ySpawn);
-		tiles = new int[getWidth()][getHeight()];
-		StartViewController.currentUser.setCurrentMapPath(path);
-
-		for (int y = 0; y < getHeight(); y++) {
-			for (int x = 0; x < getWidth(); x++) {
-				tiles[x][y] = Integer.parseInt(tokens[(x + y * getWidth()) + 4]);
-			}
+	public Tile getTile(int x, int y) {
+		// if somehow player gets outside of map, he will be on a grass tile
+		if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
+			return Tile.tiles.get(9);
 		}
-		LocalViewController.t.setText(getName());
-	}*/
+		
+		Tile t = Tile.tiles.get(tiles[x][y]);
+		if (t == null) { // if invalid index return grass tile
+			return Tile.tiles.get(9);
+		}
+		return t;
+	}
+	
+	public String getName() {
+		String path = getPathString();
+		int start = path.lastIndexOf("/");
+		String s = path.substring(start + 1, path.indexOf("."));
+		return s.substring(0, 1).toUpperCase() + s.substring(1);
+	}
 	
 	public int getSpawnX() {
 		return spawnX;
@@ -175,10 +163,5 @@ public class Map {
 		return pathString;
 	}
 	
-	public String getName() {
-		String path = getPathString();
-		int start = path.lastIndexOf("/");
-		String s = path.substring(start + 1, path.indexOf("."));
-		return s.substring(0, 1).toUpperCase() + s.substring(1);
-	}
+	
 }

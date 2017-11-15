@@ -19,13 +19,13 @@ public class MouseClickedController implements EventHandler<MouseEvent> {
 	
 	@Override
 	public void handle(MouseEvent event) {
-		Rectangle mouseBounds = new Rectangle(event.getSceneX()-2, event.getSceneY()-2, 4, 4);
+		Rectangle mouseBounds = new Rectangle(event.getSceneX()-5, event.getSceneY()-5, 10, 10);
 		
-		System.out.print(event.getSceneX() + ", " + event.getSceneY()+ ", ");
+		System.out.println(event.getSceneX() + " " + event.getSceneY());
 		
 		for(Location loc : overWorld.getLocations()){
 			if(mouseBounds.getBoundsInParent().intersects(loc.getBounds().getBoundsInParent()))
-				System.out.println("You clicked " + loc.getName());
+				System.out.println("Success");
 		}
 	}
 

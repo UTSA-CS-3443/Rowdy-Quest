@@ -1,5 +1,6 @@
 package controller;
 
+import model.Game;
 import model.entity.Entity;
 import model.tile.Tile;
 
@@ -44,31 +45,27 @@ public class Camera {
 	 */
 	public void center(Entity e, double viewWidth, double viewHeight) {
 
-		// viewWidth and viewHeight are used to center the canvas
-		// e.getWidth and e.getHeight are used to center the sprite
 		/*
 		 * subtracting the center point of the canvas and the center point of the sprite
 		 * sets the offsets for the camera
-		 * 
 		 */
 		xOffset = e.getX() - (float) (viewWidth / 2 - e.getWidth() / 2);
 		yOffset = e.getY() - (float) (viewHeight / 2 - e.getHeight() / 2);
-		
 		checkEdgeOfMap();
 	}
-	
+
 	public void checkEdgeOfMap() {
 		if (xOffset < 0) {
 			xOffset = 0;
-		} else if (xOffset > LocalViewController.map.getWidth() * Tile.width - LocalViewController.canvasWidth) {
-			xOffset = (float)(LocalViewController.map.getWidth() * Tile.width - LocalViewController.canvasWidth);
+		} else if (xOffset > Game.map.getWidth() * Tile.width - Game.canvasWidth) {
+			xOffset = (float) (Game.map.getWidth() * Tile.width - Game.canvasWidth);
 		}
 		if (yOffset < 0) {
 			yOffset = 0;
-		} else if (yOffset > LocalViewController.map.getHeight() * Tile.height - LocalViewController.canvasHeight) {
-			yOffset = (float)(LocalViewController.map.getHeight() * Tile.height - LocalViewController.canvasHeight);
+		} else if (yOffset > Game.map.getHeight() * Tile.height - Game.canvasHeight) {
+			yOffset = (float) (Game.map.getHeight() * Tile.height - Game.canvasHeight);
 		}
-		
+
 	}
 
 	/**
@@ -82,7 +79,7 @@ public class Camera {
 	public void move(float xAmt, float yAmt) {
 		xOffset += xAmt;
 		yOffset += yAmt;
-		
+
 		checkEdgeOfMap();
 	}
 
