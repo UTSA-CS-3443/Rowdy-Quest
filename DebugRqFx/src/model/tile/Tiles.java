@@ -134,5 +134,7 @@ public class Tiles {
 		Tile npbFloor1toFloor2StairsRightCorner = new StairsCornerTopRight(57);
 
 		Tile npbExteriorDoorDown = new NpbExteriorDoorDown(58);
+		
+		Tile stairsWallLeft = new StairsWallLeft(59);
 	}
 }

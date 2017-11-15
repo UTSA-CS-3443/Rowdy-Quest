@@ -20,6 +20,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -58,6 +59,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	private Button zoom; // button used for zooming in or out
 	@FXML
 	private Button walkOrRun; // button used to toggle walk/run
+	@FXML
+	public HBox labelBox; // container for infoLabel
 	/**
 	 * TextField the user will enter the room number they are searching for
 	 * PromptText will be current room
@@ -72,7 +75,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	private void initialize() {
 		
 		Game game = new Game(mapCanvas, infoLabel);
-		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());		
+		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());	
+		labelBox.setOnMousePressed(Game.mc);
 		Game.animator.start(); // start the game loop
 	}
 

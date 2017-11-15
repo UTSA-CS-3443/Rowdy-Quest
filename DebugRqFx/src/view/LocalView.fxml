@@ -95,7 +95,7 @@
 
 
 						</Canvas>
-						<HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+						<HBox fx:id="labelBox" alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
 							<children>
 								<Label fx:id="infoLabel" alignment="CENTER" prefHeight="45.0"
 									style="-fx-background-color: rgba(255, 127, 80, .5); -fx-border-radius: 10;"
