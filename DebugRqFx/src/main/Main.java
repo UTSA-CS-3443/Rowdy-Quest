@@ -1,7 +1,5 @@
 package main;
 
-// comments to main class for testing
-
 import controller.CreateProfileViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -32,7 +30,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		try {
 			stage = primaryStage;
-			Parent startScene = FXMLLoader.load(getClass().getResource("/view/StartViewTest.fxml")); // StartView
+			Parent startScene = FXMLLoader.load(getClass().getResource("/view/StartView.fxml")); // StartView
 			stage.setTitle("RowdyQuest");
 			// stage.setMaximized(true); // set Stage to maximized window
 			stage.setScene(new Scene(startScene, 800, 650));

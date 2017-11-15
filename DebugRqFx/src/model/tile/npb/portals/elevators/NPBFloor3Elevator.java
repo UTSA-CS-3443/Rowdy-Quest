@@ -1,11 +1,11 @@
-package model.tile.npb;
+package model.tile.npb.portals.elevators;
 
-import controller.LocalViewController;
+import model.Game;
 import javafx.scene.image.Image;
 import model.Map;
 import model.texture.Texture;
-import model.tile.Portal;
 import model.tile.Tile;
+import model.tile.npb.portals.Portal;
 
 /**
  * 
@@ -30,15 +30,15 @@ public boolean isPortal() {
 
 @Override
 public void jumpTo() {
-	Map m = LocalViewController.map;
+	Map m = Game.map;
 	
 	if(npb3to4) {
 		m.loadMap("res/maps/NPBFloor4.txt");
-		LocalViewController.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
+		Game.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
 		npb3to4 = false;
 	}else {
 		m.loadMap("res/maps/NPBFloor2.txt");
-		LocalViewController.sprite.placePlayer((float)6 * Tile.width, (float)16 * Tile.width);
+		Game.sprite.placePlayer((float)8 * Tile.width, (float)15 * Tile.width);
 		npb3to4 = true;
 	}
 

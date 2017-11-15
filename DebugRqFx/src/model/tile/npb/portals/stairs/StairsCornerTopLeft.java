@@ -1,11 +1,11 @@
-package model.tile.npb;
+package model.tile.npb.portals.stairs;
 
-import controller.LocalViewController;
+import model.Game;
 import javafx.scene.image.Image;
 import model.Map;
 import model.texture.Texture;
-import model.tile.Portal;
 import model.tile.Tile;
+import model.tile.npb.portals.Portal;
 
 public class StairsCornerTopLeft extends Tile implements Portal {
 
@@ -28,11 +28,11 @@ public class StairsCornerTopLeft extends Tile implements Portal {
 
 	@Override
 	public void jumpTo() {
-		Map m = LocalViewController.map;
+		Map m = Game.map;
 		if (this.id == 37) {
 			m.loadMap("res/maps/NPBFloor2.txt");
-			LocalViewController.sprite.setX((float)(14 * Tile.width) + 10);
-			LocalViewController.sprite.setY((float)(25 * Tile.height) + 30);
+			Game.sprite.setX((float)(14 * Tile.width) + 10);
+			Game.sprite.setY((float)(25 * Tile.height) + 30);
 		}
 		
 	}

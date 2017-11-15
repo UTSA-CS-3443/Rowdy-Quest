@@ -1,1 +1,2 @@
-b b b b 536.0 1392.0 res/maps/NPBFloor3.txt 
+b b Brandon Black 944.0 1458.0 res/maps/campus.txt 
+t t Tyler Clarkson 1272.0 1408.0 res/maps/campus.txt 

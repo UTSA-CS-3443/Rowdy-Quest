@@ -12,35 +12,24 @@ import javafx.scene.image.Image;
  */
 public class Texture {
 
+	///////////////////////////////////////////////////////////////////////////
+	// FIELDS
+	///////////////////////////////////////////////////////////////////////////
+	
 	/**
 	 * Texture images
 	 *
 	 */
-	public static Image grass, dirt, sidewalk, road, carpet, wall, floor, stairsWallTop, stairsCornerTopLeft, 
-		stairsCornerBottomLeft, stairsWallLeft, stairsVertical, elevatorHorizontal, elevatorVertical, stairsWallRight, 
-		stairsCornerBottomRight, stairsCornerTopRight;
-	/**
-	 * Two different door images for doors that are facing down or up. handle of right side of doorRight
-	 * and left side of doorLeft.
-	 * doorRightFound and doorLeftFound will be images of the door that
-	 * appears to be highlighted. If the user searches for the room number of
-	 * that particular door, that door will change images to appear highlighted.
-	 */
-	public static Image doorRight, doorLeft, doorRightFound, doorLeftFound;
+	public static Image grass, dirt, sidewalk, road, carpet, wall, floor, stairsWallTop, stairsCornerTopLeft,
+			stairsCornerBottomLeft, stairsWallLeft, stairsVertical, elevatorHorizontal, elevatorVertical,
+			stairsWallRight, stairsCornerBottomRight, stairsCornerTopRight, doorRight, doorLeft, doorRightFound,
+			doorLeftFound, black, npbOuterDoorDown, npbOuterDoorLeft, npbOuterDoorRight, npbOuterDoorUp,
+			npbExteriorDoorRight, npbExteriorDoorDown;
 
-	/**
-	 * black is just the parts of the map the user wont see. like behind doors, and just 
-	 * void areas of the map
-	 */
-	public static Image black;
+	///////////////////////////////////////////////////////////////////////////
+	//   INIT
+	///////////////////////////////////////////////////////////////////////////
 	
-	public static Image npbOuterDoorDown, npbOuterDoorLeft, npbOuterDoorRight, npbOuterDoorUp;
-	public static Image npbExteriorDoorRight, npbExteriorDoorDown;
-	
-	/**
-	 * Trying out a classroom
-	 */
-	public static Image npbc1;
 	/**
 	 * Initialize the Textures based on the TextureSheet
 	 */
@@ -52,9 +41,9 @@ public class Texture {
 		carpet = TextureSheet.textures.crop(1, 902, 148, 148);
 		doorRight = TextureSheet.textures.crop(0, 1800, 150, 150);
 		doorLeft = TextureSheet.textures.crop(0, 1951, 150, 150);
-		wall = TextureSheet.textures.crop(303,1352, 145, 145);
+		wall = TextureSheet.textures.crop(303, 1352, 145, 145);
 		floor = TextureSheet.textures.crop(1352, 2251, 148, 148);
-		black = TextureSheet.textures.crop(0,2101, 145, 145);
+		black = TextureSheet.textures.crop(0, 2101, 145, 145);
 		doorRightFound = TextureSheet.textures.crop(1, 2552, 145, 145);
 		doorLeftFound = TextureSheet.textures.crop(1, 2403, 150, 150);
 		stairsWallLeft = TextureSheet.textures.crop(2105, 612, 150, 150);
@@ -73,14 +62,10 @@ public class Texture {
 		stairsCornerBottomRight = TextureSheet.textures.crop(2471, 785, 150, 150);
 		stairsCornerTopRight = TextureSheet.textures.crop(2470, 614, 150, 150);
 		npbExteriorDoorDown = TextureSheet.textures.crop(1927, 636, 146, 146);
-		
-		//These are coordinates for open elevator door if we ever use one
-		//elevatorVertical = TextureSheet.textures.crop(2622, 408, 148, 148);
-		
-		
 
+		// These are coordinates for open elevator door if we ever use one
+		// elevatorVertical = TextureSheet.textures.crop(2622, 408, 148, 148);
 
-		
 	}
 
 }

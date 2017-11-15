@@ -48,7 +48,7 @@
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</TextField>
-						<Button mnemonicParsing="false" onAction="#roomSearch"
+						<Button mnemonicParsing="false" onAction="#handle"
 							prefHeight="30.0" prefWidth="70.0" text="Search">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
@@ -88,14 +88,14 @@
 				</HBox>
 			</top>
 			<center>
-				<StackPane fx:id= "stackPane" prefHeight="150.0" prefWidth="200.0" 
+				<StackPane prefHeight="150.0" prefWidth="200.0"
 					BorderPane.alignment="CENTER">
 					<children>
 						<Canvas fx:id="mapCanvas" height="600.0" width="800.0">
 
 
 						</Canvas>
-						<HBox  fx:id= "labelBox" alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+						<HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
 							<children>
 								<Label fx:id="infoLabel" alignment="CENTER" prefHeight="45.0"
 									style="-fx-background-color: rgba(255, 127, 80, .5); -fx-border-radius: 10;"

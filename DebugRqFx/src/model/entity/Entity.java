@@ -120,7 +120,7 @@ public abstract class Entity {
 	// Classes that extend this class must implement the following methods
 	public abstract void update();
 
-	public abstract void render(GraphicsContext gc);
+	public abstract void render();
 
 	public Rectangle getBounds() {
 		return bounds;

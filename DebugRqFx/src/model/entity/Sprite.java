@@ -3,7 +3,7 @@ package model.entity;
 import controller.Camera;
 import controller.CreateProfileViewController;
 import controller.KeyPressedController;
-import controller.LocalViewController;
+import model.Game;
 import controller.StartViewController;
 import javafx.geometry.Bounds;
 import javafx.scene.Node;
@@ -14,8 +14,8 @@ import javafx.scene.image.Image;
 import main.Main;
 import model.Map;
 import model.tile.Tile;
-import model.tile.npb.NPBFloor1;
-import model.tile.Portal;
+import model.tile.npb.classrooms.NPBFloor1Rooms;
+import model.tile.npb.portals.Portal;
 
 public class Sprite extends Entity {
 
@@ -59,16 +59,16 @@ public class Sprite extends Entity {
 	 * @param y
 	 *            y position of Sprite
 	 */
-	public Sprite(Camera c, KeyPressedController kc, Label infoLabel, float x, float y) {
+	public Sprite(float x, float y) {
 		super(x * Tile.width, y * Tile.height);
 		rowdyRight = new Image("sprite/RowdyRight Transparent.png");
 		rowdyLeft = new Image("sprite/RowdyLeft Transparent.png");
 		sprite = rowdyRight;
-		this.kc = kc;
+		this.kc = Game.kc;
 		this.xMove = 0;
 		this.yMove = 0;
-		this.c = c;
-		this.infoLabel = infoLabel;
+		this.c = Game.camera;
+		this.infoLabel = Game.infoLabel;
 	}
 
 	/**
@@ -167,15 +167,15 @@ public class Sprite extends Entity {
 		//Label infolabel = LocalViewController.infoLabel;
 		String rn = "Room Number";
 		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
-			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
+			rn = Game.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
 			infoLabel.setText(rn);
 			//tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 600);
 		}
 		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
-			rn = LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
+			rn = Game.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
 			infoLabel.setText(rn);
 		} else {
-			infoLabel.setText(LocalViewController.map.getName());
+			infoLabel.setText(Game.map.getName());
 		}
 		return rn;
 	};
@@ -187,7 +187,7 @@ public class Sprite extends Entity {
 		if (onAPortal((int)(x + bounds.getX()) / Tile.width, ty)/*&&
 				LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getId() == 37*/) {
 			//LocalViewController.map = new Map("res/maps/NPBfloor2.txt");
-			Portal t = (Portal)LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty);
+			Portal t = (Portal)Game.map.getTile((int)(x + bounds.getX()) / Tile.width, ty);
 			t.jumpTo();
 		}
 	}
@@ -195,31 +195,31 @@ public class Sprite extends Entity {
 	
 	
 	public boolean collisionWithSolidTile(int x, int y) {
-		return LocalViewController.map.getTile(x, y).isSolid();
+		return Game.map.getTile(x, y).isSolid();
 	}
 	
 	private boolean collisionWithSolidRightTile(int x, int y) {
-		return LocalViewController.map.getTile(x, y).isSolidRight();
+		return Game.map.getTile(x, y).isSolidRight();
 	}
 	
 	private boolean collisionWithSolidLeftTile(int x, int y) {
-		return LocalViewController.map.getTile(x, y).isSolidLeft();
+		return Game.map.getTile(x, y).isSolidLeft();
 	}
 	
 	private boolean collisionWithSolidBottomTile(int x, int y) {
-		return LocalViewController.map.getTile(x, y).isSolidBottom();
+		return Game.map.getTile(x, y).isSolidBottom();
 	}
 	
 	private boolean collisionWithSolidTopTile(int x, int y) {
-		return LocalViewController.map.getTile(x, y).isSolidTop();
+		return Game.map.getTile(x, y).isSolidTop();
 	}
 	
 	public boolean insideADoor(int x, int y) {
-		return LocalViewController.map.getTile(x, y).isDoor();
+		return Game.map.getTile(x, y).isDoor();
 	}
 	
 	public boolean onAPortal(int x, int y) {
-		return LocalViewController.map.getTile(x, y).isPortal();
+		return Game.map.getTile(x, y).isPortal();
 	}
 	
 	
@@ -250,7 +250,7 @@ public class Sprite extends Entity {
 	public void update() {
 		getInput();
 		move();
-		c.center(this, LocalViewController.canvasWidth, LocalViewController.canvasHeight);
+		c.center(this, Game.canvasWidth, Game.canvasHeight);
 	}
 	
 	public float getX(){return x;}
@@ -295,8 +295,8 @@ public class Sprite extends Entity {
 	 * Draws the Sprite to the canvas
 	 */
 	@Override
-	public void render(GraphicsContext gc) {
-		gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
+	public void render() {
+		Game.gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
 		//draws box over sprite to show collision detection bounds
 		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
 	}

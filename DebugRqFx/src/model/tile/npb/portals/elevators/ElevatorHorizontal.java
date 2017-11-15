@@ -1,4 +1,4 @@
-package model.tile.npb;
+package model.tile.npb.portals.elevators;
 
 import javafx.scene.image.Image;
 import model.texture.Texture;
