@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
@@ -78,6 +79,8 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		displayName.setText("Welcome, " + StartViewController.currentUser.getFirstName());	
 		labelBox.setOnMousePressed(Game.mc);
 		Game.animator.start(); // start the game loop
+		labelBox.setOnMouseEntered(new ToolTipController());
+		
 	}
 
 	/**

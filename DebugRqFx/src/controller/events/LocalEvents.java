@@ -33,12 +33,9 @@ public class LocalEvents {
 
 	public static void Map(Event event) {
 		if (!Game.overWorld.getIsOn()) {// if the Game.overWorld is not on
-			Game.overWorld.setIsOn(true);
-			Game.animator.stop();
-			FileHelper.loadOverWorld();
+			openMap();
 		} else {
-			Game.overWorld.setIsOn(false);
-			Game.animator.start();
+			closeMap();
 		}
 	}
 
@@ -186,4 +183,19 @@ public class LocalEvents {
 
 		textField.clear();
 	}
+	
+	
+	public static void openMap(){
+		Game.overWorld.setIsOn(true);
+		Game.animator.stop();
+		FileHelper.loadOverWorld();
+	}
+	
+	public static void closeMap(){
+		Game.overWorld.setIsOn(false);
+		Game.animator.start();
+	}
+	
+	
+	
 }

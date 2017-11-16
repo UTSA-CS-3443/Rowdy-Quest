@@ -49,6 +49,7 @@ public class Game {
 		this.canvasHeight = c.getHeight();
 		this.gc = c.getGraphicsContext2D();
 		
+		
 		/*
 		 * Inner class for animation loop for LocalView. This is effectively the game
 		 * loop since the LocalView is mainly where the user interacts with the app

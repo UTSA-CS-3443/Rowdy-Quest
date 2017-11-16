@@ -10,7 +10,7 @@ public class OverWorld {
 	// FIELDS
 	///////////////////////////////////////////////////////////////////////////
 
-	private final Image map = new Image("/overworld.png");
+	private final Image map = new Image("/campus.jpg");
 	private boolean isOn;
 	private ArrayList<Location> locations;
 
@@ -30,13 +30,13 @@ public class OverWorld {
 
 	private void loadLocations() {
 		locations.add(new Location("North Peseo", "res/maps/NPBFloor1.txt", new Double[] {
-				514.0, 167.0, 538.0, 207.0, 554.0, 198.0, 531.0, 156.0
+				521.0, 162.0, 533.0, 156.0, 554.0, 192.0, 541.0, 199.0, 
 		}));
 		locations.add(new Location("Campus", "res/maps/campus.txt", new Double[] {
-				528.0, 137.0 , 564.0, 198.0, 603.0, 168.0, 571.0, 123.0	
+				561.0, 196.0, 528.0, 137.0, 585.0, 110.0, 623.0, 165.0, 	
 		}));
-		locations.add(new Location("Garage", "res/maps/NPBFloor4.txt", new Double[] {
-				453.0, 134.0, 494.0, 110.0, 475.0, 175.0, 519.0, 149.0
+		locations.add(new Location("Tobin Ave Garage", "res/maps/NPBFloor4.txt", new Double[] {
+				458.0, 124.0, 503.0, 99.0, 526.0, 139.0, 482.0, 164.0, 
 		}));
 	}
 
