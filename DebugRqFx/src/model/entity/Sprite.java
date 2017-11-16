@@ -1,23 +1,17 @@
 package model.entity;
 
 import controller.Camera;
-import controller.CreateProfileViewController;
 import controller.KeyPressedController;
 import model.Game;
 import controller.StartViewController;
-import javafx.geometry.Bounds;
-import javafx.scene.Node;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
-import main.Main;
-import model.Map;
-import model.tile.Portal;
 import model.tile.Tile;
-import model.tile.npb.classrooms.NPBFloor1Rooms;
 
 public class Sprite extends Entity {
+
+	///////////////////////////////////////////////////////////////////////////
+	// FIELDS
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Defines Image that will display for Sprite
@@ -28,7 +22,7 @@ public class Sprite extends Entity {
 	/**
 	 * speed sprite will move (in pixels per keypress
 	 */
-	private  float speed = 4;
+	private float speed = 4;
 
 	/**
 	 * Define how much to move the sprite on each axis
@@ -39,18 +33,20 @@ public class Sprite extends Entity {
 	 * Controller for handling movement via keyboard
 	 */
 	private KeyPressedController kc;
-	
-	private Label infoLabel;
 
 	/**
 	 * Camera to center on Sprite
 	 */
 	private Camera c;
-	
+
 	/**
 	 * For checking collision
 	 */
 	private Collision collision;
+
+	///////////////////////////////////////////////////////////////////////////
+	// CONSTRUCTOR
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Constructor
@@ -74,8 +70,11 @@ public class Sprite extends Entity {
 		this.xMove = 0;
 		this.yMove = 0;
 		this.c = Game.camera;
-		this.infoLabel = Game.infoLabel;
 	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// MOVEMENT
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Moves the Sprite by adding the <code>move</code> variables to the position
@@ -89,107 +88,81 @@ public class Sprite extends Entity {
 		collision.displayRoomNumber();
 		collision.checkForPortals();
 	}
-	
-	// move on the x axis checking for collisions
+
+	/**
+	 * Move on the x axis checking for collisions
+	 */
 	public void moveX() {
-		// if moving right
-		if (xMove > 0) { 
-			int tx = (int)((x + xMove + bounds.getX() + bounds.getWidth()) / Tile.width); // position of tile to right of sprite
-			// if not collision with solid tile on upper right corner or lower right corner
-			
-			// System.out.println(LocalViewController.map.getTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height));
-			
-			if (!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
-					!collision.collisionWithSolidLeftTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collision.collisionWithSolidLeftTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
+		int xMovingRight = (int) ((x + bounds.getX() + bounds.getWidth() + xMove) / Tile.width);
+		int xMovingLeft = (int) ((x + bounds.getX() + xMove) / Tile.width);
+		int tileTop = (int) ((y + bounds.getY()) / Tile.height);
+		int tileBottom = (int) ((y + bounds.getY() + bounds.getHeight()) / Tile.height);
+
+		if (xMove > 0) {
+			if (!collision.checkCollisionRight(xMovingRight, tileTop, tileBottom)) {
 				x += xMove;
 			} else {
-				x = (float)(tx * Tile.width - bounds.getX() - bounds.getWidth() - 1);
+				x = (float) (xMovingRight * Tile.width - bounds.getX() - bounds.getWidth() - 1);
 			}
-		} 
-		// if moving left
-		else if (xMove < 0) {
-			int tx = (int)((x + xMove + bounds.getX()) / Tile.width);
-
-			//System.out.println(LocalViewController.map.getTile(tx1, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height));
-
-			// if not collision with solid tile on upper left corner or lower left corner
-			if (!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
-					!collision.collisionWithSolidRightTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
-					!collision.collisionWithSolidRightTile(tx, (int)(y + bounds.getY()) / Tile.height) && x >= 0) {
+		} else if (xMove < 0) {
+			if (!collision.checkCollisionLeft(xMovingLeft, tileTop, tileBottom) && x >= 0) {
 				x += xMove;
 			} else if (x > 0) {
-				x = (float)(tx * Tile.width + Tile.width - bounds.getX());
+				x = (float) (xMovingLeft * Tile.width + Tile.width - bounds.getX());
 			} else {
-				x = tx - 3;
+				x = xMovingLeft - 3;
 			}
 		}
 	}
-	
-	
 
-	public void moveY() {
-		// if moving up
-				if (yMove < 0) { 
-					int ty = (int)((y + yMove + bounds.getY()) / Tile.height); // position of tile above sprite
-					
-					//System.out.println(LocalViewController.map.getTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty));
-
-					// if not collision with solid tile on upper left corner or upper right corner
-					if (!collision.collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collision.collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
-							y >= 0) {
-						y += yMove;
-					} else if (y > 0){
-						y = (float)(ty * Tile.height + Tile.height - bounds.getY());
-					} else {
-						y = ty - 3;
-					}
-				} 
-				// if moving down
-				else if (yMove > 0) {
-					int ty = (int)((y + yMove + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
-					// if not collision with solid tile on lower left corner or lower right corner
-					if (!collision.collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collision.collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
-							!collision.collisionWithSolidTopTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collision.collisionWithSolidTopTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
-						y += yMove;
-					} else {
-						y = (float)(ty * Tile.height - bounds.getY() - bounds.getHeight() - 1);
-					}
-				}
-	}
-	
-	
-
-	
-	
-	
-	
-	
-	
 	/**
-	 * Will place the player at designated points on the map.
-	 * Will mostly be used for when we change scenes/floors/buildings. 
-	 * @param x x-coordinate to be placed
-	 * @param y y-coordinate to be place
+	 * Move on the y axis checking for collisions
+	 */
+	public void moveY() {
+		int yMovingUp = (int) ((y + yMove + bounds.getY()) / Tile.height);
+		int yMovingDown = (int) ((y + yMove + bounds.getY() + bounds.getHeight()) / Tile.height);
+		int tileLeft = (int) (x + bounds.getX()) / Tile.width;
+		int tileRight = (int) (x + bounds.getX() + bounds.getWidth()) / Tile.width;
+
+		if (yMove < 0) {
+			if (!collision.checkCollisionUp(yMovingUp, tileLeft, tileRight) && y >= 0) {
+				y += yMove;
+			} else if (y > 0) {
+				y = (float) (yMovingUp * Tile.height + Tile.height - bounds.getY());
+			} else {
+				y = yMovingUp - 3;
+			}
+		} else if (yMove > 0) {
+			if (!collision.checkCollisionDown(yMovingDown, tileLeft, tileRight)) {
+				y += yMove;
+			} else {
+				y = (float) (yMovingDown * Tile.height - bounds.getY() - bounds.getHeight() - 1);
+			}
+		}
+
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// PLACE PLAYER
+	///////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * Will place the player at designated points on the map. Will mostly be used
+	 * for when we change scenes/floors/buildings.
+	 * 
+	 * @param x
+	 *            x-coordinate to be placed
+	 * @param y
+	 *            y-coordinate to be place
 	 */
 	public void placePlayer(float x, float y) {
 		this.setX(x);
 		this.setY(y);
 	}
-	
-	/**
-	 * changes the image to left or right depending on the direction 
-	 * it is going
-	 * @param i - image to change to
-	 */
-	private void setImage(Image i) {
-		sprite = i;
-	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// UPDATE AND RENDER
+	///////////////////////////////////////////////////////////////////////////
 
 	/**
 	 * Updates variables relevant to the Sprite
@@ -200,12 +173,47 @@ public class Sprite extends Entity {
 		move();
 		c.center(this, Game.canvasWidth, Game.canvasHeight);
 	}
-	
-	public float getX(){return x;}
-	public float getY() {return y;}
-	
-	public void setX(float x) {this.x = x;}
-	public void setY(float y) {this.y = y;}
+
+	/**
+	 * Draws the Sprite to the canvas
+	 */
+	@Override
+	public void render() {
+		Game.gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
+		// draws box over sprite to show collision detection bounds
+		// gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(),
+		// bounds.getHeight());
+	}
+
+	///////////////////////////////////////////////////////////////////////////
+	// GETTERS AND SETTERS
+	///////////////////////////////////////////////////////////////////////////
+
+	/**
+	 * changes the image to left or right depending on the direction it is going
+	 * 
+	 * @param i
+	 *            - image to change to
+	 */
+	private void setImage(Image i) {
+		sprite = i;
+	}
+
+	public float getX() {
+		return x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	public void setX(float x) {
+		this.x = x;
+	}
+
+	public void setY(float y) {
+		this.y = y;
+	}
 
 	/**
 	 * Gets the input from the keyboard and sets <code>move</code> variables based
@@ -239,14 +247,4 @@ public class Sprite extends Entity {
 		this.speed = speed;
 	}
 
-	/**
-	 * Draws the Sprite to the canvas
-	 */
-	@Override
-	public void render() {
-		Game.gc.drawImage(sprite, (int) (x - c.getxOffset()), (int) (y - c.getyOffset()), width, height);
-		//draws box over sprite to show collision detection bounds
-		//gc.fillRect(x - c.getxOffset(), y - c.getyOffset(), bounds.getWidth(), bounds.getHeight());
-	}
-	
 }
