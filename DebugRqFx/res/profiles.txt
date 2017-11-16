@@ -3,3 +3,4 @@ t t Tyler Clarkson 61.0 64.0 res/maps/campus.txt
 v v v v 35.0 60.0 res/maps/campus.txt 
 v v v v 35.0 60.0 res/maps/campus.txt 
 v v v v 35.0 60.0 res/maps/campus.txt 
+Marlena create Marlena Garza 64.0 1272.0 res/maps/NPBFloor2.txt 
