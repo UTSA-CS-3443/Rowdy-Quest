@@ -11,6 +11,7 @@ import model.tile.npb.Wall;
 import model.tile.npb.classrooms.DoorLeftTile;
 import model.tile.npb.classrooms.DoorRightTile;
 import model.tile.npb.classrooms.NPBFloor1Rooms;
+import model.tile.npb.classrooms.NPBFloor2Rooms;
 import model.tile.npb.portals.elevators.ElevatorHorizontal;
 import model.tile.npb.portals.elevators.NPBFloor1Elevator;
 import model.tile.npb.portals.elevators.NPBFloor2Elevator;
@@ -140,5 +141,13 @@ public class Tiles {
 		Tile npbFloor2toFloor3StairsLeftCorner = new StairsCornerTopLeft(60);
 		
 		Tile npbFloor3toFloor2StairsRightCorner = new StairsCornerBottomLeft(61);
+		
+		/*
+		 * 62 - 105
+		 * This will build the arrayList of classrooms for Floor 1 of NPB Static to have
+		 * access everywhere. We will be able to access the classroom numbers in a for
+		 * loop like f1.get(i).getRoomNumber().
+		 */
+		NPBFloor2Rooms f2 = new NPBFloor2Rooms();
 	}
 }
