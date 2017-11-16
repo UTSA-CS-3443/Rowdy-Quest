@@ -12,6 +12,7 @@ import model.tile.npb.classrooms.DoorLeftTile;
 import model.tile.npb.classrooms.DoorRightTile;
 import model.tile.npb.classrooms.NPBFloor1Rooms;
 import model.tile.npb.classrooms.NPBFloor2Rooms;
+import model.tile.npb.classrooms.NPBFloor3Rooms;
 import model.tile.npb.portals.elevators.ElevatorHorizontal;
 import model.tile.npb.portals.elevators.NPBFloor1Elevator;
 import model.tile.npb.portals.elevators.NPBFloor2Elevator;
@@ -149,5 +150,9 @@ public class Tiles {
 		 * loop like f1.get(i).getRoomNumber().
 		 */
 		NPBFloor2Rooms f2 = new NPBFloor2Rooms();
+		/**
+		 * This uses IDs from 107 - 182
+		 */
+		NPBFloor3Rooms f3 = new NPBFloor3Rooms();
 	}
 }
