@@ -1,7 +1,8 @@
 package controller;
+import model.Game;
 import model.Location;
 import model.OverWorld;
-
+import model.Map;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
@@ -19,13 +20,17 @@ public class MouseClickedController implements EventHandler<MouseEvent> {
 	
 	@Override
 	public void handle(MouseEvent event) {
-		Rectangle mouseBounds = new Rectangle(event.getSceneX()-5, event.getSceneY()-5, 10, 10);
+		Rectangle mouseBounds = new Rectangle(event.getSceneX(), event.getSceneY(), 1, 1);//creates rectangle where mouse is clicked
 		
-		System.out.println(event.getSceneX() + " " + event.getSceneY());
+		//System.out.print(event.getSceneX() + ", " + event.getSceneY() + ", ");
 		
-		for(Location loc : overWorld.getLocations()){
-			if(mouseBounds.getBoundsInParent().intersects(loc.getBounds().getBoundsInParent()))
-				System.out.println("Success");
+		for(Location loc : overWorld.getLocations()){//loops through arraylist of map locations
+			if(mouseBounds.getBoundsInParent().intersects(loc.getBounds().getBoundsInParent())){//checks if the mouse click intersects with the location's bounds
+				System.out.println("Going to " + loc.getName());
+				Map m = Game.map;
+				m.loadMap(loc.getPath());
+				break;
+			}
 		}
 	}
 

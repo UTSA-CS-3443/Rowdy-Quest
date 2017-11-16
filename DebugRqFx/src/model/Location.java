@@ -11,16 +11,18 @@ public class Location {
 	private Double[] points;
 	private Polygon bounds;
 	private String name;
+	private String path;
 	
 	///////////////////////////////////////////////////////////////////////////
 	//   CONSTRUCTOR
 	///////////////////////////////////////////////////////////////////////////
-	
-	public Location(String name, Double[] points) {
+
+	public Location(String name, String path, Double[] points) {
 		this.points = points;
 		bounds = new Polygon();
 		bounds.getPoints().addAll(points);
 		this.name = name;
+		this.path = path;
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -41,5 +43,13 @@ public class Location {
 
 	public Double[] getPointList() {
 		return points;
+	}
+	
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 }
