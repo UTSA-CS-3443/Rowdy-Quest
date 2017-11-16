@@ -107,24 +107,35 @@ public class LocalEvents {
 			if (NPBFloor1Rooms.npb1List.get(i).getRoomNumber() != null) {
 				// if searchFor is equal to any room number in npb1List ArrayList
 				if (NPBFloor1Rooms.npb1List.get(i).getRoomNumber().equals(searchFor)) {
-					// checks if its a left door
-					if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorLeft)) {
+					// checks if its a Bottom door
+					if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorBottom)) {
 						// changes the door on the map to a yellow door
-						NPBFloor1Rooms.npb1List.get(i).setLeftDoorImage(Texture.doorLeftFound);
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorBottomFound);
 						// checks if its a right door
 					} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorRight)) {
 						// changes the door on the map to a yellow door
-						NPBFloor1Rooms.npb1List.get(i).setRightDoorImage(Texture.doorRightFound);
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorRightFound);
+						// checks if its a Top door
+					} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorTop)) {
+						// changes the door on the map to a yellow door
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorTopFound);
+						// checks if its a left door
+					} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorLeft)) {
+						// changes the door on the map to a yellow door
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorLeftFound);
 					}
 					// if the room number does not match one from the arraylist
 				} else if (!NPBFloor1Rooms.npb1List.get(i).getRoomNumber().equals(searchFor)) {
 					// if the door is yellow and it doesnt match the current searched one
 					if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorLeftFound)) {
 						// changes is back to a normal door
-						NPBFloor1Rooms.npb1List.get(i).setLeftDoorImage(Texture.doorLeft);
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorLeft);
 					} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorRightFound)) {
-						NPBFloor1Rooms.npb1List.get(i).setRightDoorImage(Texture.doorRight);
-
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorRight);
+					} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorTopFound)) {
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorTop);
+					} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorBottomFound)) {
+						NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorBottom);
 					}
 
 				}

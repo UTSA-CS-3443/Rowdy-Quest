@@ -146,14 +146,10 @@ public class Tile {
 		return this.id;
 	}
 	
-	public void setRightDoorImage(Image img) {
+	public void setDoorImage(Image img) {
 		this.texture = img;
 	}
-	
-	public void setLeftDoorImage(Image img) {
-		this.texture = img;
-	}
-	
+		
 	public String getRoomNumber() {
 		return this.roomNumber;
 	}

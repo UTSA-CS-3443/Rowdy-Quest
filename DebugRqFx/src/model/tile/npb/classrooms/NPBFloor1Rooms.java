@@ -25,42 +25,42 @@ public class NPBFloor1Rooms {
 	 * then goes back to the left and starts again from left to right
 	 */
 	/**
-	 * Top row of NPB Floor1
+	 * Far left column of NPB Floor1
 	 */
-	public static Tile npb1c0 = new DoorRightTile(10,"NPB 1.202");
-	public static Tile npb1c1 = new DoorRightTile(11,"NPB 1.202");
-	public static Tile npb1c2 = new DoorRightTile(12,"NPB 1.238");
-	public static Tile npb1c3 = new DoorRightTile(13,"NPB 1.238");
-	public static Tile npb1c4 = new DoorRightTile(14,"NPB 1.226");
-	public static Tile npb1c5 = new DoorRightTile(15,"NPB 1.226");
-	public static Tile npb1c6 = new DoorRightTile(16,"NPB 1.250");
-	public static Tile npb1c7 = new DoorRightTile(17,"NPB 1.250");
+	public static Tile npb1c0 = new DoorTopTile(10,"NPB 1.202");
+	public static Tile npb1c1 = new DoorTopTile(11,"NPB 1.202");
+	public static Tile npb1c2 = new DoorTopTile(12,"NPB 1.238");
+	public static Tile npb1c3 = new DoorTopTile(13,"NPB 1.238");
+	public static Tile npb1c4 = new DoorTopTile(14,"NPB 1.226");
+	public static Tile npb1c5 = new DoorTopTile(15,"NPB 1.226");
+	public static Tile npb1c6 = new DoorTopTile(16,"NPB 1.250");
+	public static Tile npb1c7 = new DoorTopTile(17,"NPB 1.250");
 	
 	/**
-	 * 2nd row of NPB Floor1 Left side handle
+	 * 2nd column from left
 	 */
-	public static Tile npb1c8 = new DoorLeftTile(18,"NPB 1.204");
-	public static Tile npb1c9 = new DoorLeftTile(19,"NPB 1.208");
-	public static Tile npb1c10 = new DoorLeftTile(20,"NPB 1.S1");
-	public static Tile npb1c11 = new DoorLeftTile(21,"NPB 1.214");
-	public static Tile npb1c12 = new DoorLeftTile(22,"NPB 1.216");
-	public static Tile npb1c13 = new DoorLeftTile(23,"NPB 1.218");
-	public static Tile npb1c14 = new DoorLeftTile(24,"NPB 1.224");
-	public static Tile npb1c15 = new DoorLeftTile(25,"NPB 1.234");
-	public static Tile npb1c16 = new DoorLeftTile(26,"NPB 1.236");
-	public static Tile npb1c17 = new DoorLeftTile(27,"NPB 1.252");
+	public static Tile npb1c8 = new DoorBottomTile(18,"NPB 1.204");
+	public static Tile npb1c9 = new DoorBottomTile(19,"NPB 1.208");
+	public static Tile npb1c10 = new DoorBottomTile(20,"NPB 1.S1");
+	public static Tile npb1c11 = new DoorBottomTile(21,"NPB 1.214");
+	public static Tile npb1c12 = new DoorBottomTile(22,"NPB 1.216");
+	public static Tile npb1c13 = new DoorBottomTile(23,"NPB 1.218");
+	public static Tile npb1c14 = new DoorBottomTile(24,"NPB 1.224");
+	public static Tile npb1c15 = new DoorBottomTile(25,"NPB 1.234");
+	public static Tile npb1c16 = new DoorBottomTile(26,"NPB 1.236");
+	public static Tile npb1c17 = new DoorBottomTile(27,"NPB 1.252");
 	
 	/**
 	 * Third row of NPB Floor1
 	 */
-	public static Tile npb1c18 = new DoorRightTile(28,"NPB 1.102");
-	public static Tile npb1c19 = new DoorRightTile(29,"NPB 1.106");
-	public static Tile npb1c20 = new DoorRightTile(30,"NPB 1.110");
-	public static Tile npb1c21 = new DoorRightTile(31,"NPB 1.114");
-	public static Tile npb1c22 = new DoorRightTile(32,"NPB 1.118");
-	public static Tile npb1c23 = new DoorRightTile(33,"NPB 1.122");
-	public static Tile npb1c24 = new DoorRightTile(34,"NPB 1.126");
-	public static Tile npb1c25 = new DoorRightTile(35,"NPB 1.130");
+	public static Tile npb1c18 = new DoorTopTile(28,"NPB 1.102");
+	public static Tile npb1c19 = new DoorTopTile(29,"NPB 1.106");
+	public static Tile npb1c20 = new DoorTopTile(30,"NPB 1.110");
+	public static Tile npb1c21 = new DoorTopTile(31,"NPB 1.114");
+	public static Tile npb1c22 = new DoorTopTile(32,"NPB 1.118");
+	public static Tile npb1c23 = new DoorTopTile(33,"NPB 1.122");
+	public static Tile npb1c24 = new DoorTopTile(34,"NPB 1.126");
+	public static Tile npb1c25 = new DoorTopTile(35,"NPB 1.130");
 	/**
 	 * Adds all classrooms to the arrayList
 	 */

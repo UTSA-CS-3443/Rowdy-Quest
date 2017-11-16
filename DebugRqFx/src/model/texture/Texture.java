@@ -24,7 +24,7 @@ public class Texture {
 			stairsCornerBottomLeft, stairsWallLeft, stairsVertical, elevatorHorizontal, elevatorVertical,
 			stairsWallRight, stairsCornerBottomRight, stairsCornerTopRight, doorRight, doorLeft, doorRightFound,
 			doorLeftFound, black, npbOuterDoorDown, npbOuterDoorLeft, npbOuterDoorRight, npbOuterDoorUp,
-			npbExteriorDoorRight, npbExteriorDoorDown;
+			npbExteriorDoorRight, npbExteriorDoorDown, doorTop, doorBottom, doorTopFound, doorBottomFound;
 
 	///////////////////////////////////////////////////////////////////////////
 	//   INIT
@@ -44,8 +44,8 @@ public class Texture {
 		wall = TextureSheet.textures.crop(303, 1352, 145, 145);
 		floor = TextureSheet.textures.crop(1352, 2251, 148, 148);
 		black = TextureSheet.textures.crop(0, 2101, 145, 145);
-		doorRightFound = TextureSheet.textures.crop(1, 2552, 145, 145);
-		doorLeftFound = TextureSheet.textures.crop(1, 2403, 150, 150);
+		doorRightFound = TextureSheet.textures.crop(2101, 1548, 145, 145);
+		doorLeftFound = TextureSheet.textures.crop(2297, 1550, 150, 150);
 		stairsWallLeft = TextureSheet.textures.crop(2105, 612, 150, 150);
 		stairsCornerTopLeft = TextureSheet.textures.crop(2297, 613, 150, 150);
 		npbOuterDoorDown = TextureSheet.textures.crop(1798, 138, 148, 148);
@@ -62,6 +62,10 @@ public class Texture {
 		stairsCornerBottomRight = TextureSheet.textures.crop(2471, 785, 150, 150);
 		stairsCornerTopRight = TextureSheet.textures.crop(2470, 614, 150, 150);
 		npbExteriorDoorDown = TextureSheet.textures.crop(1927, 636, 146, 146);
+		doorTop = TextureSheet.textures.crop(1721, 1342, 150, 150);
+		doorBottom = TextureSheet.textures.crop(1911, 1341, 150, 150);
+		doorTopFound = TextureSheet.textures.crop(1721, 1547, 150, 150);
+		doorBottomFound = TextureSheet.textures.crop(1911, 1546, 150, 150);		
 
 		// These are coordinates for open elevator door if we ever use one
 		// elevatorVertical = TextureSheet.textures.crop(2622, 408, 148, 148);
