@@ -14,9 +14,9 @@ public class Collision {
 		this.y = sprite.getY();
 	}
 	
-	public boolean collisionWithSolidTile(int x, int y) {
+	/*public boolean collisionWithSolidTile(int x, int y) {
 		return Game.map.getTile(x, y).isSolid();
-	}
+	}*/
 	
 	public boolean collisionWithSolidRightTile(int x, int y) {
 		return Game.map.getTile(x, y).isSolidRight();
@@ -72,11 +72,42 @@ public class Collision {
 		int ty = (int)((y + sprite.getBounds().getY() + sprite.getBounds().getHeight()) / Tile.height); // position of tile below sprite
 		int ty2 = (int)((y + sprite.getBounds().getY()) / Tile.height); // position of tile above sprite
 		
-		if (onAPortal((int)(x + sprite.getBounds().getX()) / Tile.width, ty)/*&&
-				LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getId() == 37*/) {
-			//LocalViewController.map = new Map("res/maps/NPBfloor2.txt");
+		if (onAPortal((int)(x + sprite.getBounds().getX()) / Tile.width, ty)) {
 			Portal t = (Portal)Game.map.getTile((int)(x + sprite.getBounds().getX()) / Tile.width, ty);
 			t.jumpTo();
 		} 
+
+	}
+
+	public boolean checkCollisionRight(int x, int tileTop, int tileBottom) {
+		if (collisionWithSolidLeftTile(x, tileTop) || collisionWithSolidLeftTile(x, tileBottom)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean checkCollisionLeft(int x, int tileTop, int tileBottom) {
+		if (collisionWithSolidRightTile(x, tileTop) || collisionWithSolidRightTile(x, tileBottom)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean checkCollisionUp(int y, int tileLeft, int tileRight) {
+		if (collisionWithSolidBottomTile(tileLeft, y) || collisionWithSolidBottomTile(tileRight, y)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean checkCollisionDown(int y, int tileLeft, int tileRight) {
+		if (collisionWithSolidTopTile(tileLeft, y) || collisionWithSolidTopTile(tileRight, y)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

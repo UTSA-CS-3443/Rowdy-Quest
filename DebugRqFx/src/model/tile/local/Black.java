@@ -16,8 +16,21 @@ public class Black extends Tile{
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+	/*@Override
 	public boolean isSolid() {
+		return true;
+	}*/
+	
+	public boolean isSolidRight() {
+		return true;
+	}
+	public boolean isSolidLeft() {
+		return true;
+	}
+	public boolean isSolidTop() {
+		return true;
+	}
+	public boolean isSolidBottom() {
 		return true;
 	}
 }
