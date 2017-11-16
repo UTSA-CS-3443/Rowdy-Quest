@@ -144,7 +144,7 @@ public class Tiles {
 		Tile npbFloor3toFloor2StairsRightCorner = new StairsCornerBottomLeft(61);
 		
 		/*
-		 * 62 - 105
+		 * 62 - 106
 		 * This will build the arrayList of classrooms for Floor 1 of NPB Static to have
 		 * access everywhere. We will be able to access the classroom numbers in a for
 		 * loop like f1.get(i).getRoomNumber().
