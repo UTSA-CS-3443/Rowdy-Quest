@@ -6,8 +6,8 @@ import controller.CreateProfileViewController;
 import controller.StartViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+//import javafx.scene.control.Alert;
+//import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import main.Main;
 import model.Game;
@@ -49,11 +49,11 @@ public class StartEvents {
 				}
 			} 
 		}
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Invalid Input");
-		alert.setHeaderText("You have not entered a valid username and/or password.");
-		alert.setContentText("Please click 'OK' to try again or sign in as a guest.");
-		alert.showAndWait();
+//		Alert alert = new Alert(AlertType.INFORMATION);
+//		alert.setTitle("Invalid Input");
+//		alert.setHeaderText("You have not entered a valid username and/or password.");
+//		alert.setContentText("Please click 'OK' to try again or sign in as a guest.");
+//		alert.showAndWait();
 	}
 
 	/**
