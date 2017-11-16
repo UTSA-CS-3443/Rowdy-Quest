@@ -168,12 +168,11 @@ public class Sprite extends Entity {
 	public String displayRoomNumber() {
 		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
 		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
-		//Label infolabel = LocalViewController.infoLabel;
+	
 		String rn = "Room Number";
-		if (insideADoor((int)(x + bounds.getX()) / Tile.width, ty)) {
-			rn = Game.map.getTile((int)(x + bounds.getX()) / Tile.width, ty).getRoomNumber();
+		if (insideADoor((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
+			rn = Game.map.getTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty).getRoomNumber();
 			infoLabel.setText(rn);
-			//tip.show(Main.stage, Main.stage.getX() + 25, Main.stage.getY() + 600);
 		}
 		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
 			rn = Game.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
