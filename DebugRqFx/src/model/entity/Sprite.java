@@ -46,6 +46,11 @@ public class Sprite extends Entity {
 	 * Camera to center on Sprite
 	 */
 	private Camera c;
+	
+	/**
+	 * For checking collision
+	 */
+	private Collision collision;
 
 	/**
 	 * Constructor
@@ -64,6 +69,7 @@ public class Sprite extends Entity {
 		rowdyRight = new Image("sprite/RowdyRight Transparent.png");
 		rowdyLeft = new Image("sprite/RowdyLeft Transparent.png");
 		sprite = rowdyRight;
+		collision = new Collision(this);
 		this.kc = Game.kc;
 		this.xMove = 0;
 		this.yMove = 0;
@@ -80,8 +86,8 @@ public class Sprite extends Entity {
 		StartViewController.currentUser.setY(y);
 		moveX();
 		moveY();
-		displayRoomNumber();
-		checkForPortals();
+		collision.displayRoomNumber();
+		collision.checkForPortals();
 	}
 	
 	// move on the x axis checking for collisions
@@ -93,10 +99,10 @@ public class Sprite extends Entity {
 			
 			// System.out.println(LocalViewController.map.getTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height));
 			
-			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
-					!collisionWithSolidLeftTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collisionWithSolidLeftTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
+			if (!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
+					!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
+					!collision.collisionWithSolidLeftTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
+					!collision.collisionWithSolidLeftTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height)) {
 				x += xMove;
 			} else {
 				x = (float)(tx * Tile.width - bounds.getX() - bounds.getWidth() - 1);
@@ -109,10 +115,10 @@ public class Sprite extends Entity {
 			//System.out.println(LocalViewController.map.getTile(tx1, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height));
 
 			// if not collision with solid tile on upper left corner or lower left corner
-			if (!collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
-					!collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
-					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
-					!collisionWithSolidRightTile(tx, (int)(y + bounds.getY()) / Tile.height) && x >= 0) {
+			if (!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY()) / Tile.height) &&
+					!collision.collisionWithSolidTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
+					!collision.collisionWithSolidRightTile(tx, (int)(y + bounds.getY() + bounds.getHeight()) / Tile.height) &&
+					!collision.collisionWithSolidRightTile(tx, (int)(y + bounds.getY()) / Tile.height) && x >= 0) {
 				x += xMove;
 			} else if (x > 0) {
 				x = (float)(tx * Tile.width + Tile.width - bounds.getX());
@@ -132,8 +138,8 @@ public class Sprite extends Entity {
 					//System.out.println(LocalViewController.map.getTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty));
 
 					// if not collision with solid tile on upper left corner or upper right corner
-					if (!collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
+					if (!collision.collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
+							!collision.collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
 							y >= 0) {
 						y += yMove;
 					} else if (y > 0){
@@ -146,10 +152,10 @@ public class Sprite extends Entity {
 				else if (yMove > 0) {
 					int ty = (int)((y + yMove + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
 					// if not collision with solid tile on lower left corner or lower right corner
-					if (!collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
-							!collisionWithSolidTopTile((int)(x + bounds.getX()) / Tile.width, ty) &&
-							!collisionWithSolidTopTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
+					if (!collision.collisionWithSolidTile((int)(x + bounds.getX()) / Tile.width, ty) &&
+							!collision.collisionWithSolidTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty) &&
+							!collision.collisionWithSolidTopTile((int)(x + bounds.getX()) / Tile.width, ty) &&
+							!collision.collisionWithSolidTopTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
 						y += yMove;
 					} else {
 						y = (float)(ty * Tile.height - bounds.getY() - bounds.getHeight() - 1);
@@ -159,71 +165,10 @@ public class Sprite extends Entity {
 	
 	
 
-	/**
-	 * This will check if the sprite is even slightly touching a door
-	 * If so it will set the prompt Text of the Room Search TextField to the room
-	 * number the user is in
-	 * @return - rn is the current room number, or "Room Number" by default
-	 */
-	public String displayRoomNumber() {
-		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
-		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
-	
-		String rn = "Room Number";
-		if (insideADoor((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty)) {
-			rn = Game.map.getTile((int)(x + bounds.getX() + bounds.getWidth()) / Tile.width, ty).getRoomNumber();
-			infoLabel.setText(rn);
-		}
-		else if(insideADoor((int)(x + bounds.getX()) / Tile.width, ty2)) {
-			rn = Game.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getRoomNumber();
-			infoLabel.setText(rn);
-		} else {
-			infoLabel.setText(Game.map.getName());
-		}
-		return rn;
-	};
-	
-	public void checkForPortals() {
-		int ty = (int)((y + bounds.getY() + bounds.getHeight()) / Tile.height); // position of tile below sprite
-		int ty2 = (int)((y + bounds.getY()) / Tile.height); // position of tile above sprite
-		
-		if (onAPortal((int)(x + bounds.getX()) / Tile.width, ty)/*&&
-				LocalViewController.map.getTile((int)(x + bounds.getX()) / Tile.width, ty2).getId() == 37*/) {
-			//LocalViewController.map = new Map("res/maps/NPBfloor2.txt");
-			Portal t = (Portal)Game.map.getTile((int)(x + bounds.getX()) / Tile.width, ty);
-			t.jumpTo();
-		}
-	}
 	
 	
 	
-	public boolean collisionWithSolidTile(int x, int y) {
-		return Game.map.getTile(x, y).isSolid();
-	}
 	
-	private boolean collisionWithSolidRightTile(int x, int y) {
-		return Game.map.getTile(x, y).isSolidRight();
-	}
-	
-	private boolean collisionWithSolidLeftTile(int x, int y) {
-		return Game.map.getTile(x, y).isSolidLeft();
-	}
-	
-	private boolean collisionWithSolidBottomTile(int x, int y) {
-		return Game.map.getTile(x, y).isSolidBottom();
-	}
-	
-	private boolean collisionWithSolidTopTile(int x, int y) {
-		return Game.map.getTile(x, y).isSolidTop();
-	}
-	
-	public boolean insideADoor(int x, int y) {
-		return Game.map.getTile(x, y).isDoor();
-	}
-	
-	public boolean onAPortal(int x, int y) {
-		return Game.map.getTile(x, y).isPortal();
-	}
 	
 	
 	/**
