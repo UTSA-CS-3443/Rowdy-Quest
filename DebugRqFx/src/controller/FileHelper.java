@@ -60,28 +60,16 @@ public class FileHelper {
 		pw.close();
 	}
 
-	/*public static void loadOverWorld() {
-
-		Game.gc.drawImage(Game.overWorld.getMap(), 0, 0);
-
-		ArrayList<Location> list = Game.overWorld.getLocations();
-
-		for (Location loc : list) {
-			Game.gc.fillRect(loc.getX(), loc.getY() - loc.getHeigth(), loc.getWidth(), loc.getHeigth());
-
-			Game.gc.setFill(Color.RED);
-			Game.gc.setFont(Font.font("Verdana", 11));
-			Game.gc.fillText(loc.getName(), loc.getX(), loc.getY());
-
-		}
-	}*/
+	
 public static void loadOverWorld() {
 		
 		Game.gc.drawImage(Game.overWorld.getMap(), 0, 0);
+		Game.gc.setFill(Color.BLUE);
+		//Game.gc.fillOval(Game.overWorld.getCurrentLocation().getPointList()[0], Game.overWorld.getCurrentLocation().getPointList()[1], 5, 5);
 		
 		ArrayList<Location> list = Game.overWorld.getLocations();
-		/*
-		for(Location loc : list) {
+		
+		/*for(Location loc : list) {
 			
 		
 			int nPoints = loc.getPointList().length/2;
@@ -102,10 +90,10 @@ public static void loadOverWorld() {
 				
 			}
 			
-			gc.fillPolygon(x, y, nPoints);
+			Game.gc.fillPolygon(x, y, nPoints);
 			
-			gc.setFill(Color.RED);
-			gc.setFont(Font.font ("Verdana", 11));
+			Game.gc.setFill(Color.RED);
+			Game.gc.setFont(Font.font ("Verdana", 11));
 			//gc.fillText(loc.getName() , loc.getX(), loc.getY());
 			
 		}*/

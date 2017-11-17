@@ -17,16 +17,37 @@ public class ToolTipController implements EventHandler<MouseEvent> {
 	
 	public ToolTipController(){
 		tp  = new Tooltip("");
+		
 	}
 	
 	
 	@Override
 	public void handle(MouseEvent t) {
-		Rectangle mouseBounds = new Rectangle(t.getSceneX(), t.getSceneY(), 1, 1);
-		
-		
 		
 		if(Game.overWorld.getIsOn()){
+		
+			Rectangle mouseBounds = new Rectangle(t.getSceneX(), t.getSceneY(), 1, 1);
+			node =(Node)t.getSource();
+			
+			
+			
+			
+			
+			
+			
+			tp.setText("");
+			for(Location loc : Game.overWorld.getLocations()){//loops through arraylist of map locations
+				if(mouseBounds.getBoundsInParent().intersects(loc.getBounds().getBoundsInParent())){
+					tp.setText(loc.getName());
+					
+				}
+			}
+		
+			tp.show(node,Main.stage.getX()+t.getSceneX(), Main.stage.getY()+t.getSceneY());
+			
+		}
+		
+		/*if(Game.overWorld.getIsOn()){
 			node =(Node)t.getSource();
 			
 			for(Location loc : Game.overWorld.getLocations()){//loops through arraylist of map locations
@@ -47,7 +68,7 @@ public class ToolTipController implements EventHandler<MouseEvent> {
 		else{
 			tp.hide();
 		}
-       
+       */
 	}
 
 }
