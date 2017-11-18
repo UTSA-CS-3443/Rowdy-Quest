@@ -4,9 +4,16 @@ import controller.FileHelper;
 import controller.StartViewController;
 import model.tile.Tile;
 
+/**
+ * 
+ * @author Brandon Black
+ *
+ */
 public class MiniMap extends Map {
 
-	
+	/**
+	 * Tiles for miniMap
+	 */
 	private int[][] tiles;
 	/**
 	 * placeHolder1 and placeHolder2 for the 2nd row in map .txts
@@ -15,6 +22,9 @@ public class MiniMap extends Map {
 	
 	private int height, width; // height and width of the map
 	
+	/**
+	 * path of text file for given map
+	 */
 	private String path;
 	
 	public MiniMap(String path) {
@@ -25,7 +35,7 @@ public class MiniMap extends Map {
 	
 
 	/**
-	 * Loads the map with tiles of width and height 20
+	 * Loads the map with smaller tiles to fit on screen
 	 * 
 	 */
 	public void loadMiniMap() {
