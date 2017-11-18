@@ -21,12 +21,7 @@
 			<top>
 				<HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 					<children>
-						<Button fx:id="walkOrRun" minHeight="30.0" minWidth="45.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="45.0" text="Run">
-							<HBox.margin>
-								<Insets left="10.0" top="10.0" />
-							</HBox.margin>
-						</Button>
-						<Button fx:id="zoom" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Zoom-in">
+						<Button fx:id="search" mnemonicParsing="false" onAction="#handleSearch" prefHeight="30.0" prefWidth="70.0" text="Search">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
@@ -37,7 +32,12 @@
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</TextField>
-						<Button fx:id="search" mnemonicParsing="false" onAction="#handleSearch" prefHeight="30.0" prefWidth="70.0" text="Search">
+						<Button fx:id="walkOrRun" minHeight="30.0" minWidth="45.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="45.0" text="Run">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+						</Button>
+						<Button fx:id="zoom" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Zoom-in">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
