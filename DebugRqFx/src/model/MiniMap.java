@@ -24,7 +24,10 @@ public class MiniMap extends Map {
 	}
 	
 
-	
+	/**
+	 * Loads the map with tiles of width and height 20
+	 * 
+	 */
 	public void loadMiniMap() {
 		String file = FileHelper.loadFileAsString(path);
 		String[] tokens = file.split("\\s+");
@@ -32,8 +35,10 @@ public class MiniMap extends Map {
 		setHeight(Integer.parseInt(tokens[1]));
 		ph1 = Integer.parseInt(tokens[2]);
 		ph2 = Integer.parseInt(tokens[3]);
-		Tile.width = 20;
-		Tile.height = 20;
+		Tile.width = 48;
+		Tile.height = 19;
+//		Tile.width = 20;
+//		Tile.height = 20;
 		
 		tiles = new int[getWidth()][getHeight()];
 
