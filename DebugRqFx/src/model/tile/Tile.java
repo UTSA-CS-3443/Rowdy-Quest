@@ -157,5 +157,13 @@ public class Tile {
 	public Image getImage() {
 		return this.texture;
 	}
+	
+	public float getTileWidth() {
+		return width;
+	}
+	
+	public float getTileHeight() {
+		return height;
+	}
 
 }

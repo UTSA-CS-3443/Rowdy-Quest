@@ -1,15 +1,21 @@
 package controller.events;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import controller.FileHelper;
 import controller.StartViewController;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import main.Main;
 import model.Game;
+import model.MiniMap;
 import model.texture.Texture;
 import model.tile.Tile;
 import model.tile.Tiles;
@@ -100,10 +106,23 @@ public class LocalEvents {
 	 * the text from the rNumberTextField and search it against the roomNumbers of
 	 * the arraylist full of classrooms.
 	 */
-	public static void Search(Event event, TextField textField) {
-		String searchFor;
-		searchFor = textField.getText();	
+	private static model.Map m;
+	private static int currentTileXSize;
+	private static int currentTileYSize;
+	
+	public static void Search(Event event, TextField textField, Button button) {
+		String eventSource = event.getSource().toString();
 		
+		if(button.getText().equals("Search")){
+		m = Game.map;
+		currentTileXSize = Tile.width;
+		currentTileYSize = Tile.height;
+		}
+		
+		if(eventSource.contains("Search")) {
+			String searchFor;
+			searchFor = textField.getText();
+			
 		//cycle through Building arrayList of classroom arraylists
 		for (int i = 0; i < NPBList.size(); i++) {
 			//cycle through the arrayLists inside the Building arrayList
@@ -120,17 +139,60 @@ public class LocalEvents {
 					}else if(NPBList.get(i).get(j).getImage().equals(Texture.doorRight)){
 						NPBList.get(i).get(j).setDoorImage(Texture.doorRightFound);
 					}
-						
+					button.setText("Back");
+					
+					//setUp and display MiniMaps
+					if(i == 0) {
+						MiniMap miniF1 = new MiniMap("res/maps/NPBFloor1.txt");
+						Game.map = miniF1;
+						miniF1.loadMiniMap();
+					}else if(i == 1) {
+						MiniMap miniF2 = new MiniMap("res/maps/NPBFloor2.txt");
+						Game.map = miniF2;
+						miniF2.loadMiniMap();
+					}else if(i == 2) {
+						MiniMap miniF3 = new MiniMap("res/maps/NPBFloor3.txt");
+						Game.map = miniF3;
+						miniF3.loadMiniMap();
+					}else if(i == 3) {
+						MiniMap miniF4 = new MiniMap("res/maps/NPBFloor4.txt");
+						Game.map = miniF4;
+						miniF4.loadMiniMap();
+					}
+					
+					
+				}else if(!NPBList.get(i).get(j).getRoomNumber().equals(searchFor)){
+					
+					//Change door Color first, check for all 4 cases of door
+						if(NPBList.get(i).get(j).getImage().equals(Texture.doorTopFound)){
+							NPBList.get(i).get(j).setDoorImage(Texture.doorTop);
+						}else if(NPBList.get(i).get(j).getImage().equals(Texture.doorBottomFound)){
+							NPBList.get(i).get(j).setDoorImage(Texture.doorBottom);
+						}else if(NPBList.get(i).get(j).getImage().equals(Texture.doorLeftFound)){
+							NPBList.get(i).get(j).setDoorImage(Texture.doorLeft);
+						}else if(NPBList.get(i).get(j).getImage().equals(Texture.doorRightFound)){
+							NPBList.get(i).get(j).setDoorImage(Texture.doorRight);
+						}
 				}else {
 					//Display error "Invalid Room Number"
 				}
 				
 				
 			}
-		
+			textField.clear();
+			
 		}
+			//Go back to traversion with sprite
+		}else if(eventSource.contains("Back")) {
+				Game.map = m;
+				Tile.width = currentTileXSize;
+				Tile.height = currentTileYSize;
+				button.setText("Search");
+		}
+		
+		
 
-		textField.clear();
+		
 	}
 	
 	
@@ -144,6 +206,8 @@ public class LocalEvents {
 		Game.overWorld.setIsOn(false);
 		Game.animator.start();
 	}
+	
+
 	
 	
 	

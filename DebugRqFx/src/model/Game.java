@@ -89,4 +89,8 @@ public class Game {
 		sprite.render();
 	}
 	
+	public Map getMap() {
+		return map;
+	}
+	
 }

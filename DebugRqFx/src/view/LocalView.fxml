@@ -1,73 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="controller.LocalViewController">
+<AnchorPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LocalViewController">
 	<children>
-		<BorderPane fx:id="localPane" layoutX="13.0" layoutY="-9.0"
-			prefHeight="655.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0"
-			AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-			AnchorPane.topAnchor="0.0">
+		<BorderPane fx:id="localPane" layoutX="13.0" layoutY="-9.0" prefHeight="655.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 			<bottom>
 			</bottom>
 			<top>
 				<HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 					<children>
-						<Button fx:id="walkOrRun" minHeight="30.0" minWidth="45.0"
-							mnemonicParsing="false" onAction="#handle" prefHeight="30.0"
-							prefWidth="45.0" text="Run">
+						<Button fx:id="walkOrRun" minHeight="30.0" minWidth="45.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="45.0" text="Run">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
-						<Button fx:id="zoom" minHeight="30.0" minWidth="70.0"
-							mnemonicParsing="false" onAction="#handle" prefHeight="30.0"
-							prefWidth="70.0" text="Zoom-in">
+						<Button fx:id="zoom" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Zoom-in">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
 
-						<TextField fx:id="rNumberTextField" prefHeight="30.0"
-							promptText="Room Number">
+						<TextField fx:id="rNumberTextField" prefHeight="30.0" promptText="Room Number">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</TextField>
-						<Button mnemonicParsing="false" onAction="#handle"
-							prefHeight="30.0" prefWidth="70.0" text="Search">
+						<Button fx:id="search" mnemonicParsing="false" onAction="#handleSearch" prefHeight="30.0" prefWidth="70.0" text="Search">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
-						<Button mnemonicParsing="false" onAction="#handle"
-							prefHeight="30.0" prefWidth="70.0" text="Map">
+						<Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Map">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
-						<Button mnemonicParsing="false" onAction="#handle"
-							prefHeight="30.0" prefWidth="70.0" text="Save">
+						<Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Save">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
-						<MenuButton minHeight="30.0" mnemonicParsing="false"
-							text="Settings">
+						<MenuButton minHeight="30.0" mnemonicParsing="false" text="Settings">
 							<items>
 								<MenuItem mnemonicParsing="false" text="Action 1">
 									<graphic>
@@ -84,12 +69,16 @@
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</MenuButton>
+                  <Button minHeight="30.0" mnemonicParsing="false" text="Back" visible="false">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
 					</children>
 				</HBox>
 			</top>
 			<center>
-				<StackPane prefHeight="150.0" prefWidth="200.0"
-					BorderPane.alignment="CENTER">
+				<StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 					<children>
 						<Canvas fx:id="mapCanvas" height="600.0" width="800.0">
 
@@ -97,9 +86,7 @@
 						</Canvas>
 						<HBox fx:id="labelBox" alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
 							<children>
-								<Label fx:id="infoLabel" alignment="CENTER" prefHeight="45.0"
-									style="-fx-background-color: rgba(255, 127, 80, .5); -fx-border-radius: 10;"
-									text="Label" textFill="WHITE">
+								<Label fx:id="infoLabel" alignment="CENTER" prefHeight="45.0" style="-fx-background-color: rgba(255, 127, 80, .5); -fx-border-radius: 10;" text="Label" textFill="WHITE">
 									<font>
 										<Font size="30.0" />
 									</font>

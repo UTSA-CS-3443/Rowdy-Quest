@@ -17,7 +17,7 @@ import model.Profile;
 
 public class StartEvents {
 	private TextField signInUs, signInPw;
-	
+		
 	public StartEvents(TextField us, TextField pw) {
 		this.signInUs = us;
 		this.signInPw = pw;
