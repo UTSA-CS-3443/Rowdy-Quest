@@ -75,6 +75,14 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	@FXML
 	private Button search;
 	
+	@FXML
+	private Button map;
+	
+	@FXML
+	private Button save;
+	
+	
+	
 	/**
 	 * Initializes the Local View
 	 */
@@ -112,6 +120,21 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 		 if(search.getText().equals("Search") || search.getText().equals("Back")){
 				LocalEvents.Search(event, rNumberTextField, search);
 			}
+		 if( search.getText().equals("Back")) {
+			 walkOrRun.setVisible(false);
+			 zoom.setVisible(false);
+			 map.setVisible(false);
+			 save.setVisible(false);
+			 rNumberTextField.setVisible(false);
+			 
+			 
+		 }else if(search.getText().equals("Search")){
+			 walkOrRun.setVisible(true);
+			 zoom.setVisible(true);
+			 map.setVisible(true);
+			 save.setVisible(true);
+			 rNumberTextField.setVisible(true);
+		 }
 	}
 	
 }

@@ -42,12 +42,12 @@
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
-						<Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Map">
+						<Button fx:id="map" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Map">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
-						<Button mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Save">
+						<Button fx:id="save" mnemonicParsing="false" onAction="#handle" prefHeight="30.0" prefWidth="70.0" text="Save">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
