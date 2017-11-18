@@ -52,7 +52,7 @@
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 						</Button>
-						<MenuButton minHeight="30.0" mnemonicParsing="false" text="Settings">
+						<MenuButton fx:id="settings" minHeight="30.0" mnemonicParsing="false" text="Settings">
 							<items>
 								<MenuItem mnemonicParsing="false" text="Action 1">
 									<graphic>

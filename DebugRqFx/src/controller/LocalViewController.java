@@ -21,6 +21,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
@@ -81,6 +82,9 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 	@FXML
 	private Button save;
 	
+	@FXML
+	private MenuButton settings;
+	
 	
 	
 	/**
@@ -126,6 +130,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 			 map.setVisible(false);
 			 save.setVisible(false);
 			 rNumberTextField.setVisible(false);
+			 settings.setVisible(false);
 			 
 			 
 		 }else if(search.getText().equals("Search")){
@@ -134,6 +139,7 @@ public class LocalViewController implements EventHandler<ActionEvent> {
 			 map.setVisible(true);
 			 save.setVisible(true);
 			 rNumberTextField.setVisible(true);
+			 settings.setVisible(true);
 		 }
 	}
 	
