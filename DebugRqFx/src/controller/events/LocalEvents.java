@@ -1,6 +1,7 @@
 package controller.events;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import controller.FileHelper;
 import controller.StartViewController;
@@ -19,6 +20,8 @@ public class LocalEvents {
 
 	private static boolean isZoomed = false; // used with zoom button
 	private static boolean isRunning = false; // used with walk/run button
+	
+	public static ArrayList<ArrayList<Tile>> NPBList = new ArrayList<>();
 
 	public static void Save(Event event, float x, float y) {
 		System.out.println("save");
@@ -99,86 +102,32 @@ public class LocalEvents {
 	 */
 	public static void Search(Event event, TextField textField) {
 		String searchFor;
-		searchFor = textField.getText();
-		System.out.println(Game.map.getName());
-
-		if (Game.map.getName().equals("NPBFloor1")) {
-			for (int i = 0; i < NPBFloor1Rooms.npb1List.size(); i++) {
-				if (NPBFloor1Rooms.npb1List.get(i).getRoomNumber() != null) {
-					// if searchFor is equal to any room number in npb1List ArrayList
-					if (NPBFloor1Rooms.npb1List.get(i).getRoomNumber().equals(searchFor)) {
-						// checks if its a Bottom door
-						if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorBottom)) {
-							// changes the door on the map to a yellow door
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorBottomFound);
-							// checks if its a right door
-						} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorRight)) {
-							// changes the door on the map to a yellow door
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorRightFound);
-							// checks if its a Top door
-						} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorTop)) {
-							// changes the door on the map to a yellow door
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorTopFound);
-							// checks if its a left door
-						} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorLeft)) {
-							// changes the door on the map to a yellow door
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorLeftFound);
-						}
-						// if the room number does not match one from the arraylist
-					} else if (!NPBFloor1Rooms.npb1List.get(i).getRoomNumber().equals(searchFor)) {
-						// if the door is yellow and it doesnt match the current searched one
-						if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorLeftFound)) {
-							// changes is back to a normal door
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorLeft);
-						} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorRightFound)) {
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorRight);
-						} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorTopFound)) {
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorTop);
-						} else if (NPBFloor1Rooms.npb1List.get(i).getImage().equals(Texture.doorBottomFound)) {
-							NPBFloor1Rooms.npb1List.get(i).setDoorImage(Texture.doorBottom);
-						}
-
+		searchFor = textField.getText();	
+		
+		//cycle through Building arrayList of classroom arraylists
+		for (int i = 0; i < NPBList.size(); i++) {
+			//cycle through the arrayLists inside the Building arrayList
+			for (int j = 0; j < NPBList.get(i).size(); j++) {
+				if(NPBList.get(i).get(j).getRoomNumber().equals(searchFor)){
+					
+				//Change door Color first, check for all 4 cases of door
+					if(NPBList.get(i).get(j).getImage().equals(Texture.doorTop)){
+						NPBList.get(i).get(j).setDoorImage(Texture.doorTopFound);
+					}else if(NPBList.get(i).get(j).getImage().equals(Texture.doorBottom)){
+						NPBList.get(i).get(j).setDoorImage(Texture.doorBottomFound);
+					}else if(NPBList.get(i).get(j).getImage().equals(Texture.doorLeft)){
+						NPBList.get(i).get(j).setDoorImage(Texture.doorLeftFound);
+					}else if(NPBList.get(i).get(j).getImage().equals(Texture.doorRight)){
+						NPBList.get(i).get(j).setDoorImage(Texture.doorRightFound);
 					}
+						
+				}else {
+					//Display error "Invalid Room Number"
 				}
+				
+				
 			}
-		} else if (Game.map.getName().equals("NPBFloor2")) {
-			for (int i = 0; i < NPBFloor2Rooms.npb2List.size(); i++) {
-				if (NPBFloor2Rooms.npb2List.get(i).getRoomNumber() != null) {
-					// if searchFor is equal to any room number in npb1List ArrayList
-					if (NPBFloor2Rooms.npb2List.get(i).getRoomNumber().equals(searchFor)) {
-						// checks if its a Bottom door
-						if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorBottom)) {
-							// changes the door on the map to a yellow door
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorBottomFound);
-							// checks if its a right door
-						} else if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorRight)) {
-							// changes the door on the map to a yellow door
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorRightFound);
-							// checks if its a Top door
-						} else if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorTop)) {
-							// changes the door on the map to a yellow door
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorTopFound);
-							// checks if its a left door
-						} else if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorLeft)) {
-							// changes the door on the map to a yellow door
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorLeftFound);
-						}
-						// if the room number does not match one from the arraylist
-					} else if (!NPBFloor2Rooms.npb2List.get(i).getRoomNumber().equals(searchFor)) {
-						// if the door is yellow and it doesnt match the current searched one
-						if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorLeftFound)) {
-							// changes is back to a normal door
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorLeft);
-						} else if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorRightFound)) {
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorRight);
-						} else if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorTopFound)) {
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorTop);
-						} else if (NPBFloor2Rooms.npb2List.get(i).getImage().equals(Texture.doorBottomFound)) {
-							NPBFloor2Rooms.npb2List.get(i).setDoorImage(Texture.doorBottom);
-						}
-					}
-				}
-			}
+		
 		}
 
 		textField.clear();
