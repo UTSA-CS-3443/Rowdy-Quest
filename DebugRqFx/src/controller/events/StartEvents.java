@@ -1,9 +1,11 @@
 package controller.events;
 
+import java.awt.Label;
 import java.io.IOException;
 
 import controller.CreateProfileViewController;
 import controller.StartViewController;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 //import javafx.scene.control.Alert;
@@ -17,6 +19,8 @@ import model.Profile;
 
 public class StartEvents {
 	private TextField signInUs, signInPw;
+	public static boolean found = false;
+	
 		
 	public StartEvents(TextField us, TextField pw) {
 		this.signInUs = us;
@@ -38,6 +42,7 @@ public class StartEvents {
 			System.out.println(CreateProfileViewController.profiles.get(i).getPassword());
 			if (signInUs.getText().equals(CreateProfileViewController.profiles.get(i).getUserName())
 					&& signInPw.getText().equals(CreateProfileViewController.profiles.get(i).getPassword())) {
+				found = true;
 				StartViewController.currentUser = CreateProfileViewController.profiles.get(i);
 				try {
 					Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
@@ -47,7 +52,7 @@ public class StartEvents {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			} 
+			}
 		}
 //		Alert alert = new Alert(AlertType.INFORMATION);
 //		alert.setTitle("Invalid Input");

@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.Label;
 import java.io.IOException;
 
 import controller.events.StartEvents;
@@ -9,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 //import javafx.scene.control.Alert;
 //import javafx.scene.control.Alert.AlertType;
@@ -20,6 +20,7 @@ import model.entity.Sprite;
 
 /**
  * 
+ * @author Maurice Velgis
  * @author Tyler Clarkson
  * @author Brandon Black
  * 
@@ -42,6 +43,9 @@ public class StartViewController implements EventHandler<ActionEvent> {
 	 */
 	@FXML
 	private TextField name;
+	
+	@FXML
+	private Label err_msg;
 
 	/**
 	 * UserName textField - Textfield for user to enter username upon sign in
@@ -82,6 +86,9 @@ public class StartViewController implements EventHandler<ActionEvent> {
 		String eventSource = event.getSource().toString();
 		System.out.println(eventSource);
 		if (eventSource.contains("Sign In")) {
+			if(!StartEvents.found)
+				err_msg.setVisible(true);
+			
 			se.SignIn();
 		} else if (eventSource.contains("Create New Profile")) {
 			se.CreateProfile();

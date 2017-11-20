@@ -54,7 +54,15 @@
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin></Button>
+                  <Label fx:id="err_msg" text="Invalid credentials. Password or username not matched." textFill="RED" visible="false">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
                </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
             </VBox>
          </center>
          <bottom>
