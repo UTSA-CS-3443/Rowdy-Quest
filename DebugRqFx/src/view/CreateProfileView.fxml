@@ -23,27 +23,27 @@
          <center>
             <VBox fx:id="name" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="TOP_LEFT" text="Username">
+                  <Label fx:id="un_label" alignment="TOP_LEFT" text="Username">
                      <padding>
                         <Insets right="235.0" />
                      </padding></Label>
                   <TextField fx:id="userName" maxWidth="300.0" promptText="Name" />
-                  <Label layoutX="283.0" layoutY="187.0" text="Password">
+                  <Label fx:id="pw_label" layoutX="283.0" layoutY="187.0" text="Password">
                      <padding>
                         <Insets right="235.0" top="10.0" />
                      </padding></Label>
                   <PasswordField fx:id="pw1" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="300.0" promptText="Password" />
-                  <Label layoutX="283.0" layoutY="178.0" text="Re-enter Password">
+                  <Label fx:id="pw2_label" layoutX="283.0" layoutY="178.0" text="Re-enter Password">
                      <padding>
                         <Insets right="185.0" top="10.0" />
                      </padding></Label>
                   <PasswordField fx:id="pw2" layoutX="10.0" layoutY="187.0" maxWidth="-Infinity" prefHeight="25.0" prefWidth="300.0" promptText="Re-Enter Password" />
-                  <Label layoutX="283.0" layoutY="170.0" text="First Name">
+                  <Label fx:id="fn_label" layoutX="283.0" layoutY="170.0" text="First Name">
                      <padding>
                         <Insets right="235.0" top="10.0" />
                      </padding></Label>
                   <TextField fx:id="firstName" layoutX="110.0" layoutY="178.0" maxWidth="300.0" prefHeight="25.0" prefWidth="300.0" promptText="First Name" />
-                  <Label layoutX="281.0" layoutY="275.0" text="Last Name">
+                  <Label fx:id="ln_label" layoutX="281.0" layoutY="275.0" text="Last Name">
                      <padding>
                         <Insets right="235.0" top="10.0" />
                      </padding></Label>
