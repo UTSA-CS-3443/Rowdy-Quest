@@ -85,11 +85,13 @@ public class StartViewController implements EventHandler<ActionEvent> {
 			se.SignIn();
 		} else if (eventSource.contains("Create New Profile")) {
 			se.CreateProfile();
-		} else if (eventSource.contains("Guest")) {
-			se.Guest();
 		}
 	}
-	// }
+	
+	public void signInGuest() {
+		se.Guest();
+	}
+
 
 	/**
 	 * Static method to return name typed in by user

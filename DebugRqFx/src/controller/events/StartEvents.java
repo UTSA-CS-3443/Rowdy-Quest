@@ -80,7 +80,7 @@ public class StartEvents {
 					Parent localScene = FXMLLoader.load(getClass().getResource("/view/LocalView.fxml")); // Local View
 					Main.stage.getScene().setRoot(localScene);
 				} catch (IOException e) {
-					e.printStackTrace();
+					System.out.println("didnt work");
 				}
 	}
 
