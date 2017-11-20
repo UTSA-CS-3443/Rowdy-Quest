@@ -14,6 +14,8 @@ import model.tile.Tile;
  */
 
 public class NPBFloor4Elevator extends Tile implements Portal {
+	
+	private boolean npb4to5 = true;
 
 	public NPBFloor4Elevator(int id) {
 		super(Texture.elevatorVertical, id, null);
@@ -26,10 +28,18 @@ public class NPBFloor4Elevator extends Tile implements Portal {
 
 	@Override
 	public void jumpTo() {
-		Map m = Game.map;
+		 
+				Map m = Game.map;
 
-		m.loadMap("res/maps/NPBFloor3.txt");
-		Game.sprite.placePlayer((float) 10 * Tile.width, (float) 20 * Tile.width);
+				if (npb4to5) {
+					m.loadMap("res/maps/NPBFloor5.txt");
+					Game.sprite.placePlayer((float) 8 * Tile.width, (float) 24 * Tile.width);
+					npb4to5 = false;
+				} else {
+					m.loadMap("res/maps/NPBFloor3.txt");
+					Game.sprite.placePlayer((float)10 * Tile.width, (float)20 * Tile.width);
+					npb4to5 = true;
+				}
 
-	}
+			}
 }

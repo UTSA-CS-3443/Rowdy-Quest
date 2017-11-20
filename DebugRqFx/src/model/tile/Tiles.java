@@ -18,6 +18,7 @@ import model.tile.npb.portals.elevators.NPBFloor1Elevator;
 import model.tile.npb.portals.elevators.NPBFloor2Elevator;
 import model.tile.npb.portals.elevators.NPBFloor3Elevator;
 import model.tile.npb.portals.elevators.NPBFloor4Elevator;
+import model.tile.npb.portals.elevators.NPBFloor5Elevator;
 import model.tile.npb.portals.exteriorDoors.NpbExteriorDoorDown;
 import model.tile.npb.portals.exteriorDoors.NpbExteriorDoorRight;
 import model.tile.npb.portals.exteriorDoors.NpbOuterDoorDown;
@@ -154,5 +155,7 @@ public class Tiles {
 		 * This uses IDs from 107 - 182
 		 */
 		NPBFloor3Rooms f3 = new NPBFloor3Rooms();
+		
+		Tile npbFloor5Elevator = new NPBFloor5Elevator(183);
 	}
 }
