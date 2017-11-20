@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import controller.events.LocalEvents;
 import model.tile.Tile;
 
+/***
+ * 
+ * @author Marlene Garza
+ *
+ */
 public class NPBFloor2Rooms {
 	public static ArrayList<Tile> npb2List = new ArrayList<>();
 

@@ -7,6 +7,7 @@ import model.tile.Tile;
 /**
  * 
  * @author Brandon Black
+ * @author Marlene Garza
  * This class will build an arrayList of all the classrooms on NPB floor 1
  *
  */
