@@ -1,3 +1,6 @@
-# Rowdy-Quest
+# <h1>Rowdy-Quest</h1>
 
-This is Tyler's version of the bare-bones application. The files are heavily commented, except the .txt file that defines the map is not; for this file, the first line defines the size, the second line defines the player starting point, and the rest of the file defines the map matrix (the tiles to be used and the structure of the map).
+<div>
+  <h3>Instructions/<h3>
+    <p>Open the project in eclipse. Open the <code>application</code> package, then the <code>main</code> package and double click the <code>Main</code> class so that it opens in the editor. Click the green 'Run' button in the toolbar.</p>
+</div>
