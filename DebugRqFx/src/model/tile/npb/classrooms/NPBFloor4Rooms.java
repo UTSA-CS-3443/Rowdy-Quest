@@ -60,6 +60,8 @@ public class NPBFloor4Rooms {
 	public static Tile npb4c17 = new DoorRightTile(202,"NPB 4.154");
 	public static Tile npb4c18 = new DoorRightTile(203,"NPB 4.156");
 	
+	public static Tile npb4c19 = new DoorRightTile(204, "NPB 4.170");
+	
 	public NPBFloor4Rooms(){
 
 	npb4List.add(npb4c0);
