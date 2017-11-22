@@ -31,17 +31,17 @@ public class NPBFloor4Rooms {
 	 *  right column starting on the bottom 
 	 */
 	
-	public static Tile npb4c9 = new DoorRightTile(194,"NPB 4.120");
-	public static Tile npb4c10 = new DoorRightTile(195,"NPB 4.120V-1");
-	public static Tile npb4c11 = new DoorRightTile(196,"NPB 4.120");
+	public static Tile npb4c9 = new DoorBottomTile(194,"NPB 4.120");
+	public static Tile npb4c10 = new DoorBottomTile(195,"NPB 4.120V-1");
+	public static Tile npb4c11 = new DoorBottomTile(196,"NPB 4.120");
 	
 	
 	/**
 	 * Far row starting at left towards the top 
 	 */
 	
-	public static Tile npb4c12 = new DoorBottomTile(197,"NPB 4.112");
-	public static Tile npb4c13 = new DoorBottomTile(198,"NPB 4.110");
+	public static Tile npb4c12 = new DoorRightTile(197,"NPB 4.112");
+	public static Tile npb4c13 = new DoorRightTile(198,"NPB 4.110");
 	
 
 
