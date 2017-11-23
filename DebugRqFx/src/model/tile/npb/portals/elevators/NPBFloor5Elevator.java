@@ -23,6 +23,6 @@ public class NPBFloor5Elevator extends Tile implements Portal {
 			Map m = Game.map;
 			
 			m.loadMap("res/maps/NPBFloor4.txt");
-			Game.sprite.placePlayer((float) 8 * Tile.width, (float) 22 * Tile.width);		
+			Game.sprite.placePlayer((float) 8 * Tile.width, (float) 20 * Tile.width);		
 	}
 }

@@ -17,7 +17,7 @@ public class NPBFloor4Rooms {
 	 * 1st column starting from bottom on the right side of the hallway
 	 */	
 	
-	public static Tile npb4c0 = new DoorTopTile(185,"NPB 4.S1");
+	public static Tile npb4c0 = new DoorRightTile(185,"NPB 4.S1");
 	public static Tile npb4c1 = new DoorTopTile(186,"NPB 4.120-3");
 	public static Tile npb4c2 = new DoorTopTile(187,"NPB 4.108");
 	public static Tile npb4c3 = new DoorTopTile(188,"NPB 4.106");

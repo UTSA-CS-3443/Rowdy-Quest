@@ -169,6 +169,6 @@ public class Tiles {
 		 */
 		NPBFloor5Rooms f5 = new NPBFloor5Rooms();
 		
-		Tile npbFloor5Elevator = new NPBFloor5Elevator(226);
+		Tile npbFloor5Elevator = new NPBFloor5Elevator(227);
 	}
 }
