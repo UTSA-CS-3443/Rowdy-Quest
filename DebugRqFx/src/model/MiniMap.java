@@ -1,5 +1,7 @@
 package model;
 
+import java.awt.Graphics;
+
 import controller.FileHelper;
 import controller.StartViewController;
 import model.tile.Tile;
@@ -60,6 +62,20 @@ public class MiniMap extends Map {
 		
 		Game.infoLabel.setText(getName());		
 	}
+	
+	/**
+	 * Draws a yellow dot on the miniMap for the current position of the users sprite
+	 * @param g
+	 */
+	 public void drawDot(Graphics g){
+	// g.fillOval(, arg1, arg2, arg3);
+		 
+		 //Not sure how to implement this. 
+		 //What if you're not on the searched for floor or in the building ?
+		 //Should we bring up 2 minimaps? 
+		 //One current Location, and the other destination? 
+	    
+	    }
 	
 	/**
 	 * Getters and Setters
