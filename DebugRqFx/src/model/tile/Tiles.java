@@ -146,6 +146,8 @@ public class Tiles {
 		
 		Tile npbFloor3toFloor2StairsRightCorner = new StairsCornerBottomLeft(61);
 		
+		
+		
 		/*
 		 * 62 - 106
 		 * This will build the arrayList of classrooms for Floor 1 of NPB Static to have
@@ -170,5 +172,13 @@ public class Tiles {
 		NPBFloor5Rooms f5 = new NPBFloor5Rooms();
 		
 		Tile npbFloor5Elevator = new NPBFloor5Elevator(227);
+		
+		Tile npbFloor3ToFloor4Stairs = new StairsCornerTopLeft(228);
+		
+		Tile npbFloor4ToFloor3Stairs = new StairsCornerBottomLeft(229);
+		
+		Tile npbFloor4ToFloor5Stairs = new StairsCornerTopLeft(230);
+		
+		Tile npbFloor5toFloor4Stairs = new StairsCornerBottomLeft(231);
 	}
 }

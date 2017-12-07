@@ -38,6 +38,14 @@ public class StairsCornerTopLeft extends Tile implements Portal {
 			Game.sprite.setX((float)(16 * Tile.width));
 			Game.sprite.setY((float)(25 * Tile.height) + 30);
 		
+		}else if (this.id == 228) {
+			m.loadMap("res/maps/NPBFloor4.txt");
+			Game.sprite.setX((float)(15 * Tile.width));
+			Game.sprite.setY((float)(19 * Tile.height) + 30);
+		}else if (this.id == 230) {
+			m.loadMap("res/maps/NPBFloor5.txt");
+			Game.sprite.setX((float)(15 * Tile.width));
+			Game.sprite.setY((float)(11 * Tile.height) + 30);
 		}
 	}
 
